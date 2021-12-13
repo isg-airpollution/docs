@@ -1,5 +1,6 @@
 project:
   type: site
+  output-dir: public
 
 site:
   title: "Air Pollution Group"

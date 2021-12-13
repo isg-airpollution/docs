@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.2.130">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Air Pollution Group – style-guide</title>
+  <title>Air Pollution Group – version-control</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -162,10 +162,10 @@
   <a href="./reproducible-research.html" class="">Reproducible Research</a>
 </li>
       <li class="sidebar-item">
-  <a href="./style-guide.html" class="active">Style Guide</a>
+  <a href="./style-guide.html" class="">Style Guide</a>
 </li>
       <li class="sidebar-item">
-  <a href="./version-control.html" class="">Version Control</a>
+  <a href="./version-control.html" class="active">Version Control</a>
 </li>
       <li class="sidebar-item">
   <a href="./getting-help.html" class="">Getting help with R</a>
@@ -186,105 +186,117 @@
   <div id="quarto-toc-sidebar" class=" pt-0 col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
 <h2 id="toc-title">On this page</h2>
 <ul>
-<li><a href="#style-guide" class="nav-link active" data-scroll-target="#style-guide">Style Guide</a>
+<li><a href="#version-control" class="nav-link active" data-scroll-target="#version-control">Version Control</a>
 <ul class="collapse">
-<li><a href="#file-names" class="nav-link" data-scroll-target="#file-names">File Names</a></li>
-<li><a href="#code-style" class="nav-link" data-scroll-target="#code-style">Code Style</a></li>
+<li><a href="#github-organization-site" class="nav-link" data-scroll-target="#github-organization-site">GitHub Organization Site</a></li>
+<li><a href="#quickstart" class="nav-link" data-scroll-target="#quickstart">Quickstart</a>
+<ul class="collapse">
+<li><a href="#setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+<li><a href="#typical-use" class="nav-link" data-scroll-target="#typical-use">Typical use</a></li>
+</ul></li>
+<li><a href="#how-often-to-commit" class="nav-link" data-scroll-target="#how-often-to-commit">How often to commit?</a></li>
+<li><a href="#what-to-commit" class="nav-link" data-scroll-target="#what-to-commit">What to commit?</a></li>
 </ul></li>
 </ul>
 </nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 col-xl-7 px-lg-4 pe-xxl-4 ps-xxl-0">
 <main>
 
-<section id="style-guide" class="level1">
-<h1>Style Guide</h1>
-<section id="file-names" class="level2">
-<h2 class="anchored" data-anchor-id="file-names">File Names</h2>
-<p>Three principles for file names:</p>
+<section id="version-control" class="level1">
+<h1>Version Control</h1>
+<p>Use of Git and GitHub for version control in data analysis projects is strongly encouraged. This allows to track all changes in the code and revert to a previous state in case of trouble. More importantly, it can make sharing and collaborating with others much easier.</p>
+<p>Although it is possible to use a Git client with a General User Interface (GUI) such as RStudio or GitKraken for normal use, you may need to use the UNIX shell at some point. Some familiarity with the shell can be helpful in those cases.</p>
+<section id="github-organization-site" class="level2">
+<h2 class="anchored" data-anchor-id="github-organization-site">GitHub Organization Site</h2>
+<p>A <a href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations">GitHub Organization</a> has been created for our group, where all version controlled projects should be hosted. The purpose of this site is to easily find, navigate and collaborate on largely source code based projects.</p>
+<p>The Organization site is private, meaning that only allowed GitHub users can see its contents. You must have a GitHub account and contact Sergio Olmos (<code>sergio.olmos@isglobal.org</code>) requesting access. You will shortly receive an invitation to join the organization at GitHub.</p>
+</section>
+<section id="quickstart" class="level2">
+<h2 class="anchored" data-anchor-id="quickstart">Quickstart</h2>
+<p>Below you can find a quick guide to get up and running with Git and GitHub for your projects using the bash shell (Git Bash in Windows).</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If you are new to Git or you are having trouble setting it up, you should read the more detailed <a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a>, which also shows how to work with Git in RStudio.</p>
+</div>
+</div>
+</div>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
 <ul>
-<li>Machine readable:
+<li><p>Get a <a href="">GitHub</a> account.</p></li>
+<li><p>Download and install <a href="">Git</a>.</p></li>
+<li><p>Set up Git with your user name and email:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your name here"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your_email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Set up SSH on your computer.</p>
 <ul>
-<li>Avoid spaces, punctuation, accented characters</li>
-<li>Case sensitive, i.e.&nbsp;<code>foo.csv != Foo.csv</code></li>
-</ul></li>
-<li>Human readable:
+<li><p>Look to see if you have files <code>~/.ssh/id_rsa</code> and <code>~/.ssh/id_rsa.pub</code> or similar.</p></li>
+<li><p>If not, create such public/private keys:</p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"Descriptive-comment"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Easy to figure out what something is, based on its name</li>
-<li>Use <code>_</code> to separate fields</li>
-<li>Use <code>-</code> to separate words of the same field</li>
-</ul></li>
-<li>Plays well with default ordering:
+<li>Add key to ssh-agent, substituting the correct name for your key:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_ed25519</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Provide public key to GitHub:</p>
 <ul>
-<li>Left-pad numbers with 0, i.e.&nbsp;<code>01_read-data.R</code> instead of <code>1_read-data.R</code></li>
-<li>Use the ISO 8601 standard for dates, i.e.&nbsp;<code>YYYY-MM-DD_report.Rmd</code></li>
-</ul></li>
+<li><p>Copy your public key.</p></li>
+<li><p>Paste it in GitHub: <em><code>Account Settings &gt; SSH Keys &gt; Add SSH Key</code></em>.</p></li>
+<li><p>Test it:</p></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
-<section id="code-style" class="level2">
-<h2 class="anchored" data-anchor-id="code-style">Code Style</h2>
-<p>A common code style among all team members is important for collaboration. The following rules should be followed as strictly as possible:</p>
+<section id="typical-use" class="level3">
+<h3 class="anchored" data-anchor-id="typical-use">Typical use</h3>
 <ul>
-<li><p>Strive to limit your code to 80 characters per line.</p></li>
-<li><p>Use two spaces for indentation.</p></li>
-<li><p>Use <code>camelCase</code> for user-defined functions.</p></li>
-<li><p>Use <code>snake_case</code> for anything else.</p></li>
-<li><p>Use verbs for user-defined function names.</p></li>
-<li><p>Always put a space after a comma, never before.</p></li>
+<li>Clone a remote GitHub repository into your local machine:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x[, <span class="dv">1</span>]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x[,<span class="dv">1</span>]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x[ ,<span class="dv">1</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>x[ , <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:user/repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Place a space before and after <code>()</code>, when used with <code>if</code>, <code>for</code>, <code>while</code>.</li>
+<li>Make your existing local project a Git repository:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (debug) {</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show</span>(x)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(debug){</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show</span>(x)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Place a space after () used for function arguments.</li>
+<li>Add a remote repository to your existing local Git repository (after creating an empty GitHub repo):</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(x) {}</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span> (x) {}</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(x){}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com:user/repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Most infix operators (<code>==</code>, <code>+</code>, <code>-</code>, <code>&lt;-</code>, etc.) should always be surrounded by spaces.</li>
+<li>Push and cement the tracking relationship between your local default branch (<code>main</code> here) and GitHub:</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> (feet <span class="sc">*</span> <span class="dv">12</span>) <span class="sc">+</span> inches</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>height<span class="ot">&lt;-</span>feet<span class="sc">*</span><span class="dv">12</span><span class="sc">+</span>inches</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--set-upstream</span> origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Operators <code>$</code>, <code>@</code>, <code>^</code>, <code>::</code>, <code>:::</code>, and unary <code>:</code> should never be surrounded by spaces:</li>
+<li>Add/stage specific files:</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> y<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>z</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">+</span> y <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>df <span class="sc">$</span> z</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">:</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add R/clean-data.R R/fit-models.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Use comments to explain the “why” not the “what” or “how”.</li>
+<li>Commit staged modifications:</li>
 </ul>
-<p>See the <a href="https://style.tidyverse.org/">Tidyverse</a> or <a href="https://google.github.io/styleguide/Rguide.html">Google</a> style guides for more details.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"A short message explaining changes made"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Push changes to the linked remote repo:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="how-often-to-commit" class="level2">
+<h2 class="anchored" data-anchor-id="how-often-to-commit">How often to commit?</h2>
+<p>It is better to do many small commits, each for a set of related changes:</p>
+<ul>
+<li><p>Think of a small part of the analysis that needs to be added or fixed.</p></li>
+<li><p>Do the work.</p></li>
+<li><p>Test that it works.</p></li>
+<li><p>Add and commit.</p></li>
+</ul>
+<p>Look at others’ projects on GitHub to see what they do and what sort of commit messages they write.</p>
+</section>
+<section id="what-to-commit" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-commit">What to commit?</h2>
+<p>In general, commit only plain-text files (i.e.&nbsp;source code).</p>
 
 <!-- -->
 </section>

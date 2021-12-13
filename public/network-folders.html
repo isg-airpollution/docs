@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.2.130">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Air Pollution Group – Projects</title>
+  <title>Air Pollution Group – network-folders</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page">Projects</a>
+    <a class="nav-link" href="./projects.html">Projects</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html">Team</a>
@@ -65,7 +65,7 @@
 </nav>
 <nav class="quarto-secondary-nav py-2 d-lg-none d-md-block " data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <div class="container-fluid d-flex justify-content-between">
-    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline">Projects</h1>
+    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline">(Untitled)</h1>
     <button type="button" class="quarto-btn-toggle btn d-lg-none py-0 px-1 d-inline-block border-0 ">
       <i class="bi bi-chevron-right"></i>
     </button>
@@ -90,7 +90,7 @@
   <a href="./get-started.html" class="">Getting Started</a>
 </li>
       <li class="sidebar-item">
-  <a href="./network-folders.html" class="">Network Folders</a>
+  <a href="./network-folders.html" class="active">Network Folders</a>
 </li>
       <li class="sidebar-item">
   <a href="./project-structure.html" class="">Data Analysis Projects</a>
@@ -123,36 +123,96 @@
   <div id="quarto-toc-sidebar" class=" pt-0 col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
 <h2 id="toc-title">On this page</h2>
 <ul>
-<li><a href="#accent" class="nav-link active" data-scroll-target="#accent">ACCENT</a>
+<li><a href="#network-folders" class="nav-link active" data-scroll-target="#network-folders">Network Folders</a>
 <ul class="collapse">
-<li><a href="#analyses" class="nav-link" data-scroll-target="#analyses">Analyses</a></li>
+<li><a href="#structure" class="nav-link" data-scroll-target="#structure">Structure</a>
+<ul class="collapse">
+<li><a href="#airpollution" class="nav-link" data-scroll-target="#airpollution"><code>airpollution</code></a></li>
+<li><a href="#hpc_airpollution" class="nav-link" data-scroll-target="#hpc_airpollution"><code>hpc_airpollution</code></a></li>
 </ul></li>
-<li><a href="#expanse" class="nav-link" data-scroll-target="#expanse">EXPANSE</a></li>
+</ul></li>
 </ul>
 </nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 col-xl-7 px-lg-4 pe-xxl-4 ps-xxl-0">
 <main>
-<header id="title-block-header">
-<h1 class="title d-none d-lg-block display-7">Projects</h1>
-</header>
 
-<section id="accent" class="level2">
-<h2 class="anchored" data-anchor-id="accent">ACCENT</h2>
-<p>Administrative Cohort on Cerebrovascular Health in Catalonia.</p>
-<p>All individual adults registered in the public healthcare system of Catalonia in 2015 and no previous stroke were included in the cohort. Residential addresses for 2015 were obtained and expousures of interest were linked.</p>
-<section id="analyses" class="level3">
-<h3 class="anchored" data-anchor-id="analyses">Analyses</h3>
-<section id="so_accent" class="level4">
-<h4 class="anchored" data-anchor-id="so_accent"><code>SO_ACCENT/</code></h4>
-<p><em>Air pollution and surrounding greenness in relation to ischemic stroke</em>. Avellaneda C.</p>
-<p>Survival analysis of time-to-stroke.</p>
+<section id="network-folders" class="level1">
+<h1>Network Folders</h1>
+<p>All projects should be stored at all times in one of the network folders assigned to the group:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Network folder name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>airpollution</code></td>
+<td>Main folder</td>
+</tr>
+<tr class="even">
+<td><code>hpc_airpollution</code></td>
+<td>Folder mounted in the SLURM HPC cluster</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>airpollution</code> network folder is where all projects should be stored at some point. In some circumstances, the folder <code>hpc_airpollution</code> may be better suited to store projects that will require the use of the institution’s High Performance Computing (HPC) cluster. In these cases, the project folder should be moved from <code>hpc_airpollution</code> to <code>airpollution</code> when the project is finished.</p>
+<p>If you will be using the HPC or need access to some projects inside <code>hpc_airpollution</code>, ask IT to give you access and mount the network folder in your file system.</p>
+<section id="structure" class="level2">
+<h2 class="anchored" data-anchor-id="structure">Structure</h2>
+<section id="airpollution" class="level3">
+<h3 class="anchored" data-anchor-id="airpollution"><code>airpollution</code></h3>
+<p>The organization inside of the main <code>airpollution</code> folder should have the following basic structure to facilitate navigation:</p>
+<pre><code>.
+├── CHAI
+│&nbsp;&nbsp; ├── analyses
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── OR_atherosclerosis
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── SO_physical-activity
+│&nbsp;&nbsp; ├── documents
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── atherosclerosis-proposal.docx
+│&nbsp;&nbsp; ├── manuscripts
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── physical-activity.docx
+│&nbsp;&nbsp; └── README_CHAI.md
+└── EXPANSE
+    ├── analyses
+    │&nbsp;&nbsp; ├── AC_air-pollution
+    │&nbsp;&nbsp; └── NO_movers
+    ├── documents
+    │&nbsp;&nbsp; └── request_form.xlsx
+    ├── manuscripts
+    │&nbsp;&nbsp; └── movers.pdf
+    └── README_EXPANSE.md</code></pre>
+<p>The root of the <code>airpollution</code> network folder should contain directories with the name of the different broad research projects from which papers are meant to be produced. Inside these general folders there should be only three sub-folders:</p>
+<ul>
+<li><p><code>analysis/</code> contains the different projects that involve data analyses. See the <a href="./project-structure.html">Project Structure section</a> for how to structure data analysis projects.</p></li>
+<li><p><code>documents/</code> contains all documents relevant to the general research projects (i.e.&nbsp;proposals, relevant papers, data request forms, etc.) and can be further divided into as many sub-folders as needed.</p></li>
+<li><p><code>manuscripts/</code> contains the final written manuscripts of all the papers that are preoduced.</p></li>
+</ul>
+<p>A README file should also be placed in the research project’s root folder. Ideally, this file should be a <a href="https://www.markdownguide.org/">Markdown</a> document named <code>README.md</code>. The document should contain an overview of the given research project, including:</p>
+<ul>
+<li><p>Individuals involved and corresponding responsabilities.</p></li>
+<li><p>Objectives.</p></li>
+<li><p>General structure of the project.</p></li>
+</ul>
 </section>
-</section>
-</section>
-<section id="expanse" class="level2">
-<h2 class="anchored" data-anchor-id="expanse">EXPANSE</h2>
+<section id="hpc_airpollution" class="level3">
+<h3 class="anchored" data-anchor-id="hpc_airpollution"><code>hpc_airpollution</code></h3>
+<p>The organization of the group network folder <code>hpc_airpollution</code> mounted in the HPC cluster can be more flexible. One simple way to organize the different projects inside this network folder is creating a directory named as your user, and store all your projects inside this directory.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>As mentioned before, all projects in <code>hpc_airpollution</code> should be moved to the appropriate path inside the <code>airpollution</code> network folder once the project is done.</p>
+</div>
+</div>
+</div>
 
 <!-- -->
+</section>
+</section>
 </section>
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

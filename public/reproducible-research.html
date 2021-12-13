@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.2.130">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Air Pollution Group – style-guide</title>
+  <title>Air Pollution Group – reproducible-research</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -159,10 +159,10 @@
   <a href="./project-structure.html" class="">Data Analysis Projects</a>
 </li>
       <li class="sidebar-item">
-  <a href="./reproducible-research.html" class="">Reproducible Research</a>
+  <a href="./reproducible-research.html" class="active">Reproducible Research</a>
 </li>
       <li class="sidebar-item">
-  <a href="./style-guide.html" class="active">Style Guide</a>
+  <a href="./style-guide.html" class="">Style Guide</a>
 </li>
       <li class="sidebar-item">
   <a href="./version-control.html" class="">Version Control</a>
@@ -186,105 +186,75 @@
   <div id="quarto-toc-sidebar" class=" pt-0 col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
 <h2 id="toc-title">On this page</h2>
 <ul>
-<li><a href="#style-guide" class="nav-link active" data-scroll-target="#style-guide">Style Guide</a>
+<li><a href="#reproducible-research" class="nav-link active" data-scroll-target="#reproducible-research">Reproducible Research</a>
 <ul class="collapse">
-<li><a href="#file-names" class="nav-link" data-scroll-target="#file-names">File Names</a></li>
-<li><a href="#code-style" class="nav-link" data-scroll-target="#code-style">Code Style</a></li>
+<li><a href="#project-oriented-workflow" class="nav-link" data-scroll-target="#project-oriented-workflow">Project-Oriented Workflow</a>
+<ul class="collapse">
+<li><a href="#working-directory-intentionality" class="nav-link" data-scroll-target="#working-directory-intentionality">Working directory intentionality</a></li>
+<li><a href="#file-path-discipline" class="nav-link" data-scroll-target="#file-path-discipline">File path discipline</a></li>
+</ul></li>
+<li><a href="#master-script" class="nav-link" data-scroll-target="#master-script">Master Script</a></li>
+<li><a href="#package-version-management" class="nav-link" data-scroll-target="#package-version-management">Package Version Management</a></li>
 </ul></li>
 </ul>
 </nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 col-xl-7 px-lg-4 pe-xxl-4 ps-xxl-0">
 <main>
 
-<section id="style-guide" class="level1">
-<h1>Style Guide</h1>
-<section id="file-names" class="level2">
-<h2 class="anchored" data-anchor-id="file-names">File Names</h2>
-<p>Three principles for file names:</p>
-<ul>
-<li>Machine readable:
-<ul>
-<li>Avoid spaces, punctuation, accented characters</li>
-<li>Case sensitive, i.e.&nbsp;<code>foo.csv != Foo.csv</code></li>
-</ul></li>
-<li>Human readable:
-<ul>
-<li>Easy to figure out what something is, based on its name</li>
-<li>Use <code>_</code> to separate fields</li>
-<li>Use <code>-</code> to separate words of the same field</li>
-</ul></li>
-<li>Plays well with default ordering:
-<ul>
-<li>Left-pad numbers with 0, i.e.&nbsp;<code>01_read-data.R</code> instead of <code>1_read-data.R</code></li>
-<li>Use the ISO 8601 standard for dates, i.e.&nbsp;<code>YYYY-MM-DD_report.Rmd</code></li>
-</ul></li>
-</ul>
+<section id="reproducible-research" class="level1">
+<h1>Reproducible Research</h1>
+<p>Here we present some general best practices for open and reproducible science. Researchers in the group are strongly encouraged to adhere to these practices for all their data analysis projects.</p>
+<section id="project-oriented-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="project-oriented-workflow">Project-Oriented Workflow</h2>
+<section id="working-directory-intentionality" class="level3">
+<h3 class="anchored" data-anchor-id="working-directory-intentionality">Working directory intentionality</h3>
+<p>When working on a self-contained project as the one described <a href="./project-structure.html">before</a>, the working directory must be set to the project’s root folder. Moreover, every time you open a project, it should start in a fresh R session to avoid any interactions with code you might have run beforehand.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Note that <code>rm(list = ls())</code> does not make a fresh R session since this will not detach packages.</p>
+</div>
+</div>
+</div>
+<p>Ideally, this is achieved via development workflow and tooling, not by placing calls to <code>setwd()</code> with absolute paths into the code. I strongly recommend using an Integrated Development Environment (IDE) that supports a project-based workflow. This eliminates the tension between your development convenience and the portability of the code. More details in the next section.</p>
+<p>A consequence of this approach is that you should never save your workspace to .RData on exit. This can be disabled by default in RStudio’s Global Options.</p>
+<p><img src="global-options.jpeg" class="img-fluid"></p>
 </section>
-<section id="code-style" class="level2">
-<h2 class="anchored" data-anchor-id="code-style">Code Style</h2>
-<p>A common code style among all team members is important for collaboration. The following rules should be followed as strictly as possible:</p>
-<ul>
-<li><p>Strive to limit your code to 80 characters per line.</p></li>
-<li><p>Use two spaces for indentation.</p></li>
-<li><p>Use <code>camelCase</code> for user-defined functions.</p></li>
-<li><p>Use <code>snake_case</code> for anything else.</p></li>
-<li><p>Use verbs for user-defined function names.</p></li>
-<li><p>Always put a space after a comma, never before.</p></li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x[, <span class="dv">1</span>]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x[,<span class="dv">1</span>]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x[ ,<span class="dv">1</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>x[ , <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Place a space before and after <code>()</code>, when used with <code>if</code>, <code>for</code>, <code>while</code>.</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (debug) {</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show</span>(x)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(debug){</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show</span>(x)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Place a space after () used for function arguments.</li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(x) {}</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span> (x) {}</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(x){}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Most infix operators (<code>==</code>, <code>+</code>, <code>-</code>, <code>&lt;-</code>, etc.) should always be surrounded by spaces.</li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> (feet <span class="sc">*</span> <span class="dv">12</span>) <span class="sc">+</span> inches</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>height<span class="ot">&lt;-</span>feet<span class="sc">*</span><span class="dv">12</span><span class="sc">+</span>inches</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Operators <code>$</code>, <code>@</code>, <code>^</code>, <code>::</code>, <code>:::</code>, and unary <code>:</code> should never be surrounded by spaces:</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> y<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>z</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">+</span> y <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>df <span class="sc">$</span> z</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">:</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Use comments to explain the “why” not the “what” or “how”.</li>
-</ul>
-<p>See the <a href="https://style.tidyverse.org/">Tidyverse</a> or <a href="https://google.github.io/styleguide/Rguide.html">Google</a> style guides for more details.</p>
+<section id="file-path-discipline" class="level3">
+<h3 class="anchored" data-anchor-id="file-path-discipline">File path discipline</h3>
+<p>In general, no absolute paths should appear in your scripts. Absolute paths are specific to your machine. That is why setting your working directory by baking <code>setwd("C:\Users\sergio\path\that\only\I\have")</code> into your scripts will not work in other computer. If you change computers or someone else tries to run your analysis on her machine, the code will not work.</p>
+<p>All paths must be relative to the project’s root folder. That is why we need to include all the necessary files inside our project’s folder. With this setup, we can move the project folder to different folders in our computer, or even to different computers entirely.</p>
+<p>One last issue to note regarding file paths is that the syntax will be different in different operating systems, even for relative paths. The {<a href="https://github.com/jennybc/here_here">here</a>} package provides a simple way to wrap file paths so that they work across any operating system and integrates very smoothly into this project-oriented workflow.</p>
+</section>
+</section>
+<section id="master-script" class="level2">
+<h2 class="anchored" data-anchor-id="master-script">Master Script</h2>
+<p>A master script should be provided at the root of the project which produces the final results of the analysis. The name of this master script should be indicated in the README file of the project.</p>
+<p>Instead of runing the code in each script “manually” and saving the results, you should have a single master script that orchestrates the whole process, thus making sure that all the results are in-sync. Moreover, a master script can help a colleague looking at your analysis understand how to reproduce your results.</p>
+<p>There are a few options but a bare-bones approach can be to create a separate script that sources each of your analysis scripts in the right order.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## master-script.R at the root of your project</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/read-data.R"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/fit-models.R"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/create-tables.R"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/create-figures.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are more sophisticated and helpful ways to provide a master script. Check the <a href="">targets</a> R package and <a href="">GNU Make</a>.</p>
+</section>
+<section id="package-version-management" class="level2">
+<h2 class="anchored" data-anchor-id="package-version-management">Package Version Management</h2>
+<p>You can use the renv R package to document and reproduce the package versions you used in your analysis.</p>
+<p>The general workflow is:</p>
+<ol type="1">
+<li><p>Develop your analysis as normal, installing and removing R packages as they are needed for the project.</p></li>
+<li><p>Call <code>renv::snapshot()</code> to save the state of the project library to the lockfile (called <code>renv.lock</code>) once you think the analysis is done.</p></li>
+<li><p>Call <code>renv::restore()</code> to restore the state of the project library.</p></li>
+</ol>
+<p>For further details check <a href="https://rstudio.github.io/renv/articles/renv.html">renv’s documentation</a>.</p>
 
 <!-- -->
 </section>
