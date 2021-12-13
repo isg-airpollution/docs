@@ -1,0 +1,35 @@
+project:
+  type: site
+
+site:
+  title: "Air Pollution Group"
+  image: "logo.png"
+  navbar:
+    type: dark
+    logo: "logo.png"
+    background: light
+    right:
+      - projects.md
+      - about.md
+      - icon: github
+        href: https://github.com/quarto-dev/quarto-web
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - get-started.md
+      - network-folders.md
+      - project-structure.md
+      - reproducible-research.md
+      - style-guide.md
+      - version-control.md
+      - getting-help.Rmd
+      - remote-servers.md
+      - add-content.md
+      - resources.md
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

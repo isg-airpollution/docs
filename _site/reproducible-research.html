@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.2.130">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Air Pollution Group – reproducible-research</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="site_libs/quarto-nav/headroom.min.js"></script>
+  <meta name="quarto:offset" content="./">
+  <script src="site_libs/quarto-search/autocomplete.min.js"></script>
+  <script src="site_libs/quarto-search/fuse.min.js"></script>
+  <script src="site_libs/quarto-search/quarto-search.js"></script>
+  <script src="site_libs/quarto-html/quarto.js"></script>
+  <script src="site_libs/quarto-html/popper.min.js"></script>
+  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="site_libs/quarto-html/clipboard.min.js"></script>
+  <script src="site_libs/quarto-html/anchor.min.js"></script>
+  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="quarto-search-results"></div>
+<header id="quarto-header" class="headroom fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+  <a class="navbar-brand" href="./index.html">
+    <img src="./logo.png" alt="">
+    <span class="navbar-title">Air Pollution Group</span>
+  </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./projects.html">Projects</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">Team</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/quarto-dev/quarto-web"><i class="bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+      </div> <!-- /navcollapse -->
+  </div> <!-- /container-fluid -->
+</nav>
+<nav class="quarto-secondary-nav py-2 d-lg-none d-md-block " data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <div class="container-fluid d-flex justify-content-between">
+    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline">(Untitled)</h1>
+    <button type="button" class="quarto-btn-toggle btn d-lg-none py-0 px-1 d-inline-block border-0 ">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </div>
+</nav>
+</header>
+ <!-- /navbar/sidebar -->
+<div class="container-fluid quarto-container d-flex flex-column page-layout-article">
+<div class="row flex-fill" id="quarto-content">
+  <div id="quarto-sidebar" class="col col-12 col-lg-3 d-lg-flex px-0 pt-0 sidebar collapse sidebar-navigation">
+    <nav class="me-lg-auto docked overflow-auto">
+    <div class="d-flex px-3 mt-2 flex-shrink-0 align-items-center">
+      <div class="sidebar-search">
+      <form class="d-flex mb-0">
+  <input id="quarto-search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+      </div>
+    </div>
+  <div class="sidebar-menu-container"> 
+  <ul class="list-unstyled mt-1 px-3">
+      <li class="sidebar-item">
+  <a href="./get-started.html" class="">Getting Started</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./network-folders.html" class="">Network Folders</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./project-structure.html" class="">Data Analysis Projects</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./reproducible-research.html" class="active">Reproducible Research</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./style-guide.html" class="">Style Guide</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./version-control.html" class="">Version Control</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./getting-help.html" class="">Getting help with R</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./remote-servers.html" class="">HPC Cluster</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./add-content.html" class="">Adding Content</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./resources.html" class="">Resources</a>
+</li>
+  </ul>
+  </div>
+</nav>
+  </div>
+  <div id="quarto-toc-sidebar" class=" pt-0 col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
+<h2 id="toc-title">On this page</h2>
+<ul>
+<li><a href="#reproducible-research" class="nav-link active" data-scroll-target="#reproducible-research">Reproducible Research</a>
+<ul class="collapse">
+<li><a href="#project-oriented-workflow" class="nav-link" data-scroll-target="#project-oriented-workflow">Project-Oriented Workflow</a>
+<ul class="collapse">
+<li><a href="#working-directory-intentionality" class="nav-link" data-scroll-target="#working-directory-intentionality">Working directory intentionality</a></li>
+<li><a href="#file-path-discipline" class="nav-link" data-scroll-target="#file-path-discipline">File path discipline</a></li>
+</ul></li>
+<li><a href="#master-script" class="nav-link" data-scroll-target="#master-script">Master Script</a></li>
+<li><a href="#package-version-management" class="nav-link" data-scroll-target="#package-version-management">Package Version Management</a></li>
+</ul></li>
+</ul>
+</nav></div>
+  <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 col-xl-7 px-lg-4 pe-xxl-4 ps-xxl-0">
+<main>
+
+<section id="reproducible-research" class="level1">
+<h1>Reproducible Research</h1>
+<p>Here we present some general best practices for open and reproducible science. Researchers in the group are strongly encouraged to adhere to these practices for all their data analysis projects.</p>
+<section id="project-oriented-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="project-oriented-workflow">Project-Oriented Workflow</h2>
+<section id="working-directory-intentionality" class="level3">
+<h3 class="anchored" data-anchor-id="working-directory-intentionality">Working directory intentionality</h3>
+<p>When working on a self-contained project as the one described <a href="./project-structure.html">before</a>, the working directory must be set to the project’s root folder. Moreover, every time you open a project, it should start in a fresh R session to avoid any interactions with code you might have run beforehand.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Note that <code>rm(list = ls())</code> does not make a fresh R session since this will not detach packages.</p>
+</div>
+</div>
+</div>
+<p>Ideally, this is achieved via development workflow and tooling, not by placing calls to <code>setwd()</code> with absolute paths into the code. I strongly recommend using an Integrated Development Environment (IDE) that supports a project-based workflow. This eliminates the tension between your development convenience and the portability of the code. More details in the next section.</p>
+<p>A consequence of this approach is that you should never save your workspace to .RData on exit. This can be disabled by default in RStudio’s Global Options.</p>
+<p><img src="global-options.jpeg" class="img-fluid"></p>
+</section>
+<section id="file-path-discipline" class="level3">
+<h3 class="anchored" data-anchor-id="file-path-discipline">File path discipline</h3>
+<p>In general, no absolute paths should appear in your scripts. Absolute paths are specific to your machine. That is why setting your working directory by baking <code>setwd("C:\Users\sergio\path\that\only\I\have")</code> into your scripts will not work in other computer. If you change computers or someone else tries to run your analysis on her machine, the code will not work.</p>
+<p>All paths must be relative to the project’s root folder. That is why we need to include all the necessary files inside our project’s folder. With this setup, we can move the project folder to different folders in our computer, or even to different computers entirely.</p>
+<p>One last issue to note regarding file paths is that the syntax will be different in different operating systems, even for relative paths. The {<a href="https://github.com/jennybc/here_here">here</a>} package provides a simple way to wrap file paths so that they work across any operating system and integrates very smoothly into this project-oriented workflow.</p>
+</section>
+</section>
+<section id="master-script" class="level2">
+<h2 class="anchored" data-anchor-id="master-script">Master Script</h2>
+<p>A master script should be provided at the root of the project which produces the final results of the analysis. The name of this master script should be indicated in the README file of the project.</p>
+<p>Instead of runing the code in each script “manually” and saving the results, you should have a single master script that orchestrates the whole process, thus making sure that all the results are in-sync. Moreover, a master script can help a colleague looking at your analysis understand how to reproduce your results.</p>
+<p>There are a few options but a bare-bones approach can be to create a separate script that sources each of your analysis scripts in the right order.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## master-script.R at the root of your project</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/read-data.R"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/fit-models.R"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/create-tables.R"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/create-figures.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are more sophisticated and helpful ways to provide a master script. Check the <a href="">targets</a> R package and <a href="">GNU Make</a>.</p>
+</section>
+<section id="package-version-management" class="level2">
+<h2 class="anchored" data-anchor-id="package-version-management">Package Version Management</h2>
+<p>You can use the renv R package to document and reproduce the package versions you used in your analysis.</p>
+<p>The general workflow is:</p>
+<ol type="1">
+<li><p>Develop your analysis as normal, installing and removing R packages as they are needed for the project.</p></li>
+<li><p>Call <code>renv::snapshot()</code> to save the state of the project library to the lockfile (called <code>renv.lock</code>) once you think the analysis is done.</p></li>
+<li><p>Call <code>renv::restore()</code> to restore the state of the project library.</p></li>
+</ol>
+<p>For further details check <a href="https://rstudio.github.io/renv/articles/renv.html">renv’s documentation</a>.</p>
+
+<!-- -->
+</section>
+</section>
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    window.tippy(el, {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    }); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      const id = new URL(ref.getAttribute('href')).hash.replace(/^#/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</main>
+<div class="page-navigation page-navigation-docked">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</div>
+</div> <!-- /main column -->
+</div> <!-- /row -->
+</div> <!-- /container fluid -->
+
+
+</body></html>

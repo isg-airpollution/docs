@@ -1,0 +1,148 @@
+---
+title: "Getting help with R"
+---
+
+```{r setup, include = FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+```
+
+When you need help with an R problem it can be very useful to write a reproducible example. A reproducible example allows someone else to recreate your problem by just copying and pasting R code. The example should be minimal, simplifying the problem as much as possible.
+
+A minimal reproducible R example usually consists of the following items:
+
+* A minimal dataset, necessary to demonstrate the problem.
+
+* The minimal runnable code necessary to reproduce the error or problem, which can be run on the given dataset.
+
+Writing a reproducible example can actually help you find the solution to the problem by yourself. If not, you can share the example with others by sending the runnable script through several channels.
+
+## Minimal dataset
+
+Instead of supplying the full dataset you are working with, try creating a simplified version that contains the necessary structure to reproduce the problem. The reader should be able to get the data without the need for downloading any external file. The code itself should provide the data. The goal is to make it as easy as possible for someone to reproduce your problem.
+
+Two possible ways of providing a minimal data set are creating fake data using R's built-in functions or using one of R's built-in datasets.
+
+### Vectors
+
+Making a vector in R is easy. Sometimes it is necessary to add some randomness to it, and there are a whole number of functions to make that. `sample()` can randomize a vector, or give a random vector with only a few values. `letters` is a useful vector containing the alphabet, which can be used for making factors.
+
+```{r}
+## From normal distribution
+x <- rnorm(10)
+## From uniform distribution
+x <- runif(10)
+## A permutation of some values
+x <- sample(1:10)
+## A random factor
+x <- sample(letters[1:4], size = 20, replace = TRUE)
+```
+
+### Data frames
+
+You can create a simple data frame for your example by specifying made-up vectors of the same length inside `data.fram()` or `tibble()`.
+
+```{r}
+df <- data.frame(
+  x = sample(1:10),
+  y = sample(c("yes", "no"), 10, replace = TRUE)
+)
+```
+
+For some questions, specific formats can be needed. For these, one can use: `as.factor()`, `as.Date()`, etc.
+
+It may also be possible to just use one of the built-in datasets in R that is suitable to your problem. You can use `library(help = "datasets")` to see a comprehensive list of all built-in datasets.
+
+```{r}
+airquality[1:5,]
+```
+
+Another option is to copy your data frame into your reproducible script using `dput()`:
+
+1. Run `dput(my_df)` in R, where `my_df` is your data frame.
+2. Copy the output.
+3. In your reproducible script, type `my_df <- ` and paste.
+
+## Minimal code
+
+* Packages should be loaded at the top of the script.
+
+* Load only the packages necessary for the example to work.
+
+* No calls to `install.packages()`.
+
+* Spend some time ensuring that your code is easy for others to read:
+
+    * Use simple, descriptive names for variables and functions.
+    * Use comments to indicate where your problem lies.
+    * Do your best to remove everything that is not related to the problem.
+
+
+## Sharing
+
+There are many ways for sharing the code with someone:
+
+### GitHub Gist
+
+If you have a GitHub account you can [create Gists](https://docs.github.com/en/github/writing-on-github/creating-gists) that can be shared with a URL. Gists are a great way of sharing scripts. Just Copy your code and paste it in the Gist. Then share it with the person/s you are asking help to.
+
+### reprex package
+
+The [reprex](https://github.com/tidyverse/reprex) R package is specifically designed for producing minimal reproducible examples.
+
+If you are asking for help through Slack, you can copy your code into the Clipboard and then run:
+
+```{r, eval = FALSE}
+
+reprex::reprex(venue = "R")
+
+```
+
+This will copy the R code augmented with commented output into the Clipboard. You can then paste it inside a [code snippet](https://slack.com/intl/es-es/slack-tips/share-code-snippets) in Slack and send it as a regular message.
+
+## Example
+
+Let's look at an example. Here is the problem:
+
+>**Asker**: I need to take the average of several variables for all combination of two categorical variables. I have 20+ variables for which I need to take the average. Is there a way to apply the same function (i.e. `mean`) over several columns in a data frame?
+
+And here is a minimal reproducible example:
+
+```{r, results = "hide"}
+
+library(dplyr)
+
+df <- tibble(
+  year = sample(2018:2020, size = 15, replace = TRUE),
+  scenario = sample(c("A", "B"), 15, replace = TRUE),
+  x1 = rnorm(15, mean = 12),
+  x2 = rnorm(15, 18),
+  x3 = rnorm(15, 30)
+)
+
+## I can compute the average of x1, x2, and x3 manually.
+
+df %>%
+  group_by(year, scenario) %>%
+  summarize(
+    x1 = mean(x1),
+    x2 = mean(x2),
+    x3 = mean(x3)
+  )
+
+## How can I avoid having to repeat the mean() function calls for each variable?
+
+```
+
+It is straightforward for someone to copy and paste the code and provide a possible solution:
+
+>**Helper**: You can use the new `across()` function from the dplyr package inside `summarize()`.
+
+```{r}
+
+df %>%
+  group_by(year, scenario) %>%
+  summarize(across(.cols = everything(), .fns = mean))
+
+```
