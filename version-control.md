@@ -6,9 +6,13 @@ Although it is possible to use a Git client with a General User Interface (GUI) 
 
 ## GitHub Organization Site
 
-A [GitHub Organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations) has been created for our group, where all version controlled projects should be hosted. The purpose of this site is to easily find, navigate and collaborate on largely source code based projects.
+A GitHub Organization has been created for our group at:
 
-The Organization site is private, meaning that only allowed GitHub users can see its contents. You must have a GitHub account and contact Sergio Olmos (`sergio.olmos@isglobal.org`) requesting access. You will shortly receive an invitation to join the organization at GitHub.
+[https://github.com/isg-airpollution](https://github.com/isg-airpollution)
+
+All version controlled projects should be hosted in this site to facilitate all group members to find, navigate and collaborate on largely source code based projects.
+
+If you are not already a member of the Organization, please contact Sergio Olmos and provide your GitHub user name.
 
 ## Quickstart
 
@@ -22,9 +26,9 @@ If you are new to Git or you are having trouble setting it up, you should read t
 
 ### Setup
 
-* Get a [GitHub]() account.
+* Get a [GitHub](https://github.com/) account.
 
-* Download and install [Git]().
+* Download and install [Git](https://git-scm.com/downloads).
 
 * Set up Git with your user name and email:
 
@@ -63,43 +67,43 @@ If you are new to Git or you are having trouble setting it up, you should read t
 
 ### Typical use
 
-* Clone a remote GitHub repository into your local machine:
+Clone a remote GitHub repository into your local machine:
 
 ```bash
 git clone git@github.com:user/repo.git
 ```
 
-* Make your existing local project a Git repository:
+Make your existing local project a Git repository:
 
 ```bash
 git init
 ```
 
-* Add a remote repository to your existing local Git repository (after creating an empty GitHub repo):
+Add a remote repository to your existing local Git repository (after creating an empty GitHub repo):
 
 ```bash
 git remote add origin git@github.com:user/repo.git
 ```
 
-* Push and cement the tracking relationship between your local default branch (`main` here) and GitHub:
+Push and cement the tracking relationship between your local default branch (`main` here) and GitHub:
 
 ```bash
 git push --set-upstream origin main
 ```
 
-* Add/stage specific files:
+Add/stage specific files:
 
 ```bash
 git add R/clean-data.R R/fit-models.R
 ```
 
-* Commit staged modifications:
+Commit staged modifications:
 
 ```bash
 git commit -m "A short message explaining changes made"
 ```
 
-* Push changes to the linked remote repo:
+Push changes to the linked remote repo:
 
 ```bash
 git push
@@ -115,10 +119,12 @@ It is better to do many small commits, each for a set of related changes:
 
 * Test that it works.
 
-* Add and commit.
+* Stage and commit.
 
-Look at others' projects on GitHub to see what they do and what sort of commit messages they write.
+Commit messages should be short and informative. Look at others' projects on GitHub to see what they do and what sort of commit messages they write.
 
 ## What to commit?
 
-In general, commit only plain-text files (i.e. source code).
+In general, commit only plain-text files (i.e. source code). You can exclude any file or folder from being version controlled by including them in the project's `.gitignore` file. This is specially important for files containing sensitive data. Moreover, binary files and HTML files should generally be ignored as well in most data analysis projects.
+
+The [`repo-template`](https://github.com/isg-airpollution/repo-template) in the isg-airpollution site provides a repository template with an initial `.gitignore` file containing a set of files and folders that should not be tracked by Git in most cases. If you are starting a new project, consider creating first a GitHub repository using this template and then cloning this remote repo to the appropriate network folder path in your local machine.

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head>
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.2.130">
+  <meta name="generator" content="quarto-0.2.349">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Air Pollution Group – reproducible-research</title>
   <style>
@@ -81,36 +81,55 @@
   <![endif]-->
   <script src="site_libs/quarto-nav/quarto-nav.js"></script>
   <script src="site_libs/quarto-nav/headroom.min.js"></script>
+  <script src="site_libs/clipboard/clipboard.min.js"></script>
   <meta name="quarto:offset" content="./">
-  <script src="site_libs/quarto-search/autocomplete.min.js"></script>
+  <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
   <script src="site_libs/quarto-search/fuse.min.js"></script>
   <script src="site_libs/quarto-search/quarto-search.js"></script>
   <script src="site_libs/quarto-html/quarto.js"></script>
   <script src="site_libs/quarto-html/popper.min.js"></script>
   <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="site_libs/quarto-html/clipboard.min.js"></script>
   <script src="site_libs/quarto-html/anchor.min.js"></script>
   <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
   <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
   <script src="site_libs/bootstrap/bootstrap.min.js"></script>
   <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
   <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 2,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="docked">
 <div id="quarto-search-results"></div>
-<header id="quarto-header" class="headroom fixed-top">
-<nav class="navbar navbar-expand-lg navbar-light ">
-    <div class="container-fluid">
-  <a class="navbar-brand" href="./index.html">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
     <img src="./logo.png" alt="">
     <span class="navbar-title">Air Pollution Group</span>
   </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav navbar-nav-scroll ms-auto">
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="./projects.html">Projects</a>
   </li>  
@@ -123,32 +142,25 @@
  </a>
   </li>  
 </ul>
-      </div> <!-- /navcollapse -->
-  </div> <!-- /container-fluid -->
-</nav>
-<nav class="quarto-secondary-nav py-2 d-lg-none d-md-block " data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <div class="container-fluid d-flex justify-content-between">
-    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline">(Untitled)</h1>
-    <button type="button" class="quarto-btn-toggle btn d-lg-none py-0 px-1 d-inline-block border-0 ">
-      <i class="bi bi-chevron-right"></i>
-    </button>
-  </div>
-</nav>
-</header>
- <!-- /navbar/sidebar -->
-<div class="container-fluid quarto-container d-flex flex-column page-layout-article">
-<div class="row flex-fill" id="quarto-content">
-  <div id="quarto-sidebar" class="col col-12 col-lg-3 d-lg-flex px-0 pt-0 sidebar collapse sidebar-navigation">
-    <nav class="me-lg-auto docked overflow-auto">
-    <div class="d-flex px-3 mt-2 flex-shrink-0 align-items-center">
-      <div class="sidebar-search">
-      <form class="d-flex mb-0">
-  <input id="quarto-search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
-      </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <button type="button" class="quarto-btn-toggle btn">
+        <i class="bi bi-chevron-right"></i>
+      </button>
     </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
   <div class="sidebar-menu-container"> 
-  <ul class="list-unstyled mt-1 px-3">
+  <ul class="list-unstyled mt-1">
       <li class="sidebar-item">
   <a href="./get-started.html" class="">Getting Started</a>
 </li>
@@ -174,41 +186,63 @@
   <a href="./remote-servers.html" class="">HPC Cluster</a>
 </li>
       <li class="sidebar-item">
-  <a href="./add-content.html" class="">Adding Content</a>
-</li>
-      <li class="sidebar-item">
   <a href="./resources.html" class="">Resources</a>
 </li>
   </ul>
   </div>
 </nav>
-  </div>
-  <div id="quarto-toc-sidebar" class=" pt-0 col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+      <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">On this page</h2>
 <ul>
 <li><a href="#reproducible-research" class="nav-link active" data-scroll-target="#reproducible-research">Reproducible Research</a>
 <ul class="collapse">
 <li><a href="#project-oriented-workflow" class="nav-link" data-scroll-target="#project-oriented-workflow">Project-Oriented Workflow</a>
 <ul class="collapse">
-<li><a href="#working-directory-intentionality" class="nav-link" data-scroll-target="#working-directory-intentionality">Working directory intentionality</a></li>
+<li><a href="#working-directory" class="nav-link" data-scroll-target="#working-directory">Working directory</a></li>
+<li><a href="#fresh-r-sessions" class="nav-link" data-scroll-target="#fresh-r-sessions">Fresh R sessions</a></li>
 <li><a href="#file-path-discipline" class="nav-link" data-scroll-target="#file-path-discipline">File path discipline</a></li>
+<li><a href="#projects-in-practice" class="nav-link" data-scroll-target="#projects-in-practice">Projects in practice</a></li>
 </ul></li>
-<li><a href="#master-script" class="nav-link" data-scroll-target="#master-script">Master Script</a></li>
-<li><a href="#package-version-management" class="nav-link" data-scroll-target="#package-version-management">Package Version Management</a></li>
+<li><a href="#standalone-scripts" class="nav-link" data-scroll-target="#standalone-scripts">Standalone scripts</a></li>
+<li><a href="#analysis-pipeline" class="nav-link" data-scroll-target="#analysis-pipeline">Analysis pipeline</a></li>
 </ul></li>
 </ul>
-</nav></div>
-  <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 col-xl-7 px-lg-4 pe-xxl-4 ps-xxl-0">
-<main>
+</nav>
+    </div>
+<!-- main -->
+<main class="content">
 
 <section id="reproducible-research" class="level1">
 <h1>Reproducible Research</h1>
 <p>Here we present some general best practices for open and reproducible science. Researchers in the group are strongly encouraged to adhere to these practices for all their data analysis projects.</p>
 <section id="project-oriented-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="project-oriented-workflow">Project-Oriented Workflow</h2>
-<section id="working-directory-intentionality" class="level3">
-<h3 class="anchored" data-anchor-id="working-directory-intentionality">Working directory intentionality</h3>
-<p>When working on a self-contained project as the one described <a href="./project-structure.html">before</a>, the working directory must be set to the project’s root folder. Moreover, every time you open a project, it should start in a fresh R session to avoid any interactions with code you might have run beforehand.</p>
+<section id="working-directory" class="level3">
+<h3 class="anchored" data-anchor-id="working-directory">Working directory</h3>
+<p>When working on a self-contained project as the one described <a href="./project-structure.html">before</a>, the working directory must be set to the project’s root folder.</p>
+<p>Ideally, this is achieved via development workflow and tooling, not by placing calls to <code>setwd()</code> with absolute paths into your scripts. Using an Integrated Development Environment (IDE) that supports a project-based workflow is strongly recommended. This eliminates the tension between your development convenience and the portability of the code. More details in the next section.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>When opening an RStudio project, RStudio will set the working directory to the root of the project automatically.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="fresh-r-sessions" class="level3">
+<h3 class="anchored" data-anchor-id="fresh-r-sessions">Fresh R sessions</h3>
+<p>Every time you open a project, it should start in a fresh R session to avoid any interactions with code you might have run beforehand.</p>
+<p>A consequence of this approach is that you should never save .RData when you quit R or load .RData when you start R.</p>
+<p>This can be disabled by default in RStudio’s Global Options:</p>
+<p><img src="global-options.jpeg" class="img-fluid"></p>
+<p>Or if you run R from the shell use <code>R --no-save --no-restore-data</code>. You may even set this as the default by putting this line in your <code>.bash_profile</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> R=<span class="st">'R --no-save --no-restore-data'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You should restart R very often an re-run your under-developement script from the top.</p>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -219,46 +253,90 @@
 </div>
 </div>
 </div>
-<p>Ideally, this is achieved via development workflow and tooling, not by placing calls to <code>setwd()</code> with absolute paths into the code. I strongly recommend using an Integrated Development Environment (IDE) that supports a project-based workflow. This eliminates the tension between your development convenience and the portability of the code. More details in the next section.</p>
-<p>A consequence of this approach is that you should never save your workspace to .RData on exit. This can be disabled by default in RStudio’s Global Options.</p>
-<p><img src="global-options.jpeg" class="img-fluid"></p>
 </section>
 <section id="file-path-discipline" class="level3">
 <h3 class="anchored" data-anchor-id="file-path-discipline">File path discipline</h3>
 <p>In general, no absolute paths should appear in your scripts. Absolute paths are specific to your machine. That is why setting your working directory by baking <code>setwd("C:\Users\sergio\path\that\only\I\have")</code> into your scripts will not work in other computer. If you change computers or someone else tries to run your analysis on her machine, the code will not work.</p>
-<p>All paths must be relative to the project’s root folder. That is why we need to include all the necessary files inside our project’s folder. With this setup, we can move the project folder to different folders in our computer, or even to different computers entirely.</p>
+<p>All paths must be relative to the project’s root folder. That is why we need to include all the necessary files inside our project’s folder. With this setup, we can move the project folder to different folders in our computer, or even to different computers entirely. Note that relative paths are necessary but not sufficient for reproducibility.</p>
 <p>One last issue to note regarding file paths is that the syntax will be different in different operating systems, even for relative paths. The {<a href="https://github.com/jennybc/here_here">here</a>} package provides a simple way to wrap file paths so that they work across any operating system and integrates very smoothly into this project-oriented workflow.</p>
 </section>
+<section id="projects-in-practice" class="level3">
+<h3 class="anchored" data-anchor-id="projects-in-practice">Projects in practice</h3>
+<section id="using-rstudio" class="level4">
+<h4 class="anchored" data-anchor-id="using-rstudio">Using RStudio</h4>
+<p>To create a new project use the Create Project command (available on the Projects menu and on the global toolbar). You can create an RStudio project in a brand new directory or in an existing directory where you already have R code and data. This creates a project file (<code>.Rproj</code>) within the project directory that tells RStudio this is the root folder of your project.</p>
+<p>There are several ways to open an existing project:</p>
+<ul>
+<li><p>Using the Open Project command (available from both the Projects menu and the Projects toolbar) to browse for and select an existing project file (e.g.&nbsp;MyProject.Rproj).</p></li>
+<li><p>Selecting a project from the list of most recently opened projects (also available from both the Projects menu and toolbar).</p></li>
+<li><p>Double-clicking on the project file within the system file explorer (e.g.&nbsp;Windows Explorer, OSX Finder, etc.).</p></li>
+</ul>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>When opening an RStudio project, RStudio starts a fresh R session and sets the current working directory to the root of the project, so there is no need to call <code>setwd()</code> yourself. See why this is important in <a href="./reproducible-research.html">Reproducible Research</a>.</p>
+</div>
+</div>
+</div>
+<p>See <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">this RStudio tutorial</a> for more detailed instructions.</p>
 </section>
-<section id="master-script" class="level2">
-<h2 class="anchored" data-anchor-id="master-script">Master Script</h2>
-<p>A master script should be provided at the root of the project which produces the final results of the analysis. The name of this master script should be indicated in the README file of the project.</p>
-<p>Instead of runing the code in each script “manually” and saving the results, you should have a single master script that orchestrates the whole process, thus making sure that all the results are in-sync. Moreover, a master script can help a colleague looking at your analysis understand how to reproduce your results.</p>
-<p>There are a few options but a bare-bones approach can be to create a separate script that sources each of your analysis scripts in the right order.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## master-script.R at the root of your project</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/read-data.R"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/fit-models.R"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/create-tables.R"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/create-figures.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>There are more sophisticated and helpful ways to provide a master script. Check the <a href="">targets</a> R package and <a href="">GNU Make</a>.</p>
+<section id="using-the-usethis-package" class="level4">
+<h4 class="anchored" data-anchor-id="using-the-usethis-package">Using the {usethis} package</h4>
+<p>The {<a href="https://github.com/r-lib/usethis">usethis</a>} R package provides a set of functions to create and manage R projects interactively. They do not need to be RStudio projects.</p>
+<p>Useful functions to be run interactively in the R command line:</p>
+<ul>
+<li><p>Create a new project with <code>usethis::create_project()</code> and the absolute path where you want to create the project as the argument.</p></li>
+<li><p>Open an existing project with <code>usethis::proj_activate()</code> and the absolute path of the project as argument.</p></li>
+</ul>
 </section>
-<section id="package-version-management" class="level2">
-<h2 class="anchored" data-anchor-id="package-version-management">Package Version Management</h2>
-<p>You can use the renv R package to document and reproduce the package versions you used in your analysis.</p>
-<p>The general workflow is:</p>
-<ol type="1">
-<li><p>Develop your analysis as normal, installing and removing R packages as they are needed for the project.</p></li>
-<li><p>Call <code>renv::snapshot()</code> to save the state of the project library to the lockfile (called <code>renv.lock</code>) once you think the analysis is done.</p></li>
-<li><p>Call <code>renv::restore()</code> to restore the state of the project library.</p></li>
-</ol>
-<p>For further details check <a href="https://rstudio.github.io/renv/articles/renv.html">renv’s documentation</a>.</p>
+<section id="using-other-ide" class="level4">
+<h4 class="anchored" data-anchor-id="using-other-ide">Using other IDE</h4>
+<p>IDEs make it easy to work within this project-oriented workflow. You may prefer to use an IDE other than RStudio, such as <a href="https://renkun.me/2019/12/11/writing-r-in-vscode-a-fresh-start/">VScode</a> or <a href="https://solmos.netlify.app/post/2020-07-06-emacs-for-statisticians/emacs-for-statisticians/">Emacs + ESS</a>, which come with their own project-related tools. In fact, these editors may be preferable when working on the remote cluster as they allow interacting with remote R sessions over SSH.</p>
+</section>
+</section>
+</section>
+<section id="standalone-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="standalone-scripts">Standalone scripts</h2>
+<p>Each script in your <code>R/</code> or <code>scr/</code> folder should be standalone, meaning that any given script should not depend on global objects created in other scripts. Any objects created in one script that need to be used by other scripts should be explicitly written to a file somewhere within the project. Any other script that uses this file then needs to explicitly read the file.</p>
+<p>For instance, if you save the data frame that you created in <code>read-data.R</code> inside the <code>data/processed/</code> folder as an RDS file, you should then explicitly read these files from <code>data/processed/</code> in any other script that uses these data frames.</p>
+<p>Let’s see a very simple example. Let’s say we have a script <code>read-data.R</code> inside the <code>R</code> folder:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R/read-data.R</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And a <code>fit-model.R</code> script:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R/fit-model.R</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> data_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Script <code>fit-model.R</code> relies on the object <code>data_raw</code> loaded by script <code>read-data.R</code> in the global environment.</p>
+<p>Instead, we can save the object created in the first script into a file and then load this file in the second script:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R/read-data.R</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw-data.csv"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(data_raw, <span class="st">"data/processed/data_raw.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R/fit-model.R</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data_raw <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/processed/data_raw.rds"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> data_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="analysis-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-pipeline">Analysis pipeline</h2>
+<p>A main script should be provided at the root of the project which runs all the required scripts in the right order to produce the final results of the analysis.</p>
+<p>Instead of runing the code in each script “manually”, you should have a single script that orchestrates the whole process, thus making sure that the results across all the steps in the analysis are in-sync. Moreover, a master script can help a colleague looking at your analysis understand how to reproduce your results.</p>
+<p>The name of this main script should be indicated in the README file of the project.</p>
+<p>There are a few options for managing the pipeline of an analysis but a bare-bones approach can be to create a script that uses the <code>source()</code> function to evaluate each of your analysis scripts in the right order. This file should be at the root of the project folder.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## main-script.R at the root of your project</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/read-data.R"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/fit-models.R"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/create-tables.R"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/create-figures.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are more sophisticated and helpful ways to provide a master script. Check the <a href="https://books.ropensci.org/targets/">targets</a> R package and <a href="https://www.gnu.org/software/make/">GNU Make</a>.</p>
 
-<!-- -->
+
 </section>
 </section>
+</main> <!-- /main -->
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
@@ -287,22 +365,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     e.clearSelection();
   });
   function tippyHover(el, contentFn) {
-    window.tippy(el, {
+    const config = {
       allowHTML: true,
       content: contentFn,
       maxWidth: 500,
       delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
       placement: 'bottom-start'
-    }); 
+    };
+    window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      const id = new URL(ref.getAttribute('href')).hash.replace(/^#/, "");
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
@@ -328,16 +413,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-</main>
-<div class="page-navigation page-navigation-docked">
+<nav class="page-navigation">
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
   </div>
-</div>
-</div> <!-- /main column -->
-</div> <!-- /row -->
-</div> <!-- /container fluid -->
+</nav>
+</div> <!-- /content -->
 
 
 </body></html>

@@ -26,7 +26,6 @@ site:
       - version-control.md
       - getting-help.Rmd
       - remote-servers.md
-      - add-content.md
       - resources.md
 
 format:

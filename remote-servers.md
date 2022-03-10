@@ -8,10 +8,7 @@ You may want to work on the cluster if:
 
 * you need more computing power than your laptop can provide,
 
-* your code takes a very long time to run,
-
-* you need to run scripts on a schedule.
-
+* your code takes a very long time to run.
 
 ## Cluster Architecture
 
@@ -25,12 +22,12 @@ You may want to work on the cluster if:
 
 The SLURM system provides different partitions (or job queues) which are intended to manage resource allocation according to different time and resource needs.
 
-| Partition name | Max. Time | Max. CPUs/Node | Max. RAM/Node | Node parallelization |
-|----------------|-----------|----------------|---------------|----------------------|
-| debug          | 2h        | 8              | 32Gb (8x4)    | Not allowed          |
-| short          | 2h        | 24             | 96Gb (24x4)   | Allowed              |
-| long           | 30h       | 48             | 192Gb (48x4)  | Allowed              |
-| no_limits      | No limit  | 72             | 432Gb (72x6)  | Allowed              |
+| Partition name | Max. Time | Max. CPUs/Node | Max. RAM/Node   | Node parallelization |
+|----------------|-----------|----------------|-----------------|----------------------|
+| debug          | 6h        | 4              | 8Gb (2Gb/CPU)   | Not allowed          |
+| short          | 12h       | 16             | 64Gb (4Gb/CPU)  | Not allowed          |
+| long           | 30h       | 48             | 128Gb (4Gb/CPU) | Not allowed          |
+| no_limits      | No limit  | 72             | 432Gb (6Gb/CPU) | Not allowed          |
 
 The `debug` partition is well suited for interactive sessions and debugging. It is the default partition, i.e. jobs will be submitted to this partition unless a different partition is specified.
 
@@ -38,7 +35,22 @@ The `short` partition is well suited for short jobs with low resource requiremen
 
 The `no_limits` partition should only be used for very specific jobs that require an extemely high amount of resources and/or have very high priority. Access to this partition must be requested to the IT team.
 
+## User Accounts
+
+All users belong by default to the `generic` account, which allows the user to use all non-restricted partitions. All jobs are submited to the debug partition by default, unless a different partition is specified.
+
+An `unlimited` account allows users to use the `no_limits` partition and can be granted by IT for very specific jobs that cannot be accomodated by the other partitions.
+
+| Account     | Partition                | Max concurrent jobs | Max total CPUs |
+|-------------|--------------------------|---------------------|----------------|
+| `generic`   | `debug`, `short`, `long` | 4                   | 48             |
+| `unlimited` | `no_limits`              | 1                   | 48             |
+
 ## Requirements
+
+### Access
+
+You will need to ask IT for access to the cluster `isgcluster` by reporting an IT incidence in the Intranet or sending an email to `sri.tic@isglobal.org`.
 
 ### UNIX shell
 
@@ -74,6 +86,47 @@ Rscript path/to/my-script.R
 RScript -e "install.packages('tidyverse')"
 ```
 
+## Connecting to `yamabuki`
+
+You can connect to the login node (`yamabuki`) by SSH using your ISGlobal credentials.
+
+### Linux/MacOS
+
+On a bash terminal:
+
+```bash
+## By DNS
+ssh username@yamabuki.isglobal.lan
+## Or by IP address
+ssh username@172.20.10.115
+```
+
+### Windows
+
+Using Putty or MobaXterm connect through SSH to `yamabuki.isglobal.lan` or `172.20.10.115` in port 22.
+
+## Software
+
+### Modules
+
+There are a large number of software applications, libraries, tools and compilers preinstalled on the cluster. All installed software is not directly available in the login node. Any software must be loaded as an "environment module" before it can be used.
+
+You can list all modules available with:
+
+```bash
+module avail
+```
+
+And you can search for specific modules by passing a partial name to `module spider`.
+
+Only the module Conda is available on the login node. All other software must be loaded and run in one of the computing nodes.
+
+Any software module can be loaded with `module load`. For instance, you can load a pre-installed R version by typing:
+
+```bash
+module load lang/R/4.0.3-foss-2020a
+```
+
 ### Miniconda
 
 Miniconda allows you to install specific software (R, Emacs, etc.) from the Conda repositories inside isolated environments in the cluster. Miniconda is already installed in the cluster. Some useful commands are:
@@ -90,28 +143,109 @@ conda env list
 ## Search software packages
 conda search software-name
 ## Install a softaware package from the conda-forge channel in the current env
+## r-base, r-tidyverse, ...
 conda install -c conda-forge software-name=x.x.x
 ```
 
-## Getting Access
+R packages can also be installed through Conda but not all CRAN packages are available.
 
-You will need to ask IT for access to the cluster `isgcluster` by reporting an IT incidence in the Intranet or sending an email to `sri.tic@isglobal.org`.
+### R packages
 
-### Connecting
+R packages can also be installed in your home directory in the cluster by running R in one of the computing nodes and using the familiar `install.packages()` function.
 
-Once connected to the ISGlobal VPN, you can connect to the login node (`yamabuki`) by SSH using your ISGlobal credentials.
-
-#### Linux/MacOS
-
-On a bash terminal:
+One way to do this is first run an interactive terminal in one of the computing nodes:
 
 ```bash
-## By DNS
-ssh username@yamabuki.isglobal.lan
-## Or by IP address
-ssh username@172.20.10.115
+srun --pty bash
 ```
 
-#### Windows
+Once logged in one of the computing nodes, load the R module:
 
-Using Putty or MobaXterm connect through SSH to `yamabuki.isglobal.lan` or `172.20.10.115` in port 22.
+```bash
+module load lang/R/4.0.3.
+```
+
+And finally install the packages:
+
+```bash
+Rscript -e "install.packages('tidyverse')"
+```
+
+## SLURM
+
+The `isgcluster` is managed by the scheduler system SLURM. In order to submit a job to the queueing system or run an interactive session in one of the computing nodes a specific set of commands must be used.
+
+### `sbatch`
+
+To submit a job to the queue system in the cluster you need pass a shell script to the command `sbatch`. This shell script must have the following format:
+
+```bash
+#! /bin/bash
+
+# Set a Job name
+#SBATCH --job-name=my_job
+
+# Set a partition or queue to submit to
+#SBATCH --partition=short
+
+# Set a user account to submit as
+#SBATCH --account=generic
+
+# Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-type=BEGIN,END,FAIL
+
+# Where to send mail events
+#SBATCH --mail-user=my-email@isglobal.org
+
+# Run a single tasks
+#SBATCH --ntasks=1
+
+# Use 4 cpus for each task
+#SBATCH --cpus-per-task=4
+
+# Job memory request
+#SBATCH --mem=16gb
+
+# Standard output and error log
+#SBATCH --output=output.log
+
+# Clear the environment from any previously loaded modules
+module purge > /dev/null 2>&1
+
+# Load the module environment suitable for the job. In this case, R version 4.0.3
+module load lang/R/4.0.3-foss-2020a
+
+# And finally run the job calling R as you wold do using system R installation
+Rscript my_script.R
+```
+
+Let's say that this shell script is named `run.sh`, then, with working directory in the same folder as the script, we can submit it to SLURM with:
+
+```bash
+sbatch run.sh
+```
+
+### `srun`
+
+You can also launch an interactive shell in one of the computing nodes with the command `srun`. For an interactive session with the default options just type:
+
+```bash
+srun --pty bash
+```
+
+Once logged in, you may load any software that you wish and even run interactive R sessions for quick debugging.
+
+::: {.callout-note appearance="simple"}
+
+Please remember to always exit interactive sessions once finished by typing `exit` in the interactive shell.
+
+:::
+
+### Useful commands
+
+| Command   | Description                                       |
+|-----------|---------------------------------------------------|
+| `squeue`  | List all currently scheduled jobs                 |
+| `sstat`   | List resources being used                         |
+| `scancel` | Cancel a scheduled job                            |
+| `sinfo`   | View information about Slurm nodes and partitions |

@@ -2,9 +2,9 @@
 title: "Getting Started"
 ---
 
-Our group has a main network folder assigned named `airpollution`. All the contents of the different projects should be stored and organized in this shared folder as defined in the [Network Folders](network-folders.md) page.
+Our group has a main network folder assigned named `airpollution`. A second network folder named `hpc_airpollution` is available to the group, which can be accessed through the institutional High Performance Computing cluster `isgcluster`. All the contents of the different projects should be organized in these shared folders as defined in the [Network Folders](network-folders.md) page.
 
-Most projects involve data analyses which should be developed following the framework set in the sections:
+Projects involving data analyses should be developed following a set of best practices in order to facilitate collaboration and promote reproducible research, as explained in the following pages:
 
 * [Project Structure](project-structure.md)
 
@@ -18,36 +18,28 @@ Note that data subject to confidentiality agreements should never leave the inst
 
 ## Sharing data
 
-When data needs to be shared with people outside of ISGlobal, use the institutional Nextcloud server called [Namek](https://namek.isglobal.org) for medium sized data. Do not store sensitive data in your Google Drive.
-
-:::
-
-## Requirements
-
-* User account
-
-* ISGlobal email address account
-
-* Fortinet VPN client for remote access
-
-::: {.callout-note appearance="simple"}
-
-Note that your user account is different from your ISGlobal Gmail account and will have different credentials.
-
-:::
-
-The VPN is only necessary if you will be accessing the ISGlobal network (i.e. Intranet, network folders) remotely. This includes being connected to Campus Mar's WiFi. If you have been assigned an institutional laptop/desktop you can connect to the ISGlobal network through Ethernet cable at Campus Mar, in which case no VPN connection is needed.
-
-::: {.callout-note appearance="simple"}
-
-## Remote Access
-
-When working remotely through the VPN, some operations such as opening files or reading/writing data from/to the network folders will be slower, as the VPN will limit the bandwidth speed.
+When data needs to be shared with people outside of ISGlobal, use the institutional Nextcloud server called [Namek](https://namek.isglobal.org) for medium sized data.
 
 :::
 
 ## Getting Access
 
-IT must grant you access before you can connect the network folder. If you do not have access already, contact IT by openning an incidence in the [Intranet site](https://isg-intranet.isglobal.org/) or sending an email to `sri.tic@isglobal.org`. When you do, ask them how you can permanently mount the `airpollution` network folder in your machine's file system.
+IT must grant you access before you can connect to the network folders. Send an email to `sri.tic@isglobal.org` asking for access to the `airpollution` and `hpc_airpollution` network folders. When you do, also ask them how you can mount the `airpollution` and `hpc_airpollution` network folders in your laptop's file system for easy access.
+
+### Internal Access
+
+The `airpollution` and `hpc_airpollution` folders belong to the internal ISGlobal network. If you have an institutional laptop you should be able to efficiently access these mounted network folders while connected to the internal network through Ethernet cable at Campus Mar.
+
+### Remote Access
+
+When you are not connected to the internal network at Campus Mar through Ethernet cable, you will need to be connected to the Campus Mar VPN. Ask IT to setup the VPN in your system for accessing the network remotely.
+
+::: {.callout-note appearance="simple"}
+
+## Slow connections
+
+When working remotely through the VPN, some operations such as opening files or reading/writing data from/to the network folders will be slower, as the VPN will limit the bandwidth speed.
+
+:::
 
 
