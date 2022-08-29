@@ -148,14 +148,30 @@ srun --pty bash
 Once logged in one of the computing nodes, load the R module:
 
 ```bash
-module load lang/R/4.0.3.
+module load lang/R/4.0.3-foss-2020a
 ```
+
 
 And finally install the packages:
 
 ```bash
 Rscript -e "install.packages('tidyverse')"
 ```
+
+Or running an interactive R sessions with the `R` command and calling `install.packages()` in the command line interactively.
+
+::: {.callout-note appearance="simple"}
+
+You may want to add shortcuts for commonly typed commands by adding them to your `.bashrc` file.
+
+Some useful shortcuts can be (add these lines to the end of your `~/.bashrc` file):
+
+```bash
+alias cdp="cd /PROJECTES/AIRPOLLUTION"
+alias loadr="module load lang/R/4.0.3-foss-2020a"
+```
+
+:::
 
 ## SLURM
 
