@@ -8,6 +8,30 @@ title: "Team"
 
 PI
 
+## Otavio Ranzani
+
+Assistant Professor
+
+## Ariadna Curto
+
+Postdoctoral Fellow
+
+## Carles Milà
+
+Phd Student | Statistician
+
+## Apolline Saucy
+
+Postdoctoral Fellow
+
+## Anna Alari
+
+Postdoctoral Fellow
+
+## Jovito Nunes
+
+Predoctoral External Researcher
+
 ## Sergio Olmos
 
 Statistician | Data Scientist
