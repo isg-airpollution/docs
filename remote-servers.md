@@ -17,6 +17,7 @@ You may want to work on the cluster if:
 | yamabuki  | Login     | 32           | 256      |
 | isgws07   | Computing | 72           | 512      |
 | isgws08   | Computing | 72           | 512      |
+| isgws09   | Computing | 72           | 512      |
 
 ## Partitions
 
@@ -26,7 +27,7 @@ The SLURM system provides different partitions (or job queues) which are intende
 |----------------|-----------|----------------|-----------------|----------------------|
 | debug          | 6h        | 4              | 8Gb (2Gb/CPU)   | Not allowed          |
 | short          | 12h       | 16             | 64Gb (4Gb/CPU)  | Not allowed          |
-| long           | 30h       | 48             | 128Gb (4Gb/CPU) | Not allowed          |
+| long           | 72h       | 48             | 128Gb (4Gb/CPU) | Not allowed          |
 | no_limits      | No limit  | 72             | 432Gb (6Gb/CPU) | Not allowed          |
 
 The `debug` partition is well suited for interactive sessions and debugging. It is the default partition, i.e. jobs will be submitted to this partition unless a different partition is specified.
@@ -88,22 +89,7 @@ RScript -e "install.packages('tidyverse')"
 
 ## Connecting to `yamabuki`
 
-You can connect to the login node (`yamabuki`) by SSH using your ISGlobal credentials.
-
-### Linux/MacOS
-
-On a bash terminal:
-
-```bash
-## By DNS
-ssh username@yamabuki.isglobal.lan
-## Or by IP address
-ssh username@172.20.10.115
-```
-
-### Windows
-
-Using Putty or MobaXterm connect through SSH to `yamabuki.isglobal.lan` or `172.20.10.115` in port 22.
+You can connect to the login node (`yamabuki`) by SSH using your ISGlobal credentials. Refer to the HPC guide provided by IT for the DNS or IP address information.
 
 ## Software
 
@@ -223,6 +209,12 @@ Let's say that this shell script is named `run.sh`, then, with working directory
 
 ```bash
 sbatch run.sh
+```
+
+You can quickly print the log file that you specified in the `--output` option in the sbatch file using the command `cat`. In this case, it would be:
+
+```bash
+cat output.log
 ```
 
 ### `srun`
