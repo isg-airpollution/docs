@@ -32,6 +32,10 @@ Postdoctoral Fellow
 
 Predoctoral External Researcher
 
+## Ariadna Moreno
+
+Project Manager
+
 ## Sergio Olmos
 
 Statistician | Data Scientist
