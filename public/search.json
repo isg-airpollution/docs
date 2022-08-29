@@ -95,7 +95,7 @@
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "This is the documentation site for the Air Pollution research Group led by Cathryn Tonne at ISGlobal.\nHere we set a general framework for organizing and developing research projects in the group. Adhering to this framework facilitates collaboration among the different members of the team. Moreover, the framework incorporates some best practices that promote open and reproducible science."
+    "text": "Here we set a general framework for organizing and developing research projects in the group. Adhering to this framework facilitates collaboration among the different members of the team. Moreover, the framework incorporates some best practices that promote open and reproducible science."
   },
   {
     "objectID": "network-folders.html#structure",
@@ -144,14 +144,14 @@
     "href": "remote-servers.html#partitions",
     "title": "HPC Cluster",
     "section": "Partitions",
-    "text": "Partitions\nThe SLURM system provides different partitions (or job queues) which are intended to manage resource allocation according to different time and resource needs.\n\n\n\nPartition name\nMax. Time\nMax. CPUs/Node\nMax. RAM/Node\nNode parallelization\n\n\n\n\ndebug\n6h\n4\n8Gb (2Gb/CPU)\nNot allowed\n\n\nshort\n12h\n16\n64Gb (4Gb/CPU)\nNot allowed\n\n\nlong\n30h\n48\n128Gb (4Gb/CPU)\nNot allowed\n\n\nno_limits\nNo limit\n72\n432Gb (6Gb/CPU)\nNot allowed\n\n\n\nThe debug partition is well suited for interactive sessions and debugging. It is the default partition, i.e. jobs will be submitted to this partition unless a different partition is specified.\nThe short partition is well suited for short jobs with low resource requirements, while the long partition should be used for jobs with high resource requirements.\nThe no_limits partition should only be used for very specific jobs that require an extemely high amount of resources and/or have very high priority. Access to this partition must be requested to the IT team."
+    "text": "Partitions\nThe SLURM system provides different partitions (or job queues) which are intended to manage resource allocation according to different time and resource needs.\n\n\n\n\n\n\n\n\n\n\nPartition name\nMax. Time\nMax. CPUs/Node\nMax. RAM/Node\nNode parallelization\n\n\n\n\ndebug\n6h\n4\n8Gb (2Gb/CPU)\nNot allowed\n\n\nshort\n12h\n16\n64Gb (4Gb/CPU)\nNot allowed\n\n\nlong\n30h\n48\n128Gb (4Gb/CPU)\nNot allowed\n\n\nno_limits\nNo limit\n72\n432Gb (6Gb/CPU)\nNot allowed\n\n\n\nThe debug partition is well suited for interactive sessions and debugging. It is the default partition, i.e. jobs will be submitted to this partition unless a different partition is specified.\nThe short partition is well suited for short jobs with low resource requirements, while the long partition should be used for jobs with high resource requirements.\nThe no_limits partition should only be used for very specific jobs that require an extemely high amount of resources and/or have very high priority. Access to this partition must be requested to the IT team."
   },
   {
     "objectID": "remote-servers.html#user-accounts",
     "href": "remote-servers.html#user-accounts",
     "title": "HPC Cluster",
     "section": "User Accounts",
-    "text": "User Accounts\nAll users belong by default to the generic account, which allows the user to use all non-restricted partitions. All jobs are submited to the debug partition by default, unless a different partition is specified.\nAn unlimited account allows users to use the no_limits partition and can be granted by IT for very specific jobs that cannot be accomodated by the other partitions.\n\n\n\nAccount\nPartition\nMax concurrent jobs\nMax total CPUs\n\n\n\n\ngeneric\ndebug, short, long\n4\n48\n\n\nunlimited\nno_limits\n1\n48"
+    "text": "User Accounts\nAll users belong by default to the generic account, which allows the user to use all non-restricted partitions. All jobs are submited to the debug partition by default, unless a different partition is specified.\nAn unlimited account allows users to use the no_limits partition and can be granted by IT for very specific jobs that cannot be accomodated by the other partitions.\n\n\n\n\n\n\n\n\n\nAccount\nPartition\nMax concurrent jobs\nMax total CPUs\n\n\n\n\ngeneric\ndebug, short, long\n4\n48\n\n\nunlimited\nno_limits\n1\n48"
   },
   {
     "objectID": "remote-servers.html#requirements",
@@ -299,5 +299,19 @@
     "title": "Air Pollution Group",
     "section": "Package Version Management",
     "text": "Package Version Management\nYou can use the renv R package to document and reproduce the package versions you used in your analysis.\nThe general workflow is:\n\nDevelop your analysis as normal, installing and removing R packages as they are needed for the project.\nCall renv::snapshot() to save the state of the project library to the lockfile (called renv.lock) once you think the analysis is done.\nCall renv::restore() to restore the state of the project library.\n\nFor further details check renv’s documentation.\n\n\n\n\n\n\nWorking with renv in mounted network folders can not"
+  },
+  {
+    "objectID": "network-folders.html",
+    "href": "network-folders.html",
+    "title": "Air Pollution Group",
+    "section": "",
+    "text": "All projects should be stored at all times in one of the network folders assigned to the group:\n\n\n\nNetwork folder name\nDescription\n\n\n\n\nairpollution\nMain folder\n\n\nhpc_airpollution\nFolder mounted in the SLURM HPC cluster\n\n\n\nThe airpollution network folder is where all projects should be stored at some point. In some circumstances, the folder hpc_airpollution may be better suited to store projects that will require the use of the institution’s High Performance Computing (HPC) cluster. In these cases, the project folder should be moved from hpc_airpollution to airpollution when the project is finished.\n\n\n\n\n\n\nNote that not everyone will have these network folders mounted in the same place. Please refer to the network folders by name (airpollution or hpc_airpollution) instead of the drive where these folders are mounted in your system (i.e. P: drive, …).\n\n\n\n\n\n\n\nThe organization inside of the main airpollution folder should have the following basic structure to facilitate navigation:\n.\n├── CHAI\n│   ├── analyses\n│   │   ├── OR_atherosclerosis\n│   │   └── SO_physical-activity\n    ├── data\n│   ├── documents\n│   │   └── atherosclerosis-proposal.docx\n│   ├── manuscripts\n│   │   └── physical-activity.docx\n│   └── README.docx\n└── EXPANSE\n    ├── analyses\n    │   ├── AC_air-pollution\n    │   └── NO_movers\n    ├── data\n    ├── documents\n    │   └── request_form.xlsx\n    ├── manuscripts\n    │   └── movers.pdf\n    └── README.md\nThe root of the airpollution network folder should contain directories with the name of the different broad research projects from which papers are meant to be produced. Inside these general folders there should be only three sub-folders:\n\ndocuments/ contains all documents relevant to the general research projects (i.e. proposals, relevant papers, data request forms, etc.) and can be further divided into as many sub-folders as needed.\nanalyses/ contains the different projects that involve data analyses. See the Project Structure section for how to structure data analysis projects.\nmanuscripts/ contains the final written manuscripts of all the papers that are preoduced.\nREADME file containing a brief overview of the given research project. Could be any format: .md, .docx, .pdf, .txt.\n\n\n\n\nThe organization of the group network folder hpc_airpollution mounted in the HPC cluster can be more flexible. One simple way to organize the different projects inside this network folder is creating a directory named as your user, and store all your projects inside this directory.\nIf the project involves collaborating with other members of the team consider creating a folder for the project in the root of hpc_airpollution.\n\n\n\n\n\n\nRemember that all projects in hpc_airpollution should be moved to the appropriate path inside the airpollution network folder once the project is done."
+  },
+  {
+    "objectID": "remote-servers.html",
+    "href": "remote-servers.html",
+    "title": "HPC Cluster",
+    "section": "",
+    "text": "ISGlobal provides a High Performance Computing (HPC) cluster named isgcluster where researchers can launch resource-intensive jobs. The cluster resources are managed by a job scheduler system called SLURM.\nYou may want to work on the cluster if:"
   }
 ]
