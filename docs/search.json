@@ -7,6 +7,48 @@
     "text": "Cathryn Tonne\nPI"
   },
   {
+    "objectID": "about.html#otavio-ranzani",
+    "href": "about.html#otavio-ranzani",
+    "title": "Team",
+    "section": "Otavio Ranzani",
+    "text": "Otavio Ranzani\nAssistant Professor"
+  },
+  {
+    "objectID": "about.html#ariadna-curto",
+    "href": "about.html#ariadna-curto",
+    "title": "Team",
+    "section": "Ariadna Curto",
+    "text": "Ariadna Curto\nPostdoctoral Fellow"
+  },
+  {
+    "objectID": "about.html#carles-milà",
+    "href": "about.html#carles-milà",
+    "title": "Team",
+    "section": "Carles Milà",
+    "text": "Carles Milà\nPhd Student | Statistician"
+  },
+  {
+    "objectID": "about.html#apolline-saucy",
+    "href": "about.html#apolline-saucy",
+    "title": "Team",
+    "section": "Apolline Saucy",
+    "text": "Apolline Saucy\nPostdoctoral Fellow"
+  },
+  {
+    "objectID": "about.html#anna-alari",
+    "href": "about.html#anna-alari",
+    "title": "Team",
+    "section": "Anna Alari",
+    "text": "Anna Alari\nPostdoctoral Fellow"
+  },
+  {
+    "objectID": "about.html#jovito-nunes",
+    "href": "about.html#jovito-nunes",
+    "title": "Team",
+    "section": "Jovito Nunes",
+    "text": "Jovito Nunes\nPredoctoral External Researcher"
+  },
+  {
     "objectID": "about.html#sergio-olmos",
     "href": "about.html#sergio-olmos",
     "title": "Team",
@@ -74,7 +116,7 @@
     "href": "getting-help.html#example",
     "title": "Getting help with R",
     "section": "Example",
-    "text": "Example\nLet’s look at an example. Here is the problem:\n\nAsker: I need to take the average of several variables for all combination of two categorical variables. I have 20+ variables for which I need to take the average. Is there a way to apply the same function (i.e. mean) over several columns in a data frame?\n\nAnd here is a minimal reproducible example:\n\nlibrary(dplyr)\n\ndf <- tibble(\n  year = sample(2018:2020, size = 15, replace = TRUE),\n  scenario = sample(c(\"A\", \"B\"), 15, replace = TRUE),\n  x1 = rnorm(15, mean = 12),\n  x2 = rnorm(15, 18),\n  x3 = rnorm(15, 30)\n)\n\n## I can compute the average of x1, x2, and x3 manually.\n\ndf %>%\n  group_by(year, scenario) %>%\n  summarize(\n    x1 = mean(x1),\n    x2 = mean(x2),\n    x3 = mean(x3)\n  )\n\n## How can I avoid having to repeat the mean() function calls for each variable?\n\nIt is straightforward for someone to copy and paste the code and provide a possible solution:\n\nHelper: You can use the new across() function from the dplyr package inside summarize().\n\n\ndf %>%\n  group_by(year, scenario) %>%\n  summarize(across(.cols = everything(), .fns = mean))\n\n# A tibble: 5 × 5\n# Groups:   year [3]\n   year scenario    x1    x2    x3\n  <int> <chr>    <dbl> <dbl> <dbl>\n1  2018 A         11.6  17.7  29.7\n2  2019 A         11.9  18.1  30.4\n3  2019 B         12.7  18.5  30.3\n4  2020 A         13.2  18.6  30.2\n5  2020 B         12.0  17.0  29.0"
+    "text": "Example\nLet’s look at an example. Here is the problem:\n\nAsker: I need to take the average of several variables for all combination of two categorical variables. I have 20+ variables for which I need to take the average. Is there a way to apply the same function (i.e. mean) over several columns in a data frame?\n\nAnd here is a minimal reproducible example:\n\nlibrary(dplyr)\n\ndf <- tibble(\n  year = sample(2018:2020, size = 15, replace = TRUE),\n  scenario = sample(c(\"A\", \"B\"), 15, replace = TRUE),\n  x1 = rnorm(15, mean = 12),\n  x2 = rnorm(15, 18),\n  x3 = rnorm(15, 30)\n)\n\n## I can compute the average of x1, x2, and x3 manually.\n\ndf %>%\n  group_by(year, scenario) %>%\n  summarize(\n    x1 = mean(x1),\n    x2 = mean(x2),\n    x3 = mean(x3)\n  )\n\n## How can I avoid having to repeat the mean() function calls for each variable?\n\nIt is straightforward for someone to copy and paste the code and provide a possible solution:\n\nHelper: You can use the new across() function from the dplyr package inside summarize().\n\n\ndf %>%\n  group_by(year, scenario) %>%\n  summarize(across(.cols = everything(), .fns = mean))\n\n# A tibble: 6 × 5\n# Groups:   year [3]\n   year scenario    x1    x2    x3\n  <int> <chr>    <dbl> <dbl> <dbl>\n1  2018 A         11.9  18.4  30.1\n2  2018 B         10.6  16.2  30.0\n3  2019 A         13.1  19.0  30.6\n4  2019 B         11.3  17.7  30.4\n5  2020 A         11.9  17.4  30.7\n6  2020 B         10.5  19.7  30.0"
   },
   {
     "objectID": "index.html",
