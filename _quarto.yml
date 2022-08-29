@@ -1,6 +1,6 @@
 project:
   type: site
-  output-dir: public
+  output-dir: docs
 
 site:
   title: "Air Pollution Group"
