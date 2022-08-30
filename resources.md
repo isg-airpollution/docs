@@ -16,6 +16,13 @@ title: "Resources"
 
 * [Project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)
 
+## Statistics
+
+* [Introduction to Modern Statistics](https://openintro-ims.netlify.app/)
+
+* [Regression and Other Stories](https://users.aalto.fi/~ave/ROS.pdf)
+
+
 ## Unix Shell
 
 * [The Missing Semester of your CS Education](https://missing.csail.mit.edu/)
