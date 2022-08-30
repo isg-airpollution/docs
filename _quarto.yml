@@ -13,7 +13,7 @@ site:
       - projects.md
       - about.md
       - icon: github
-        href: https://github.com/quarto-dev/quarto-web
+        href: https://github.com/isg-airpollution/docs
   sidebar:
     style: "docked"
     search: true
