@@ -4,11 +4,11 @@ title: "Resources"
 
 ## R
 
-* [R for Data Science]()
+* [R for Data Science](https://r4ds.had.co.nz/)
 
-* [Hands-on Programming with R]()
+* [Hands-on Programming with R](https://rstudio-education.github.io/hopr/)
 
-* [Advanced R]()
+* [Advanced R](https://adv-r.hadley.nz/)
 
 * [What they forgot to teach you about R](https://rstats.wtf/)
 
@@ -18,35 +18,33 @@ title: "Resources"
 
 ## Unix Shell
 
-* [The missing semester]()
+* [The Missing Semester of your CS Education](https://missing.csail.mit.edu/)
 
 * [Data Science at the Command Line](https://www.datascienceatthecommandline.com/2e/)
 
 ## Text editors/IDEs
 
-* [RStudio]()
+* [RStudio](https://www.rstudio.com/)
 
-* [Emacs]() + [ESS]()
+* [Emacs + ESS](https://ess.r-project.org/)
 
-* [VS-code]() + [R]()
+* [VS-code + R](https://code.visualstudio.com/docs/languages/r)
 
-* [Nvim]() + [R]()
+* [Nvim + R](https://github.com/jalvesaq/Nvim-R)
 
 ## Reproducible research
 
-* [targets R package]()
+* [targets R package](https://books.ropensci.org/targets/)
 
-* [GNU Makefile]()
+* [GNU Make](https://www.gnu.org/software/make/)
 
-* [renv]()
+* [renv](https://rstudio.github.io/renv/)
 
-* [docker]()
-
-* [Anaconda]()
+* [Conda](https://docs.conda.io/en/latest/)
 
 ## Version Control
 
-* [Happy Git and GitHub for the useR]()
+* [Happy Git and GitHub for the useR](https://happygitwithr.com/)
 
 * [Git/GitHub Guide: A Minimal Tutorial](https://kbroman.org/github_tutorial/)
 
@@ -54,11 +52,9 @@ title: "Resources"
 
 * [Markdown](https://www.markdownguide.org/)
 
-* [Pandoc]()
+* [RMarkdown](https://bookdown.org/yihui/rmarkdown/)
 
-* [RMarkdown]()
-
-* [Org Mode]()
+* [Quarto](https://quarto.org/docs/guide/)
 
 ## General
 
