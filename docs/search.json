@@ -81,84 +81,128 @@
     "href": "get-started.html",
     "title": "Getting Started",
     "section": "",
-    "text": "Our group has a main network folder assigned named airpollution. A second network folder named hpc_airpollution is available to the group, which can be accessed through the institutional High Performance Computing cluster isgcluster. All the contents of the different projects should be organized in these shared folders as defined in the Network Folders page.\nProjects involving data analyses should be developed following a set of best practices in order to facilitate collaboration and promote reproducible research, as explained in the following pages:\nNote that data subject to confidentiality agreements should never leave the institutional network folders. This ensures the data is safe from external threats as well as reducing the risk of data loss since the folders are backed up every week. Moreover if all the files are always in these network folders, it is easy to share your work with other members of the group."
+    "text": "Our group has a main network folder assigned named airpollution. A second network folder named hpc_airpollution is available to the group, which can be accessed through the institutional High Performance Computing cluster isgcluster. All the contents of the different projects should be organized in these shared folders as defined in the Network Folders page.\nProjects involving data analyses should be developed following a set of best practices in order to facilitate collaboration and promote reproducible research, as explained in the following pages:\nNote that data subject to confidentiality agreements should never leave the institutional network folders. This ensures the data is safe from external threats as well as reducing the risk of data loss since the folders are backed up every week. Moreover if all the files are always in these network folders, it is easy to share your work with other members of the group.",
+    "crumbs": [
+      "Projects",
+      "Getting Started"
+    ]
   },
   {
     "objectID": "get-started.html#getting-access",
     "href": "get-started.html#getting-access",
     "title": "Getting Started",
     "section": "Getting Access",
-    "text": "Getting Access\nIT must grant you access before you can connect to the network folders. Send an email to sri.tic@isglobal.org asking for access to the airpollution and hpc_airpollution network folders. When you do, also ask them how you can mount the airpollution and hpc_airpollution network folders in your laptop’s file system for easy access.\n\nInternal Access\nThe airpollution and hpc_airpollution folders belong to the internal ISGlobal network. If you have an institutional laptop you should be able to efficiently access these mounted network folders while connected to the internal network through Ethernet cable at Campus Mar.\n\n\nRemote Access\nWhen you are not connected to the internal network at Campus Mar through Ethernet cable, you will need to be connected to the Campus Mar VPN. Ask IT to setup the VPN in your system for accessing the network remotely.\n\n\n\n\n\n\nSlow connections\n\n\n\nWhen working remotely through the VPN, some operations such as opening files or reading/writing data from/to the network folders will be slower, as the VPN will limit the bandwidth speed."
+    "text": "Getting Access\nIT must grant you access before you can connect to the network folders. Send an email to sri.tic@isglobal.org asking for access to the airpollution and hpc_airpollution network folders. When you do, also ask them how you can mount the airpollution and hpc_airpollution network folders in your laptop’s file system for easy access.\n\nInternal Access\nThe airpollution and hpc_airpollution folders belong to the internal ISGlobal network. If you have an institutional laptop you should be able to efficiently access these mounted network folders while connected to the internal network through Ethernet cable at Campus Mar.\n\n\nRemote Access\nWhen you are not connected to the internal network at Campus Mar through Ethernet cable, you will need to be connected to the Campus Mar VPN. Ask IT to setup the VPN in your system for accessing the network remotely.\n\n\n\n\n\n\nNoteSlow connections\n\n\n\nWhen working remotely through the VPN, some operations such as opening files or reading/writing data from/to the network folders will be slower, as the VPN will limit the bandwidth speed.",
+    "crumbs": [
+      "Projects",
+      "Getting Started"
+    ]
   },
   {
     "objectID": "getting-help.html",
     "href": "getting-help.html",
     "title": "Getting help with R",
     "section": "",
-    "text": "When you need help with an R problem it can be very useful to write a reproducible example. A reproducible example allows someone else to recreate your problem by just copying and pasting R code. The example should be minimal, simplifying the problem as much as possible.\nA minimal reproducible R example usually consists of the following items:\nWriting a reproducible example can actually help you find the solution to the problem by yourself. If not, you can share the example with others by sending the runnable script through several channels."
+    "text": "When you need help with an R problem it can be very useful to write a reproducible example. A reproducible example allows someone else to recreate your problem by just copying and pasting R code. The example should be minimal, simplifying the problem as much as possible.\nA minimal reproducible R example usually consists of the following items:\nWriting a reproducible example can actually help you find the solution to the problem by yourself. If not, you can share the example with others by sending the runnable script through several channels.",
+    "crumbs": [
+      "Projects",
+      "Getting help with R"
+    ]
   },
   {
     "objectID": "getting-help.html#minimal-dataset",
     "href": "getting-help.html#minimal-dataset",
     "title": "Getting help with R",
     "section": "Minimal dataset",
-    "text": "Minimal dataset\nInstead of supplying the full dataset you are working with, try creating a simplified version that contains the necessary structure to reproduce the problem. The reader should be able to get the data without the need for downloading any external file. The code itself should provide the data. The goal is to make it as easy as possible for someone to reproduce your problem.\nTwo possible ways of providing a minimal data set are creating fake data using R’s built-in functions or using one of R’s built-in datasets.\n\nVectors\nMaking a vector in R is easy. Sometimes it is necessary to add some randomness to it, and there are a whole number of functions to make that. sample() can randomize a vector, or give a random vector with only a few values. letters is a useful vector containing the alphabet, which can be used for making factors.\n\n## From normal distribution\nx <- rnorm(10)\n## From uniform distribution\nx <- runif(10)\n## A permutation of some values\nx <- sample(1:10)\n## A random factor\nx <- sample(letters[1:4], size = 20, replace = TRUE)\n\n\n\nData frames\nYou can create a simple data frame for your example by specifying made-up vectors of the same length inside data.fram() or tibble().\n\ndf <- data.frame(\n  x = sample(1:10),\n  y = sample(c(\"yes\", \"no\"), 10, replace = TRUE)\n)\n\nFor some questions, specific formats can be needed. For these, one can use: as.factor(), as.Date(), etc.\nIt may also be possible to just use one of the built-in datasets in R that is suitable to your problem. You can use library(help = \"datasets\") to see a comprehensive list of all built-in datasets.\n\nairquality[1:5,]\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n\n\nAnother option is to copy your data frame into your reproducible script using dput():\n\nRun dput(my_df) in R, where my_df is your data frame.\nCopy the output.\nIn your reproducible script, type my_df <- and paste."
+    "text": "Minimal dataset\nInstead of supplying the full dataset you are working with, try creating a simplified version that contains the necessary structure to reproduce the problem. The reader should be able to get the data without the need for downloading any external file. The code itself should provide the data. The goal is to make it as easy as possible for someone to reproduce your problem.\nTwo possible ways of providing a minimal data set are creating fake data using R’s built-in functions or using one of R’s built-in datasets.\n\nVectors\nMaking a vector in R is easy. Sometimes it is necessary to add some randomness to it, and there are a whole number of functions to make that. sample() can randomize a vector, or give a random vector with only a few values. letters is a useful vector containing the alphabet, which can be used for making factors.\n\n## From normal distribution\nx &lt;- rnorm(10)\n## From uniform distribution\nx &lt;- runif(10)\n## A permutation of some values\nx &lt;- sample(1:10)\n## A random factor\nx &lt;- sample(letters[1:4], size = 20, replace = TRUE)\n\n\n\nData frames\nYou can create a simple data frame for your example by specifying made-up vectors of the same length inside data.fram() or tibble().\n\ndf &lt;- data.frame(\n  x = sample(1:10),\n  y = sample(c(\"yes\", \"no\"), 10, replace = TRUE)\n)\n\nFor some questions, specific formats can be needed. For these, one can use: as.factor(), as.Date(), etc.\nIt may also be possible to just use one of the built-in datasets in R that is suitable to your problem. You can use library(help = \"datasets\") to see a comprehensive list of all built-in datasets.\n\nairquality[1:5,]\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n\n\nAnother option is to copy your data frame into your reproducible script using dput():\n\nRun dput(my_df) in R, where my_df is your data frame.\nCopy the output.\nIn your reproducible script, type my_df &lt;- and paste.",
+    "crumbs": [
+      "Projects",
+      "Getting help with R"
+    ]
   },
   {
     "objectID": "getting-help.html#minimal-code",
     "href": "getting-help.html#minimal-code",
     "title": "Getting help with R",
     "section": "Minimal code",
-    "text": "Minimal code\n\nPackages should be loaded at the top of the script.\nLoad only the packages necessary for the example to work.\nNo calls to install.packages().\nSpend some time ensuring that your code is easy for others to read:\n\nUse simple, descriptive names for variables and functions.\nUse comments to indicate where your problem lies.\nDo your best to remove everything that is not related to the problem."
+    "text": "Minimal code\n\nPackages should be loaded at the top of the script.\nLoad only the packages necessary for the example to work.\nNo calls to install.packages().\nSpend some time ensuring that your code is easy for others to read:\n\nUse simple, descriptive names for variables and functions.\nUse comments to indicate where your problem lies.\nDo your best to remove everything that is not related to the problem.",
+    "crumbs": [
+      "Projects",
+      "Getting help with R"
+    ]
   },
   {
     "objectID": "getting-help.html#sharing",
     "href": "getting-help.html#sharing",
     "title": "Getting help with R",
     "section": "Sharing",
-    "text": "Sharing\nThere are many ways for sharing the code with someone:\n\nGitHub Gist\nIf you have a GitHub account you can create Gists that can be shared with a URL. Gists are a great way of sharing scripts. Just Copy your code and paste it in the Gist. Then share it with the person/s you are asking help to.\n\n\nreprex package\nThe reprex R package is specifically designed for producing minimal reproducible examples.\nIf you are asking for help through Slack, you can copy your code into the Clipboard and then run:\n\nreprex::reprex(venue = \"R\")\n\nThis will copy the R code augmented with commented output into the Clipboard. You can then paste it inside a code snippet in Slack and send it as a regular message."
+    "text": "Sharing\nThere are many ways for sharing the code with someone:\n\nGitHub Gist\nIf you have a GitHub account you can create Gists that can be shared with a URL. Gists are a great way of sharing scripts. Just Copy your code and paste it in the Gist. Then share it with the person/s you are asking help to.\n\n\nreprex package\nThe reprex R package is specifically designed for producing minimal reproducible examples.\nIf you are asking for help through Slack, you can copy your code into the Clipboard and then run:\n\nreprex::reprex(venue = \"R\")\n\nThis will copy the R code augmented with commented output into the Clipboard. You can then paste it inside a code snippet in Slack and send it as a regular message.",
+    "crumbs": [
+      "Projects",
+      "Getting help with R"
+    ]
   },
   {
     "objectID": "getting-help.html#example",
     "href": "getting-help.html#example",
     "title": "Getting help with R",
     "section": "Example",
-    "text": "Example\nLet’s look at an example. Here is the problem:\n\nAsker: I need to take the average of several variables for all combination of two categorical variables. I have 20+ variables for which I need to take the average. Is there a way to apply the same function (i.e. mean) over several columns in a data frame?\n\nAnd here is a minimal reproducible example:\n\nlibrary(dplyr)\n\ndf <- tibble(\n  year = sample(2018:2020, size = 15, replace = TRUE),\n  scenario = sample(c(\"A\", \"B\"), 15, replace = TRUE),\n  x1 = rnorm(15, mean = 12),\n  x2 = rnorm(15, 18),\n  x3 = rnorm(15, 30)\n)\n\n## I can compute the average of x1, x2, and x3 manually.\n\ndf %>%\n  group_by(year, scenario) %>%\n  summarize(\n    x1 = mean(x1),\n    x2 = mean(x2),\n    x3 = mean(x3)\n  )\n\n## How can I avoid having to repeat the mean() function calls for each variable?\n\nIt is straightforward for someone to copy and paste the code and provide a possible solution:\n\nHelper: You can use the new across() function from the dplyr package inside summarize().\n\n\ndf %>%\n  group_by(year, scenario) %>%\n  summarize(across(.cols = everything(), .fns = mean))\n\n# A tibble: 6 × 5\n# Groups:   year [3]\n   year scenario    x1    x2    x3\n  <int> <chr>    <dbl> <dbl> <dbl>\n1  2018 A         11.4  17.9  29.4\n2  2018 B         12.4  18.2  29.3\n3  2019 A         11.8  19.4  31.9\n4  2019 B         12.5  17.2  30.8\n5  2020 A         13.0  17.3  31.0\n6  2020 B         11.3  18.9  30.7"
+    "text": "Example\nLet’s look at an example. Here is the problem:\n\nAsker: I need to take the average of several variables for all combination of two categorical variables. I have 20+ variables for which I need to take the average. Is there a way to apply the same function (i.e. mean) over several columns in a data frame?\n\nAnd here is a minimal reproducible example:\n\nlibrary(dplyr)\n\ndf &lt;- tibble(\n  year = sample(2018:2020, size = 15, replace = TRUE),\n  scenario = sample(c(\"A\", \"B\"), 15, replace = TRUE),\n  x1 = rnorm(15, mean = 12),\n  x2 = rnorm(15, 18),\n  x3 = rnorm(15, 30)\n)\n\n## I can compute the average of x1, x2, and x3 manually.\n\ndf %&gt;%\n  group_by(year, scenario) %&gt;%\n  summarize(\n    x1 = mean(x1),\n    x2 = mean(x2),\n    x3 = mean(x3)\n  )\n\n## How can I avoid having to repeat the mean() function calls for each variable?\n\nIt is straightforward for someone to copy and paste the code and provide a possible solution:\n\nHelper: You can use the new across() function from the dplyr package inside summarize().\n\n\ndf %&gt;%\n  group_by(year, scenario) %&gt;%\n  summarize(across(.cols = everything(), .fns = mean))\n\n# A tibble: 6 × 5\n# Groups:   year [3]\n   year scenario    x1    x2    x3\n  &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  2018 A         12.8  18.4  30.2\n2  2018 B         12.5  18.5  32.1\n3  2019 A         12.2  18.1  29.6\n4  2019 B         12.7  17.2  29.8\n5  2020 A         11.7  17.0  29.6\n6  2020 B         11.3  18.4  30.9",
+    "crumbs": [
+      "Projects",
+      "Getting help with R"
+    ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Here we set a general framework for organizing and developing research projects in the group. Adhering to this framework facilitates collaboration among the different members of the team. Moreover, the framework incorporates some best practices that promote open and reproducible science."
+    "text": "This is the documentation site for the Air Pollution research Group led by Cathryn Tonne at ISGlobal.\nHere we set a general framework for organizing and developing research projects in the group. Adhering to this framework facilitates collaboration among the different members of the team. Moreover, the framework incorporates some best practices that promote open and reproducible science.\n08-09-2025"
   },
   {
     "objectID": "network-folders.html",
     "href": "network-folders.html",
-    "title": "Air Pollution Group",
+    "title": "Network Folders",
     "section": "",
-    "text": "All projects should be stored at all times in one of the network folders assigned to the group:\n\n\n\nNetwork folder name\nDescription\n\n\n\n\nairpollution\nMain folder\n\n\nhpc_airpollution\nFolder mounted in the SLURM HPC cluster\n\n\n\nThe airpollution network folder is where all projects should be stored at some point. In some circumstances, the folder hpc_airpollution may be better suited to store projects that will require the use of the institution’s High Performance Computing (HPC) cluster. In these cases, the project folder should be moved from hpc_airpollution to airpollution when the project is finished.\n\n\n\n\n\n\nNote that not everyone will have these network folders mounted in the same place. Please refer to the network folders by name (airpollution or hpc_airpollution) instead of the drive where these folders are mounted in your system (i.e. P: drive, …).\n\n\n\n\n\n\n\nThe organization inside of the main airpollution folder should have the following basic structure to facilitate navigation:\n.\n├── CHAI\n│   ├── analyses\n│   │   ├── OR_atherosclerosis\n│   │   └── SO_physical-activity\n    ├── data\n│   ├── documents\n│   │   └── atherosclerosis-proposal.docx\n│   ├── manuscripts\n│   │   └── physical-activity.docx\n│   └── README.docx\n└── EXPANSE\n    ├── analyses\n    │   ├── AC_air-pollution\n    │   └── NO_movers\n    ├── data\n    ├── documents\n    │   └── request_form.xlsx\n    ├── manuscripts\n    │   └── movers.pdf\n    └── README.md\nThe root of the airpollution network folder should contain directories with the name of the different broad research projects from which papers are meant to be produced. Inside these general folders there should be only three sub-folders:\n\ndocuments/ contains all documents relevant to the general research projects (i.e. proposals, relevant papers, data request forms, etc.) and can be further divided into as many sub-folders as needed.\nanalyses/ contains the different projects that involve data analyses. See the Project Structure section for how to structure data analysis projects.\nmanuscripts/ contains the final written manuscripts of all the papers that are preoduced.\nREADME file containing a brief overview of the given research project. Could be any format: .md, .docx, .pdf, .txt.\n\n\n\n\nThe organization of the group network folder hpc_airpollution mounted in the HPC cluster can be more flexible. One simple way to organize the different projects inside this network folder is creating a directory named as your user, and store all your projects inside this directory.\nIf the project involves collaborating with other members of the team consider creating a folder for the project in the root of hpc_airpollution.\n\n\n\n\n\n\nRemember that all projects in hpc_airpollution should be moved to the appropriate path inside the airpollution network folder once the project is done."
+    "text": "All projects should be stored at all times in one of the network folders assigned to the group:\n\n\n\nNetwork folder name\nDescription\n\n\n\n\nairpollution\nMain folder\n\n\nhpc_airpollution\nFolder mounted in the SLURM HPC cluster\n\n\n\nThe airpollution network folder is where all projects should be stored at some point. In some circumstances, the folder hpc_airpollution may be better suited to store projects that will require the use of the institution’s High Performance Computing (HPC) cluster. In these cases, the project folder should be moved from hpc_airpollution to airpollution when the project is finished.\n\n\n\n\n\n\nNote that not everyone will have these network folders mounted in the same place. Please refer to the network folders by name (airpollution or hpc_airpollution) instead of the drive where these folders are mounted in your system (i.e. P: drive, …).\n\n\n\n\n\n\n\nThe organization inside of the main airpollution folder should have the following basic structure to facilitate navigation:\n.\n├── CHAI\n│   ├── analyses\n│   │   ├── OR_atherosclerosis\n│   │   └── SO_physical-activity\n    ├── data\n│   ├── documents\n│   │   └── atherosclerosis-proposal.docx\n│   ├── manuscripts\n│   │   └── physical-activity.docx\n│   └── README.docx\n└── EXPANSE\n    ├── analyses\n    │   ├── AC_air-pollution\n    │   └── NO_movers\n    ├── data\n    ├── documents\n    │   └── request_form.xlsx\n    ├── manuscripts\n    │   └── movers.pdf\n    └── README.md\nThe root of the airpollution network folder should contain directories with the name of the different broad research projects from which papers are meant to be produced. Inside these general folders there should be only three sub-folders:\n\ndocuments/ contains all documents relevant to the general research projects (i.e. proposals, relevant papers, data request forms, etc.) and can be further divided into as many sub-folders as needed.\nanalyses/ contains the different projects that involve data analyses. See the Project Structure section for how to structure data analysis projects.\nmanuscripts/ contains the final written manuscripts of all the papers that are preoduced.\nREADME file containing a brief overview of the given research project. Could be any format: .md, .docx, .pdf, .txt.\n\n\n\n\nThe organization of the group network folder hpc_airpollution mounted in the HPC cluster can be more flexible. One simple way to organize the different projects inside this network folder is creating a directory named as your user, and store all your projects inside this directory.\nIf the project involves collaborating with other members of the team consider creating a folder for the project in the root of hpc_airpollution.\n\n\n\n\n\n\nRemember that all projects in hpc_airpollution should be moved to the appropriate path inside the airpollution network folder once the project is done.",
+    "crumbs": [
+      "Projects",
+      "Network Folders"
+    ]
   },
   {
     "objectID": "project-structure.html",
     "href": "project-structure.html",
     "title": "Data Analysis Projects",
     "section": "",
-    "text": "Data analyses that involve source code should be placed inside a self-contained directory in one of the network folders.\nA self-contained project must contain all the files, data and code necessary to obtain the final results of the analysis. It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See Reproducible Research for more details on why this is important.\nThe names of these project folders should start with your name initials in capital letters followed by an underscore and a short informative name:\nXX_project-name"
+    "text": "Data analyses that involve source code should be placed inside a self-contained directory in one of the network folders.\nA self-contained project must contain all the files, data and code necessary to obtain the final results of the analysis. It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See Reproducible Research for more details on why this is important.\nThe names of these project folders should start with your name initials in capital letters followed by an underscore and a short informative name:\nXX_project-name",
+    "crumbs": [
+      "Projects",
+      "Data Analysis Projects"
+    ]
   },
   {
     "objectID": "project-structure.html#basic-structure",
     "href": "project-structure.html#basic-structure",
     "title": "Data Analysis Projects",
     "section": "Basic Structure",
-    "text": "Basic Structure\nDifferent projects will require different folder structures but some common minimal rules should be set to facilitate file navigation across projects among all team members.\n\nA README.md file describing the project.\nA data/ folder containing all data files.\nAn R/ or src/ folder containing all scripts in the analysis.\n\nAll these files/folders should be at the root of the project.\n\nREADME.md\nAll data analysis projects should contain a README file that helps collaborators, as well as future you, understand what the project does and how it does it. The use of Markdown for these files is strongly encouraged.\nThe README file should contain at least the following information:\n\nAuthor/s: Who is involved in the analysis.\nObjectives: A paragraph or two explaining the main objectives of the analysis.\nProject structure: How files are organized inside the project.\nReproducibility: Instructions on how to independently obtain the results.\n\n\n\ndata/\nAll raw data files (.csv, .xlsx, etc.) should be placed in a folder named data/. If appropriate, consider creating two sub-directories data/raw/ and data/processed/.\n\n\n\n\n\n\nWarning\n\n\n\nWhen using Git and GitHub for version control, add this folder to the .gitignore file from the start so that possibly sensitive data is not tracked by Git and accidentally uploaded to GitHub.\n\n\n\n\nR/\nAll R scripts should be placed inside a folder named R/. If you are using a programming language other than R, name this folder src/. The code underlying the analysis should be divided into several scripts of a few hundred lines grouped by specific tasks, i.e. read-data.R, fit-models.R, etc."
+    "text": "Basic Structure\nDifferent projects will require different folder structures but some common minimal rules should be set to facilitate file navigation across projects among all team members.\n\nA README.md file describing the project.\nA data/ folder containing all data files.\nAn R/ or src/ folder containing all scripts in the analysis.\n\nAll these files/folders should be at the root of the project.\n\nREADME.md\nAll data analysis projects should contain a README file that helps collaborators, as well as future you, understand what the project does and how it does it. The use of Markdown for these files is strongly encouraged.\nThe README file should contain at least the following information:\n\nAuthor/s: Who is involved in the analysis.\nObjectives: A paragraph or two explaining the main objectives of the analysis.\nProject structure: How files are organized inside the project.\nReproducibility: Instructions on how to independently obtain the results.\n\n\n\ndata/\nAll raw data files (.csv, .xlsx, etc.) should be placed in a folder named data/. If appropriate, consider creating two sub-directories data/raw/ and data/processed/.\n\n\n\n\n\n\nWarning\n\n\n\nWhen using Git and GitHub for version control, add this folder to the .gitignore file from the start so that possibly sensitive data is not tracked by Git and accidentally uploaded to GitHub.\n\n\n\n\nR/\nAll R scripts should be placed inside a folder named R/. If you are using a programming language other than R, name this folder src/. The code underlying the analysis should be divided into several scripts of a few hundred lines grouped by specific tasks, i.e. read-data.R, fit-models.R, etc.",
+    "crumbs": [
+      "Projects",
+      "Data Analysis Projects"
+    ]
   },
   {
     "objectID": "project-structure.html#example",
     "href": "project-structure.html#example",
     "title": "Data Analysis Projects",
     "section": "Example",
-    "text": "Example\nA common project structure could be:\n.\n├── data\n│   └── raw-data.csv\n├── master-script.R\n├── output\n│   ├── manuscript.md\n│   ├── plot1.png\n│   └── plot2.png\n├── R\n│   ├── fit-models.R\n│   └── read-data.R\n├── README.md\n├── reports\n│   └── exploratory-report.Rmd\n└── SO_my-analysis.Rproj\nOther common folders inside of projects are output/ for the final output of the project, documents/ for relevant papers or reports/ for exploratory data analysis reports.\n\n\n\n\n\n\nMaster script\n\n\n\nNote that there is a file called master-script.R in the root of the project. This file orchestrates all the scripts in the R/ folder to produce the results of the analysis. See the Reproducible Research section for more details."
+    "text": "Example\nA common project structure could be:\n.\n├── data\n│   └── raw-data.csv\n├── master-script.R\n├── output\n│   ├── manuscript.md\n│   ├── plot1.png\n│   └── plot2.png\n├── R\n│   ├── fit-models.R\n│   └── read-data.R\n├── README.md\n├── reports\n│   └── exploratory-report.Rmd\n└── SO_my-analysis.Rproj\nOther common folders inside of projects are output/ for the final output of the project, documents/ for relevant papers or reports/ for exploratory data analysis reports.\n\n\n\n\n\n\nNoteMaster script\n\n\n\nNote that there is a file called master-script.R in the root of the project. This file orchestrates all the scripts in the R/ folder to produce the results of the analysis. See the Reproducible Research section for more details.",
+    "crumbs": [
+      "Projects",
+      "Data Analysis Projects"
+    ]
   },
   {
     "objectID": "projects.html",
@@ -179,133 +223,209 @@
     "href": "remote-servers.html",
     "title": "HPC Cluster",
     "section": "",
-    "text": "ISGlobal provides a High Performance Computing (HPC) cluster named isgcluster where researchers can launch resource-intensive jobs. The cluster resources are managed by a job scheduler system called SLURM.\nYou may want to work on the cluster if:"
+    "text": "ISGlobal provides a High Performance Computing (HPC) cluster named isgcluster where researchers can launch resource-intensive jobs. The cluster resources are managed by a job scheduler system called SLURM.\nYou may want to work on the cluster if:",
+    "crumbs": [
+      "Projects",
+      "HPC Cluster"
+    ]
   },
   {
     "objectID": "remote-servers.html#cluster-architecture",
     "href": "remote-servers.html#cluster-architecture",
     "title": "HPC Cluster",
     "section": "Cluster Architecture",
-    "text": "Cluster Architecture\n\n\n\nNode name\nNode type\nCPUs (cores)\nRAM (GB)\n\n\n\n\nyamabuki\nLogin\n32\n256\n\n\nisgws07\nComputing\n72\n512\n\n\nisgws08\nComputing\n72\n512\n\n\nisgws09\nComputing\n72\n512"
+    "text": "Cluster Architecture\n\n\n\nNode name\nNode type\nCPUs (cores)\nRAM (GB)\n\n\n\n\nyamabuki\nLogin\n32\n256\n\n\nisgws07\nComputing\n72\n512\n\n\nisgws08\nComputing\n72\n512\n\n\nisgws09\nComputing\n72\n512",
+    "crumbs": [
+      "Projects",
+      "HPC Cluster"
+    ]
   },
   {
     "objectID": "remote-servers.html#partitions",
     "href": "remote-servers.html#partitions",
     "title": "HPC Cluster",
     "section": "Partitions",
-    "text": "Partitions\nThe SLURM system provides different partitions (or job queues) which are intended to manage resource allocation according to different time and resource needs.\n\n\n\n\n\n\n\n\n\n\nPartition name\nMax. Time\nMax. CPUs/Node\nMax. RAM/Node\nNode parallelization\n\n\n\n\ndebug\n6h\n4\n8Gb (2Gb/CPU)\nNot allowed\n\n\nshort\n12h\n16\n64Gb (4Gb/CPU)\nNot allowed\n\n\nlong\n72h\n48\n128Gb (4Gb/CPU)\nNot allowed\n\n\nno_limits\nNo limit\n72\n432Gb (6Gb/CPU)\nNot allowed\n\n\n\nThe debug partition is well suited for interactive sessions and debugging. It is the default partition, i.e. jobs will be submitted to this partition unless a different partition is specified.\nThe short partition is well suited for short jobs with low resource requirements, while the long partition should be used for jobs with high resource requirements.\nThe no_limits partition should only be used for very specific jobs that require an extemely high amount of resources and/or have very high priority. Access to this partition must be requested to the IT team."
+    "text": "Partitions\nThe SLURM system provides different partitions (or job queues) which are intended to manage resource allocation according to different time and resource needs.\n\n\n\n\n\n\n\n\n\n\nPartition name\nMax. Time\nMax. CPUs/Node\nMax. RAM/Node\nNode parallelization\n\n\n\n\ndebug\n6h\n4\n8Gb (2Gb/CPU)\nNot allowed\n\n\nshort\n12h\n16\n64Gb (4Gb/CPU)\nNot allowed\n\n\nlong\n72h\n48\n128Gb (4Gb/CPU)\nNot allowed\n\n\nno_limits\nNo limit\n72\n432Gb (6Gb/CPU)\nNot allowed\n\n\n\nThe debug partition is well suited for interactive sessions and debugging. It is the default partition, i.e. jobs will be submitted to this partition unless a different partition is specified.\nThe short partition is well suited for short jobs with low resource requirements, while the long partition should be used for jobs with high resource requirements.\nThe no_limits partition should only be used for very specific jobs that require an extemely high amount of resources and/or have very high priority. Access to this partition must be requested to the IT team.",
+    "crumbs": [
+      "Projects",
+      "HPC Cluster"
+    ]
   },
   {
     "objectID": "remote-servers.html#user-accounts",
     "href": "remote-servers.html#user-accounts",
     "title": "HPC Cluster",
     "section": "User Accounts",
-    "text": "User Accounts\nAll users belong by default to the generic account, which allows the user to use all non-restricted partitions. All jobs are submited to the debug partition by default, unless a different partition is specified.\nAn unlimited account allows users to use the no_limits partition and can be granted by IT for very specific jobs that cannot be accomodated by the other partitions.\n\n\n\n\n\n\n\n\n\nAccount\nPartition\nMax concurrent jobs\nMax total CPUs\n\n\n\n\ngeneric\ndebug, short, long\n4\n48\n\n\nunlimited\nno_limits\n1\n48"
+    "text": "User Accounts\nAll users belong by default to the generic account, which allows the user to use all non-restricted partitions. All jobs are submited to the debug partition by default, unless a different partition is specified.\nAn unlimited account allows users to use the no_limits partition and can be granted by IT for very specific jobs that cannot be accomodated by the other partitions.\n\n\n\n\n\n\n\n\n\nAccount\nPartition\nMax concurrent jobs\nMax total CPUs\n\n\n\n\ngeneric\ndebug, short, long\n4\n48\n\n\nunlimited\nno_limits\n1\n48",
+    "crumbs": [
+      "Projects",
+      "HPC Cluster"
+    ]
   },
   {
     "objectID": "remote-servers.html#requirements",
     "href": "remote-servers.html#requirements",
     "title": "HPC Cluster",
     "section": "Requirements",
-    "text": "Requirements\n\nAccess\nYou will need to ask IT for access to the cluster isgcluster by reporting an IT incidence in the Intranet or sending an email to sri.tic@isglobal.org.\n\n\nUNIX shell\nYou should be familiar with basic UNIX shell commands.\nFile system navigation:\n## Get current working directory\npwd\n## Change working directory\ncd path/to/directory\n## Change to parent directory of current working directory\ncd ..\n## List folders and files of current working directory\nls\n## Make new directory\nmkdir path/to/new/directory\n## Create new file\ntouch path/to/new/file.txt\nR:\n## Start an interactive R session\nR\n## Run R script non-interactively\nR CMD BATCH path/to/my-script.R\n## Run R script non-interactively\nRscript path/to/my-script.R\n## Evaluate R commands\nRScript -e \"install.packages('tidyverse')\""
+    "text": "Requirements\n\nAccess\nYou will need to ask IT for access to the cluster isgcluster by reporting an IT incidence in the Intranet or sending an email to sri.tic@isglobal.org.\n\n\nUNIX shell\nYou should be familiar with basic UNIX shell commands.\nFile system navigation:\n## Get current working directory\npwd\n## Change working directory\ncd path/to/directory\n## Change to parent directory of current working directory\ncd ..\n## List folders and files of current working directory\nls\n## Make new directory\nmkdir path/to/new/directory\n## Create new file\ntouch path/to/new/file.txt\nR:\n## Start an interactive R session\nR\n## Run R script non-interactively\nR CMD BATCH path/to/my-script.R\n## Run R script non-interactively\nRscript path/to/my-script.R\n## Evaluate R commands\nRScript -e \"install.packages('tidyverse')\"",
+    "crumbs": [
+      "Projects",
+      "HPC Cluster"
+    ]
   },
   {
     "objectID": "remote-servers.html#connecting-to-yamabuki",
     "href": "remote-servers.html#connecting-to-yamabuki",
     "title": "HPC Cluster",
     "section": "Connecting to yamabuki",
-    "text": "Connecting to yamabuki\nYou can connect to the login node (yamabuki) by SSH using your ISGlobal credentials. Refer to the HPC guide provided by IT for the DNS or IP address information."
+    "text": "Connecting to yamabuki\nYou can connect to the login node (yamabuki) by SSH using your ISGlobal credentials. Refer to the HPC guide provided by IT for the DNS or IP address information.",
+    "crumbs": [
+      "Projects",
+      "HPC Cluster"
+    ]
   },
   {
     "objectID": "remote-servers.html#software",
     "href": "remote-servers.html#software",
     "title": "HPC Cluster",
     "section": "Software",
-    "text": "Software\n\nModules\nThere are a large number of software applications, libraries, tools and compilers preinstalled on the cluster. All installed software is not directly available in the login node. Any software must be loaded as an “environment module” before it can be used.\nYou can list all modules available with:\nmodule avail\nAnd you can search for specific modules by passing a partial name to module spider.\nOnly the module Conda is available on the login node. All other software must be loaded and run in one of the computing nodes.\nAny software module can be loaded with module load. For instance, you can load a pre-installed R version by typing:\nmodule load lang/R/4.0.3-foss-2020a\n\n\nMiniconda\nMiniconda allows you to install specific software (R, Emacs, etc.) from the Conda repositories inside isolated environments in the cluster. Miniconda is already installed in the cluster. Some useful commands are:\n## Create a new environment\nconda create my-environment\n## Activate a specific environment\nconda activate my-environment\n## Deactivate the active environment\nconda deactivate\n## List all available environments\nconda env list\n## Search software packages\nconda search software-name\n## Install a softaware package from the conda-forge channel in the current env\n## r-base, r-tidyverse, ...\nconda install -c conda-forge software-name=x.x.x\nR packages can also be installed through Conda but not all CRAN packages are available.\n\n\nR packages\nR packages can also be installed in your home directory in the cluster by running R in one of the computing nodes and using the familiar install.packages() function.\nOne way to do this is first run an interactive terminal in one of the computing nodes:\nsrun --pty bash\nOnce logged in one of the computing nodes, load the R module:\nmodule load lang/R/4.0.3-foss-2020a\nAnd finally install the packages:\nRscript -e \"install.packages('tidyverse')\"\nOr running an interactive R sessions with the R command and calling install.packages() in the command line interactively.\n\n\n\n\n\n\nYou may want to add shortcuts for commonly typed commands by adding them to your .bashrc file.\nSome useful shortcuts can be (add these lines to the end of your ~/.bashrc file):\nalias cdp=\"cd /PROJECTES/AIRPOLLUTION\"\nalias loadr=\"module load lang/R/4.0.3-foss-2020a\""
+    "text": "Software\n\nModules\nThere are a large number of software applications, libraries, tools and compilers preinstalled on the cluster. All installed software is not directly available in the login node. Any software must be loaded as an “environment module” before it can be used.\nYou can list all modules available with:\nmodule avail\nAnd you can search for specific modules by passing a partial name to module spider.\nOnly the module Conda is available on the login node. All other software must be loaded and run in one of the computing nodes.\nAny software module can be loaded with module load. For instance, you can load a pre-installed R version by typing:\nmodule load lang/R/4.0.3-foss-2020a\n\n\nMiniconda\nMiniconda allows you to install specific software (R, Emacs, etc.) from the Conda repositories inside isolated environments in the cluster. Miniconda is already installed in the cluster. Some useful commands are:\n## Create a new environment\nconda create my-environment\n## Activate a specific environment\nconda activate my-environment\n## Deactivate the active environment\nconda deactivate\n## List all available environments\nconda env list\n## Search software packages\nconda search software-name\n## Install a softaware package from the conda-forge channel in the current env\n## r-base, r-tidyverse, ...\nconda install -c conda-forge software-name=x.x.x\nR packages can also be installed through Conda but not all CRAN packages are available.\n\n\nR packages\nR packages can also be installed in your home directory in the cluster by running R in one of the computing nodes and using the familiar install.packages() function.\nOne way to do this is first run an interactive terminal in one of the computing nodes:\nsrun --pty bash\nOnce logged in one of the computing nodes, load the R module:\nmodule load lang/R/4.0.3-foss-2020a\nAnd finally install the packages:\nRscript -e \"install.packages('tidyverse')\"\nOr running an interactive R sessions with the R command and calling install.packages() in the command line interactively.\n\n\n\n\n\n\nYou may want to add shortcuts for commonly typed commands by adding them to your .bashrc file.\nSome useful shortcuts can be (add these lines to the end of your ~/.bashrc file):\nalias cdp=\"cd /PROJECTES/AIRPOLLUTION\"\nalias loadr=\"module load lang/R/4.0.3-foss-2020a\"",
+    "crumbs": [
+      "Projects",
+      "HPC Cluster"
+    ]
   },
   {
     "objectID": "remote-servers.html#slurm",
     "href": "remote-servers.html#slurm",
     "title": "HPC Cluster",
     "section": "SLURM",
-    "text": "SLURM\nThe isgcluster is managed by the scheduler system SLURM. In order to submit a job to the queueing system or run an interactive session in one of the computing nodes a specific set of commands must be used.\n\nsbatch\nTo submit a job to the queue system in the cluster you need pass a shell script to the command sbatch. This shell script must have the following format:\n#! /bin/bash\n\n# Set a Job name\n#SBATCH --job-name=my_job\n\n# Set a partition or queue to submit to\n#SBATCH --partition=short\n\n# Set a user account to submit as\n#SBATCH --account=generic\n\n# Mail events (NONE, BEGIN, END, FAIL, ALL)\n#SBATCH --mail-type=BEGIN,END,FAIL\n\n# Where to send mail events\n#SBATCH --mail-user=my-email@isglobal.org\n\n# Run a single tasks\n#SBATCH --ntasks=1\n\n# Use 4 cpus for each task\n#SBATCH --cpus-per-task=4\n\n# Job memory request\n#SBATCH --mem=16gb\n\n# Standard output and error log\n#SBATCH --output=output.log\n\n# Clear the environment from any previously loaded modules\nmodule purge > /dev/null 2>&1\n\n# Load the module environment suitable for the job. In this case, R version 4.0.3\nmodule load lang/R/4.0.3-foss-2020a\n\n# And finally run the job calling R as you wold do using system R installation\nRscript my_script.R\nLet’s say that this shell script is named run.sh, then, with working directory in the same folder as the script, we can submit it to SLURM with:\nsbatch run.sh\nYou can quickly print the log file that you specified in the --output option in the sbatch file using the command cat. In this case, it would be:\ncat output.log\n\n\nsrun\nYou can also launch an interactive shell in one of the computing nodes with the command srun. For an interactive session with the default options just type:\nsrun --pty bash\nOnce logged in, you may load any software that you wish and even run interactive R sessions for quick debugging.\n\n\n\n\n\n\nPlease remember to always exit interactive sessions once finished by typing exit in the interactive shell.\n\n\n\n\n\nUseful commands\n\n\n\nCommand\nDescription\n\n\n\n\nsqueue\nList all currently scheduled jobs\n\n\nsstat\nList resources being used\n\n\nscancel\nCancel a scheduled job\n\n\nsinfo\nView information about Slurm nodes and partitions"
+    "text": "SLURM\nThe isgcluster is managed by the scheduler system SLURM. In order to submit a job to the queueing system or run an interactive session in one of the computing nodes a specific set of commands must be used.\n\nsbatch\nTo submit a job to the queue system in the cluster you need pass a shell script to the command sbatch. This shell script must have the following format:\n#! /bin/bash\n\n# Set a Job name\n#SBATCH --job-name=my_job\n\n# Set a partition or queue to submit to\n#SBATCH --partition=short\n\n# Set a user account to submit as\n#SBATCH --account=generic\n\n# Mail events (NONE, BEGIN, END, FAIL, ALL)\n#SBATCH --mail-type=BEGIN,END,FAIL\n\n# Where to send mail events\n#SBATCH --mail-user=my-email@isglobal.org\n\n# Run a single tasks\n#SBATCH --ntasks=1\n\n# Use 4 cpus for each task\n#SBATCH --cpus-per-task=4\n\n# Job memory request\n#SBATCH --mem=16gb\n\n# Standard output and error log\n#SBATCH --output=output.log\n\n# Clear the environment from any previously loaded modules\nmodule purge &gt; /dev/null 2&gt;&1\n\n# Load the module environment suitable for the job. In this case, R version 4.0.3\nmodule load lang/R/4.0.3-foss-2020a\n\n# And finally run the job calling R as you wold do using system R installation\nRscript my_script.R\nLet’s say that this shell script is named run.sh, then, with working directory in the same folder as the script, we can submit it to SLURM with:\nsbatch run.sh\nYou can quickly print the log file that you specified in the --output option in the sbatch file using the command cat. In this case, it would be:\ncat output.log\n\n\nsrun\nYou can also launch an interactive shell in one of the computing nodes with the command srun. For an interactive session with the default options just type:\nsrun --pty bash\nOnce logged in, you may load any software that you wish and even run interactive R sessions for quick debugging.\n\n\n\n\n\n\nPlease remember to always exit interactive sessions once finished by typing exit in the interactive shell.\n\n\n\n\n\nUseful commands\n\n\n\nCommand\nDescription\n\n\n\n\nsqueue\nList all currently scheduled jobs\n\n\nsstat\nList resources being used\n\n\nscancel\nCancel a scheduled job\n\n\nsinfo\nView information about Slurm nodes and partitions",
+    "crumbs": [
+      "Projects",
+      "HPC Cluster"
+    ]
   },
   {
     "objectID": "reproducible-research.html",
     "href": "reproducible-research.html",
-    "title": "Air Pollution Group",
+    "title": "Reproducible Research",
     "section": "",
-    "text": "Here we present some general best practices for open and reproducible science. Researchers in the group are strongly encouraged to adhere to these practices for all their data analysis projects.\n\n\n\n\nWhen working on a self-contained project as the one described before, the working directory must be set to the project’s root folder.\nIdeally, this is achieved via development workflow and tooling, not by placing calls to setwd() with absolute paths into your scripts. Using an Integrated Development Environment (IDE) that supports a project-based workflow is strongly recommended. This eliminates the tension between your development convenience and the portability of the code. More details in the next section.\n\n\n\n\n\n\nWhen opening an RStudio project, RStudio will set the working directory to the root of the project automatically.\n\n\n\n\n\n\nEvery time you open a project, it should start in a fresh R session to avoid any interactions with code you might have run beforehand.\nA consequence of this approach is that you should never save .RData when you quit R or load .RData when you start R.\nThis can be disabled by default in RStudio’s Global Options:\n\nOr if you run R from the shell use R --no-save --no-restore-data. You may even set this as the default by putting this line in your .bash_profile:\nalias R='R --no-save --no-restore-data'\nYou should restart R very often an re-run your under-developement script from the top.\n\n\n\n\n\n\nNote that rm(list = ls()) does not make a fresh R session since this will not detach packages.\n\n\n\n\n\n\nIn general, no absolute paths should appear in your scripts. Absolute paths are specific to your machine. That is why setting your working directory by baking setwd(\"C:\\Users\\sergio\\path\\that\\only\\I\\have\") into your scripts will not work in other computer. If you change computers or someone else tries to run your analysis on her machine, the code will not work.\nAll paths must be relative to the project’s root folder. That is why we need to include all the necessary files inside our project’s folder. With this setup, we can move the project folder to different folders in our computer, or even to different computers entirely. Note that relative paths are necessary but not sufficient for reproducibility.\nOne last issue to note regarding file paths is that the syntax will be different in different operating systems, even for relative paths. The {here} package provides a simple way to wrap file paths so that they work across any operating system and integrates very smoothly into this project-oriented workflow.\n\n\n\n\n\nTo create a new project use the Create Project command (available on the Projects menu and on the global toolbar). You can create an RStudio project in a brand new directory or in an existing directory where you already have R code and data. This creates a project file (.Rproj) within the project directory that tells RStudio this is the root folder of your project.\nThere are several ways to open an existing project:\n\nUsing the Open Project command (available from both the Projects menu and the Projects toolbar) to browse for and select an existing project file (e.g. MyProject.Rproj).\nSelecting a project from the list of most recently opened projects (also available from both the Projects menu and toolbar).\nDouble-clicking on the project file within the system file explorer (e.g. Windows Explorer, OSX Finder, etc.).\n\n\n\n\n\n\n\nWhen opening an RStudio project, RStudio starts a fresh R session and sets the current working directory to the root of the project, so there is no need to call setwd() yourself. See why this is important in Reproducible Research.\n\n\n\nSee this RStudio tutorial for more detailed instructions.\n\n\n\nThe {usethis} R package provides a set of functions to create and manage R projects interactively. They do not need to be RStudio projects.\nUseful functions to be run interactively in the R command line:\n\nCreate a new project with usethis::create_project() and the absolute path where you want to create the project as the argument.\nOpen an existing project with usethis::proj_activate() and the absolute path of the project as argument.\n\n\n\n\nIDEs make it easy to work within this project-oriented workflow. You may prefer to use an IDE other than RStudio, such as VScode or Emacs + ESS, which come with their own project-related tools. In fact, these editors may be preferable when working on the remote cluster as they allow interacting with remote R sessions over SSH.\n\n\n\n\n\nEach script in your R/ or scr/ folder should be standalone, meaning that any given script should not depend on global objects created in other scripts. Any objects created in one script that need to be used by other scripts should be explicitly written to a file somewhere within the project. Any other script that uses this file then needs to explicitly read the file.\nFor instance, if you save the data frame that you created in read-data.R inside the data/processed/ folder as an RDS file, you should then explicitly read these files from data/processed/ in any other script that uses these data frames.\nLet’s see a very simple example. Let’s say we have a script read-data.R inside the R folder:\n## R/read-data.R\ndata_raw <- read.csv(\"data/raw-data.csv\")\nAnd a fit-model.R script:\n## R/fit-model.R\nmodel <- lm(y ~ x, data = data_raw)\nScript fit-model.R relies on the object data_raw loaded by script read-data.R in the global environment.\nInstead, we can save the object created in the first script into a file and then load this file in the second script:\n## R/read-data.R\ndata_raw <- read.csv(\"data/raw-data.csv\")\nsaveRDS(data_raw, \"data/processed/data_raw.rds\")\n## R/fit-model.R\ndata_raw <- readRDS(\"data/processed/data_raw.rds\")\nmodel <- lm(y ~ x, data = data_raw)\n\n\n\nA main script should be provided at the root of the project which runs all the required scripts in the right order to produce the final results of the analysis.\nInstead of runing the code in each script “manually”, you should have a single script that orchestrates the whole process, thus making sure that the results across all the steps in the analysis are in-sync. Moreover, a master script can help a colleague looking at your analysis understand how to reproduce your results.\nThe name of this main script should be indicated in the README file of the project.\nThere are a few options for managing the pipeline of an analysis but a bare-bones approach can be to create a script that uses the source() function to evaluate each of your analysis scripts in the right order. This file should be at the root of the project folder.\n## main-script.R at the root of your project\nlibrary(tidyverse)\nlibrary(mgcv)\n\nsource(\"R/read-data.R\")\nsource(\"R/fit-models.R\")\nsource(\"R/create-tables.R\")\nsource(\"R/create-figures.R\")\nThere are more sophisticated and helpful ways to provide a master script. Check the targets R package and GNU Make."
+    "text": "Here we present some general best practices for open and reproducible science. Researchers in the group are strongly encouraged to adhere to these practices for all their data analysis projects.\n\n\n\n\nWhen working on a self-contained project as the one described before, the working directory must be set to the project’s root folder.\nIdeally, this is achieved via development workflow and tooling, not by placing calls to setwd() with absolute paths into your scripts. Using an Integrated Development Environment (IDE) that supports a project-based workflow is strongly recommended. This eliminates the tension between your development convenience and the portability of the code. More details in the next section.\n\n\n\n\n\n\nWhen opening an RStudio project, RStudio will set the working directory to the root of the project automatically.\n\n\n\n\n\n\nEvery time you open a project, it should start in a fresh R session to avoid any interactions with code you might have run beforehand.\nA consequence of this approach is that you should never save .RData when you quit R or load .RData when you start R.\nThis can be disabled by default in RStudio’s Global Options:\n\nOr if you run R from the shell use R --no-save --no-restore-data. You may even set this as the default by putting this line in your .bash_profile:\nalias R='R --no-save --no-restore-data'\nYou should restart R very often an re-run your under-developement script from the top.\n\n\n\n\n\n\nNote that rm(list = ls()) does not make a fresh R session since this will not detach packages.\n\n\n\n\n\n\nIn general, no absolute paths should appear in your scripts. Absolute paths are specific to your machine. That is why setting your working directory by baking setwd(\"C:\\Users\\sergio\\path\\that\\only\\I\\have\") into your scripts will not work in other computer. If you change computers or someone else tries to run your analysis on her machine, the code will not work.\nAll paths must be relative to the project’s root folder. That is why we need to include all the necessary files inside our project’s folder. With this setup, we can move the project folder to different folders in our computer, or even to different computers entirely. Note that relative paths are necessary but not sufficient for reproducibility.\nOne last issue to note regarding file paths is that the syntax will be different in different operating systems, even for relative paths. The {here} package provides a simple way to wrap file paths so that they work across any operating system and integrates very smoothly into this project-oriented workflow.\n\n\n\n\n\nTo create a new project use the Create Project command (available on the Projects menu and on the global toolbar). You can create an RStudio project in a brand new directory or in an existing directory where you already have R code and data. This creates a project file (.Rproj) within the project directory that tells RStudio this is the root folder of your project.\nThere are several ways to open an existing project:\n\nUsing the Open Project command (available from both the Projects menu and the Projects toolbar) to browse for and select an existing project file (e.g. MyProject.Rproj).\nSelecting a project from the list of most recently opened projects (also available from both the Projects menu and toolbar).\nDouble-clicking on the project file within the system file explorer (e.g. Windows Explorer, OSX Finder, etc.).\n\n\n\n\n\n\n\nWhen opening an RStudio project, RStudio starts a fresh R session and sets the current working directory to the root of the project, so there is no need to call setwd() yourself. See why this is important in Reproducible Research.\n\n\n\nSee this RStudio tutorial for more detailed instructions.\n\n\n\nThe {usethis} R package provides a set of functions to create and manage R projects interactively. They do not need to be RStudio projects.\nUseful functions to be run interactively in the R command line:\n\nCreate a new project with usethis::create_project() and the absolute path where you want to create the project as the argument.\nOpen an existing project with usethis::proj_activate() and the absolute path of the project as argument.\n\n\n\n\nIDEs make it easy to work within this project-oriented workflow. You may prefer to use an IDE other than RStudio, such as VScode or Emacs + ESS, which come with their own project-related tools. In fact, these editors may be preferable when working on the remote cluster as they allow interacting with remote R sessions over SSH.\n\n\n\n\n\nEach script in your R/ or scr/ folder should be standalone, meaning that any given script should not depend on global objects created in other scripts. Any objects created in one script that need to be used by other scripts should be explicitly written to a file somewhere within the project. Any other script that uses this file then needs to explicitly read the file.\nFor instance, if you save the data frame that you created in read-data.R inside the data/processed/ folder as an RDS file, you should then explicitly read these files from data/processed/ in any other script that uses these data frames.\nLet’s see a very simple example. Let’s say we have a script read-data.R inside the R folder:\n## R/read-data.R\ndata_raw &lt;- read.csv(\"data/raw-data.csv\")\nAnd a fit-model.R script:\n## R/fit-model.R\nmodel &lt;- lm(y ~ x, data = data_raw)\nScript fit-model.R relies on the object data_raw loaded by script read-data.R in the global environment.\nInstead, we can save the object created in the first script into a file and then load this file in the second script:\n## R/read-data.R\ndata_raw &lt;- read.csv(\"data/raw-data.csv\")\nsaveRDS(data_raw, \"data/processed/data_raw.rds\")\n## R/fit-model.R\ndata_raw &lt;- readRDS(\"data/processed/data_raw.rds\")\nmodel &lt;- lm(y ~ x, data = data_raw)\n\n\n\nA main script should be provided at the root of the project which runs all the required scripts in the right order to produce the final results of the analysis.\nInstead of runing the code in each script “manually”, you should have a single script that orchestrates the whole process, thus making sure that the results across all the steps in the analysis are in-sync. Moreover, a master script can help a colleague looking at your analysis understand how to reproduce your results.\nThe name of this main script should be indicated in the README file of the project.\nThere are a few options for managing the pipeline of an analysis but a bare-bones approach can be to create a script that uses the source() function to evaluate each of your analysis scripts in the right order. This file should be at the root of the project folder.\n## main-script.R at the root of your project\nlibrary(tidyverse)\nlibrary(mgcv)\n\nsource(\"R/read-data.R\")\nsource(\"R/fit-models.R\")\nsource(\"R/create-tables.R\")\nsource(\"R/create-figures.R\")\nThere are more sophisticated and helpful ways to provide a master script. Check the targets R package and GNU Make.",
+    "crumbs": [
+      "Projects",
+      "Reproducible Research"
+    ]
   },
   {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "R for Data Science\nHands-on Programming with R\nAdvanced R\nWhat they forgot to teach you about R\nThe meta-concepts of data analysis, workflows and projects in R\nProject-oriented workflow"
+    "text": "R for Data Science\nHands-on Programming with R\nAdvanced R\nWhat they forgot to teach you about R\nThe meta-concepts of data analysis, workflows and projects in R\nProject-oriented workflow",
+    "crumbs": [
+      "Projects",
+      "Resources"
+    ]
   },
   {
     "objectID": "resources.html#statistics",
     "href": "resources.html#statistics",
     "title": "Resources",
     "section": "Statistics",
-    "text": "Statistics\n\nIntroduction to Modern Statistics\nRegression and Other Stories"
+    "text": "Statistics\n\nIntroduction to Modern Statistics\nRegression and Other Stories",
+    "crumbs": [
+      "Projects",
+      "Resources"
+    ]
   },
   {
     "objectID": "resources.html#unix-shell",
     "href": "resources.html#unix-shell",
     "title": "Resources",
     "section": "Unix Shell",
-    "text": "Unix Shell\n\nThe Missing Semester of your CS Education\nData Science at the Command Line"
+    "text": "Unix Shell\n\nThe Missing Semester of your CS Education\nData Science at the Command Line",
+    "crumbs": [
+      "Projects",
+      "Resources"
+    ]
   },
   {
     "objectID": "resources.html#text-editorsides",
     "href": "resources.html#text-editorsides",
     "title": "Resources",
     "section": "Text editors/IDEs",
-    "text": "Text editors/IDEs\n\nRStudio\nEmacs + ESS\nVS-code + R\nNvim + R"
+    "text": "Text editors/IDEs\n\nRStudio\nEmacs + ESS\nVS-code + R\nNvim + R",
+    "crumbs": [
+      "Projects",
+      "Resources"
+    ]
   },
   {
     "objectID": "resources.html#reproducible-research",
     "href": "resources.html#reproducible-research",
     "title": "Resources",
     "section": "Reproducible research",
-    "text": "Reproducible research\n\ntargets R package\nGNU Make\nrenv\nConda"
+    "text": "Reproducible research\n\ntargets R package\nGNU Make\nrenv\nConda",
+    "crumbs": [
+      "Projects",
+      "Resources"
+    ]
   },
   {
     "objectID": "resources.html#version-control",
     "href": "resources.html#version-control",
     "title": "Resources",
     "section": "Version Control",
-    "text": "Version Control\n\nHappy Git and GitHub for the useR\nGit/GitHub Guide: A Minimal Tutorial"
+    "text": "Version Control\n\nHappy Git and GitHub for the useR\nGit/GitHub Guide: A Minimal Tutorial",
+    "crumbs": [
+      "Projects",
+      "Resources"
+    ]
   },
   {
     "objectID": "resources.html#writting",
     "href": "resources.html#writting",
     "title": "Resources",
     "section": "Writting",
-    "text": "Writting\n\nMarkdown\nRMarkdown\nQuarto"
+    "text": "Writting\n\nMarkdown\nRMarkdown\nQuarto",
+    "crumbs": [
+      "Projects",
+      "Resources"
+    ]
   },
   {
     "objectID": "resources.html#general",
     "href": "resources.html#general",
     "title": "Resources",
     "section": "General",
-    "text": "General\n\nThe Plain Person’s Guide to Plain Text Social Science"
+    "text": "General\n\nThe Plain Person’s Guide to Plain Text Social Science",
+    "crumbs": [
+      "Projects",
+      "Resources"
+    ]
   },
   {
     "objectID": "style-guide.html",
     "href": "style-guide.html",
-    "title": "Air Pollution Group",
+    "title": "Style Guide",
     "section": "",
-    "text": "Three principles for file names:\n\nMachine readable:\n\nAvoid spaces, punctuation, accented characters\nCase sensitive, i.e. foo.csv != Foo.csv\n\nHuman readable:\n\nEasy to figure out what something is, based on its name\nUse _ to separate fields\nUse - to separate words of the same field\n\nPlays well with default ordering:\n\nLeft-pad numbers with 0, i.e. 01_read-data.R instead of 1_read-data.R\nUse the ISO 8601 standard for dates, i.e. YYYY-MM-DD_report.Rmd\n\n\n\n\n\nA common code style among all team members is important for collaboration. The following rules should be followed as strictly as possible:\n\nStrive to limit your code to 80 characters per line.\nUse two spaces for indentation.\nUse camelCase for user-defined functions.\nUse snake_case for anything else.\nUse verbs for user-defined function names.\nAlways put a space after a comma, never before.\n\n# Good\nx[, 1]\n\n# Bad\nx[,1]\nx[ ,1]\nx[ , 1]\n\nPlace a space before and after (), when used with if, for, while.\n\n# Good\nif (debug) {\n  show(x)\n}\n\n# Bad\nif(debug){\n  show(x)\n}\n\nPlace a space after () used for function arguments.\n\n# Good\nfunction(x) {}\n\n# Bad\nfunction (x) {}\nfunction(x){}\n\nMost infix operators (==, +, -, <-, etc.) should always be surrounded by spaces.\n\n# Good\nheight <- (feet * 12) + inches\nmean(x, na.rm = TRUE)\n\n# Bad\nheight<-feet*12+inches\nmean(x, na.rm=TRUE)\n\nOperators $, @, ^, ::, :::, and unary : should never be surrounded by spaces:\n\n# Good\nsqrt(x^2 + y^2)\ndf$z\nx <- 1:10\n\n# Bad\nsqrt(x ^ 2 + y ^ 2)\ndf $ z\nx <- 1 : 10\n\nUse comments to explain the “why” not the “what” or “how”.\n\nSee the Tidyverse or Google style guides for more details."
+    "text": "Three principles for file names:\n\nMachine readable:\n\nAvoid spaces, punctuation, accented characters\nCase sensitive, i.e. foo.csv != Foo.csv\n\nHuman readable:\n\nEasy to figure out what something is, based on its name\nUse _ to separate fields\nUse - to separate words of the same field\n\nPlays well with default ordering:\n\nLeft-pad numbers with 0, i.e. 01_read-data.R instead of 1_read-data.R\nUse the ISO 8601 standard for dates, i.e. YYYY-MM-DD_report.Rmd\n\n\n\n\n\nA common code style among all team members is important for collaboration. The following rules should be followed as strictly as possible:\n\nStrive to limit your code to 80 characters per line.\nUse two spaces for indentation.\nUse camelCase for user-defined functions.\nUse snake_case for anything else.\nUse verbs for user-defined function names.\nAlways put a space after a comma, never before.\n\n# Good\nx[, 1]\n\n# Bad\nx[,1]\nx[ ,1]\nx[ , 1]\n\nPlace a space before and after (), when used with if, for, while.\n\n# Good\nif (debug) {\n  show(x)\n}\n\n# Bad\nif(debug){\n  show(x)\n}\n\nPlace a space after () used for function arguments.\n\n# Good\nfunction(x) {}\n\n# Bad\nfunction (x) {}\nfunction(x){}\n\nMost infix operators (==, +, -, &lt;-, etc.) should always be surrounded by spaces.\n\n# Good\nheight &lt;- (feet * 12) + inches\nmean(x, na.rm = TRUE)\n\n# Bad\nheight&lt;-feet*12+inches\nmean(x, na.rm=TRUE)\n\nOperators $, @, ^, ::, :::, and unary : should never be surrounded by spaces:\n\n# Good\nsqrt(x^2 + y^2)\ndf$z\nx &lt;- 1:10\n\n# Bad\nsqrt(x ^ 2 + y ^ 2)\ndf $ z\nx &lt;- 1 : 10\n\nUse comments to explain the “why” not the “what” or “how”.\n\nSee the Tidyverse or Google style guides for more details.",
+    "crumbs": [
+      "Projects",
+      "Style Guide"
+    ]
   },
   {
     "objectID": "version-control.html",
     "href": "version-control.html",
-    "title": "Air Pollution Group",
+    "title": "Version Control",
     "section": "",
-    "text": "Use of Git and GitHub for version control in data analysis projects is strongly encouraged. This allows to track all changes in the code and revert to a previous state in case of trouble. More importantly, it can make sharing and collaborating with others much easier.\nAlthough it is possible to use a Git client with a General User Interface (GUI) such as RStudio or GitKraken for normal use, you may need to use the UNIX shell at some point. Some familiarity with the shell can be helpful in those cases.\n\n\nA GitHub Organization has been created for our group at:\nhttps://github.com/isg-airpollution\nAll version controlled projects should be hosted in this site to facilitate all group members to find, navigate and collaborate on largely source code based projects.\nIf you are not already a member of the Organization, please contact Sergio Olmos and provide your GitHub user name.\n\n\n\nBelow you can find a quick guide to get up and running with Git and GitHub for your projects using the bash shell (Git Bash in Windows).\n\n\n\n\n\n\nIf you are new to Git or you are having trouble setting it up, you should read the more detailed Happy Git and GitHub for the useR, which also shows how to work with Git in RStudio.\n\n\n\n\n\n\nGet a GitHub account.\nDownload and install Git.\nSet up Git with your user name and email:\ngit config --global user.name \"Your name here\"\ngit config --global user.email \"your_email@example.com\"\nSet up SSH on your computer.\n\nLook to see if you have files ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub or similar.\nIf not, create such public/private keys:\n\nssh-keygen -t ed25519 -C \"Descriptive-comment\"\n\nAdd key to ssh-agent, substituting the correct name for your key:\n\nssh-add ~/.ssh/id_ed25519\nProvide public key to GitHub:\n\nCopy your public key.\nPaste it in GitHub: Account Settings > SSH Keys > Add SSH Key.\nTest it:\n\nssh -T git@github.com\n\n\n\n\nClone a remote GitHub repository into your local machine:\ngit clone git@github.com:user/repo.git\nMake your existing local project a Git repository:\ngit init\nAdd a remote repository to your existing local Git repository (after creating an empty GitHub repo):\ngit remote add origin git@github.com:user/repo.git\nPush and cement the tracking relationship between your local default branch (main here) and GitHub:\ngit push --set-upstream origin main\nAdd/stage specific files:\ngit add R/clean-data.R R/fit-models.R\nCommit staged modifications:\ngit commit -m \"A short message explaining changes made\"\nPush changes to the linked remote repo:\ngit push\n\n\n\n\nIt is better to do many small commits, each for a set of related changes:\n\nThink of a small part of the analysis that needs to be added or fixed.\nDo the work.\nTest that it works.\nStage and commit.\n\nCommit messages should be short and informative. Look at others’ projects on GitHub to see what they do and what sort of commit messages they write.\n\n\n\nIn general, commit only plain-text files (i.e. source code). You can exclude any file or folder from being version controlled by including them in the project’s .gitignore file. This is specially important for files containing sensitive data. Moreover, binary files and HTML files should generally be ignored as well in most data analysis projects.\nThe repo-template in the isg-airpollution site provides a repository template with an initial .gitignore file containing a set of files and folders that should not be tracked by Git in most cases. If you are starting a new project, consider creating first a GitHub repository using this template and then cloning this remote repo to the appropriate network folder path in your local machine."
+    "text": "Use of Git and GitHub for version control in data analysis projects is strongly encouraged. This allows to track all changes in the code and revert to a previous state in case of trouble. More importantly, it can make sharing and collaborating with others much easier.\nAlthough it is possible to use a Git client with a General User Interface (GUI) such as RStudio or GitKraken for normal use, you may need to use the UNIX shell at some point. Some familiarity with the shell can be helpful in those cases.\n\n\nA GitHub Organization has been created for our group at:\nhttps://github.com/isg-airpollution\nAll version controlled projects should be hosted in this site to facilitate all group members to find, navigate and collaborate on largely source code based projects.\nIf you are not already a member of the Organization, please contact Sergio Olmos and provide your GitHub user name.\n\n\n\nBelow you can find a quick guide to get up and running with Git and GitHub for your projects using the bash shell (Git Bash in Windows).\n\n\n\n\n\n\nIf you are new to Git or you are having trouble setting it up, you should read the more detailed Happy Git and GitHub for the useR, which also shows how to work with Git in RStudio.\n\n\n\n\n\n\nGet a GitHub account.\nDownload and install Git.\nSet up Git with your user name and email:\ngit config --global user.name \"Your name here\"\ngit config --global user.email \"your_email@example.com\"\nSet up SSH on your computer.\n\nLook to see if you have files ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub or similar.\nIf not, create such public/private keys:\n\nssh-keygen -t ed25519 -C \"Descriptive-comment\"\n\nAdd key to ssh-agent, substituting the correct name for your key:\n\nssh-add ~/.ssh/id_ed25519\nProvide public key to GitHub:\n\nCopy your public key.\nPaste it in GitHub: Account Settings &gt; SSH Keys &gt; Add SSH Key.\nTest it:\n\nssh -T git@github.com\n\n\n\n\nClone a remote GitHub repository into your local machine:\ngit clone git@github.com:user/repo.git\nMake your existing local project a Git repository:\ngit init\nAdd a remote repository to your existing local Git repository (after creating an empty GitHub repo):\ngit remote add origin git@github.com:user/repo.git\nPush and cement the tracking relationship between your local default branch (main here) and GitHub:\ngit push --set-upstream origin main\nAdd/stage specific files:\ngit add R/clean-data.R R/fit-models.R\nCommit staged modifications:\ngit commit -m \"A short message explaining changes made\"\nPush changes to the linked remote repo:\ngit push\n\n\n\n\nIt is better to do many small commits, each for a set of related changes:\n\nThink of a small part of the analysis that needs to be added or fixed.\nDo the work.\nTest that it works.\nStage and commit.\n\nCommit messages should be short and informative. Look at others’ projects on GitHub to see what they do and what sort of commit messages they write.\n\n\n\nIn general, commit only plain-text files (i.e. source code). You can exclude any file or folder from being version controlled by including them in the project’s .gitignore file. This is specially important for files containing sensitive data. Moreover, binary files and HTML files should generally be ignored as well in most data analysis projects.\nThe repo-template in the isg-airpollution site provides a repository template with an initial .gitignore file containing a set of files and folders that should not be tracked by Git in most cases. If you are starting a new project, consider creating first a GitHub repository using this template and then cloning this remote repo to the appropriate network folder path in your local machine.",
+    "crumbs": [
+      "Projects",
+      "Version Control"
+    ]
   },
   {
     "objectID": "renv.html",
@@ -313,5 +433,140 @@
     "title": "Air Pollution Group",
     "section": "",
     "text": "You can use the renv R package to document and reproduce the package versions you used in your analysis.\nThe general workflow is:\n\nDevelop your analysis as normal, installing and removing R packages as they are needed for the project.\nCall renv::snapshot() to save the state of the project library to the lockfile (called renv.lock) once you think the analysis is done.\nCall renv::restore() to restore the state of the project library.\n\nFor further details check renv’s documentation.\n\n\n\n\n\n\nWorking with renv in mounted network folders can not"
+  },
+  {
+    "objectID": "version-control.html#github-organization-site",
+    "href": "version-control.html#github-organization-site",
+    "title": "Version Control",
+    "section": "",
+    "text": "A GitHub Organization has been created for our group at:\nhttps://github.com/isg-airpollution\nAll version controlled projects should be hosted in this site to facilitate all group members to find, navigate and collaborate on largely source code based projects.\nIf you are not already a member of the Organization, please contact Sergio Olmos and provide your GitHub user name.",
+    "crumbs": [
+      "Projects",
+      "Version Control"
+    ]
+  },
+  {
+    "objectID": "version-control.html#quickstart",
+    "href": "version-control.html#quickstart",
+    "title": "Version Control",
+    "section": "",
+    "text": "Below you can find a quick guide to get up and running with Git and GitHub for your projects using the bash shell (Git Bash in Windows).\n\n\n\n\n\n\nIf you are new to Git or you are having trouble setting it up, you should read the more detailed Happy Git and GitHub for the useR, which also shows how to work with Git in RStudio.\n\n\n\n\n\n\nGet a GitHub account.\nDownload and install Git.\nSet up Git with your user name and email:\ngit config --global user.name \"Your name here\"\ngit config --global user.email \"your_email@example.com\"\nSet up SSH on your computer.\n\nLook to see if you have files ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub or similar.\nIf not, create such public/private keys:\n\nssh-keygen -t ed25519 -C \"Descriptive-comment\"\n\nAdd key to ssh-agent, substituting the correct name for your key:\n\nssh-add ~/.ssh/id_ed25519\nProvide public key to GitHub:\n\nCopy your public key.\nPaste it in GitHub: Account Settings &gt; SSH Keys &gt; Add SSH Key.\nTest it:\n\nssh -T git@github.com\n\n\n\n\nClone a remote GitHub repository into your local machine:\ngit clone git@github.com:user/repo.git\nMake your existing local project a Git repository:\ngit init\nAdd a remote repository to your existing local Git repository (after creating an empty GitHub repo):\ngit remote add origin git@github.com:user/repo.git\nPush and cement the tracking relationship between your local default branch (main here) and GitHub:\ngit push --set-upstream origin main\nAdd/stage specific files:\ngit add R/clean-data.R R/fit-models.R\nCommit staged modifications:\ngit commit -m \"A short message explaining changes made\"\nPush changes to the linked remote repo:\ngit push",
+    "crumbs": [
+      "Projects",
+      "Version Control"
+    ]
+  },
+  {
+    "objectID": "version-control.html#how-often-to-commit",
+    "href": "version-control.html#how-often-to-commit",
+    "title": "Version Control",
+    "section": "",
+    "text": "It is better to do many small commits, each for a set of related changes:\n\nThink of a small part of the analysis that needs to be added or fixed.\nDo the work.\nTest that it works.\nStage and commit.\n\nCommit messages should be short and informative. Look at others’ projects on GitHub to see what they do and what sort of commit messages they write.",
+    "crumbs": [
+      "Projects",
+      "Version Control"
+    ]
+  },
+  {
+    "objectID": "version-control.html#what-to-commit",
+    "href": "version-control.html#what-to-commit",
+    "title": "Version Control",
+    "section": "",
+    "text": "In general, commit only plain-text files (i.e. source code). You can exclude any file or folder from being version controlled by including them in the project’s .gitignore file. This is specially important for files containing sensitive data. Moreover, binary files and HTML files should generally be ignored as well in most data analysis projects.\nThe repo-template in the isg-airpollution site provides a repository template with an initial .gitignore file containing a set of files and folders that should not be tracked by Git in most cases. If you are starting a new project, consider creating first a GitHub repository using this template and then cloning this remote repo to the appropriate network folder path in your local machine.",
+    "crumbs": [
+      "Projects",
+      "Version Control"
+    ]
+  },
+  {
+    "objectID": "resources.html#r",
+    "href": "resources.html#r",
+    "title": "Resources",
+    "section": "",
+    "text": "R for Data Science\nHands-on Programming with R\nAdvanced R\nWhat they forgot to teach you about R\nThe meta-concepts of data analysis, workflows and projects in R\nProject-oriented workflow",
+    "crumbs": [
+      "Projects",
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "renv.html#package-version-management",
+    "href": "renv.html#package-version-management",
+    "title": "Air Pollution Group",
+    "section": "",
+    "text": "You can use the renv R package to document and reproduce the package versions you used in your analysis.\nThe general workflow is:\n\nDevelop your analysis as normal, installing and removing R packages as they are needed for the project.\nCall renv::snapshot() to save the state of the project library to the lockfile (called renv.lock) once you think the analysis is done.\nCall renv::restore() to restore the state of the project library.\n\nFor further details check renv’s documentation.\n\n\n\n\n\n\nWorking with renv in mounted network folders can not"
+  },
+  {
+    "objectID": "projects.html#accent",
+    "href": "projects.html#accent",
+    "title": "Projects",
+    "section": "",
+    "text": "Administrative Cohort on Cerebrovascular Health in Catalonia.\nAll individual adults registered in the public healthcare system of Catalonia in 2015 and no previous stroke were included in the cohort. Residential addresses for 2015 were obtained and expousures of interest were linked.\n\n\n\n\nAir pollution and surrounding greenness in relation to ischemic stroke. Avellaneda C.\nSurvival analysis of time-to-stroke."
+  },
+  {
+    "objectID": "network-folders.html#structure",
+    "href": "network-folders.html#structure",
+    "title": "Network Folders",
+    "section": "",
+    "text": "The organization inside of the main airpollution folder should have the following basic structure to facilitate navigation:\n.\n├── CHAI\n│   ├── analyses\n│   │   ├── OR_atherosclerosis\n│   │   └── SO_physical-activity\n    ├── data\n│   ├── documents\n│   │   └── atherosclerosis-proposal.docx\n│   ├── manuscripts\n│   │   └── physical-activity.docx\n│   └── README.docx\n└── EXPANSE\n    ├── analyses\n    │   ├── AC_air-pollution\n    │   └── NO_movers\n    ├── data\n    ├── documents\n    │   └── request_form.xlsx\n    ├── manuscripts\n    │   └── movers.pdf\n    └── README.md\nThe root of the airpollution network folder should contain directories with the name of the different broad research projects from which papers are meant to be produced. Inside these general folders there should be only three sub-folders:\n\ndocuments/ contains all documents relevant to the general research projects (i.e. proposals, relevant papers, data request forms, etc.) and can be further divided into as many sub-folders as needed.\nanalyses/ contains the different projects that involve data analyses. See the Project Structure section for how to structure data analysis projects.\nmanuscripts/ contains the final written manuscripts of all the papers that are preoduced.\nREADME file containing a brief overview of the given research project. Could be any format: .md, .docx, .pdf, .txt.\n\n\n\n\nThe organization of the group network folder hpc_airpollution mounted in the HPC cluster can be more flexible. One simple way to organize the different projects inside this network folder is creating a directory named as your user, and store all your projects inside this directory.\nIf the project involves collaborating with other members of the team consider creating a folder for the project in the root of hpc_airpollution.\n\n\n\n\n\n\nRemember that all projects in hpc_airpollution should be moved to the appropriate path inside the airpollution network folder once the project is done.",
+    "crumbs": [
+      "Projects",
+      "Network Folders"
+    ]
+  },
+  {
+    "objectID": "reproducible-research.html#project-oriented-workflow",
+    "href": "reproducible-research.html#project-oriented-workflow",
+    "title": "Reproducible Research",
+    "section": "",
+    "text": "When working on a self-contained project as the one described before, the working directory must be set to the project’s root folder.\nIdeally, this is achieved via development workflow and tooling, not by placing calls to setwd() with absolute paths into your scripts. Using an Integrated Development Environment (IDE) that supports a project-based workflow is strongly recommended. This eliminates the tension between your development convenience and the portability of the code. More details in the next section.\n\n\n\n\n\n\nWhen opening an RStudio project, RStudio will set the working directory to the root of the project automatically.\n\n\n\n\n\n\nEvery time you open a project, it should start in a fresh R session to avoid any interactions with code you might have run beforehand.\nA consequence of this approach is that you should never save .RData when you quit R or load .RData when you start R.\nThis can be disabled by default in RStudio’s Global Options:\n\nOr if you run R from the shell use R --no-save --no-restore-data. You may even set this as the default by putting this line in your .bash_profile:\nalias R='R --no-save --no-restore-data'\nYou should restart R very often an re-run your under-developement script from the top.\n\n\n\n\n\n\nNote that rm(list = ls()) does not make a fresh R session since this will not detach packages.\n\n\n\n\n\n\nIn general, no absolute paths should appear in your scripts. Absolute paths are specific to your machine. That is why setting your working directory by baking setwd(\"C:\\Users\\sergio\\path\\that\\only\\I\\have\") into your scripts will not work in other computer. If you change computers or someone else tries to run your analysis on her machine, the code will not work.\nAll paths must be relative to the project’s root folder. That is why we need to include all the necessary files inside our project’s folder. With this setup, we can move the project folder to different folders in our computer, or even to different computers entirely. Note that relative paths are necessary but not sufficient for reproducibility.\nOne last issue to note regarding file paths is that the syntax will be different in different operating systems, even for relative paths. The {here} package provides a simple way to wrap file paths so that they work across any operating system and integrates very smoothly into this project-oriented workflow.\n\n\n\n\n\nTo create a new project use the Create Project command (available on the Projects menu and on the global toolbar). You can create an RStudio project in a brand new directory or in an existing directory where you already have R code and data. This creates a project file (.Rproj) within the project directory that tells RStudio this is the root folder of your project.\nThere are several ways to open an existing project:\n\nUsing the Open Project command (available from both the Projects menu and the Projects toolbar) to browse for and select an existing project file (e.g. MyProject.Rproj).\nSelecting a project from the list of most recently opened projects (also available from both the Projects menu and toolbar).\nDouble-clicking on the project file within the system file explorer (e.g. Windows Explorer, OSX Finder, etc.).\n\n\n\n\n\n\n\nWhen opening an RStudio project, RStudio starts a fresh R session and sets the current working directory to the root of the project, so there is no need to call setwd() yourself. See why this is important in Reproducible Research.\n\n\n\nSee this RStudio tutorial for more detailed instructions.\n\n\n\nThe {usethis} R package provides a set of functions to create and manage R projects interactively. They do not need to be RStudio projects.\nUseful functions to be run interactively in the R command line:\n\nCreate a new project with usethis::create_project() and the absolute path where you want to create the project as the argument.\nOpen an existing project with usethis::proj_activate() and the absolute path of the project as argument.\n\n\n\n\nIDEs make it easy to work within this project-oriented workflow. You may prefer to use an IDE other than RStudio, such as VScode or Emacs + ESS, which come with their own project-related tools. In fact, these editors may be preferable when working on the remote cluster as they allow interacting with remote R sessions over SSH.",
+    "crumbs": [
+      "Projects",
+      "Reproducible Research"
+    ]
+  },
+  {
+    "objectID": "reproducible-research.html#standalone-scripts",
+    "href": "reproducible-research.html#standalone-scripts",
+    "title": "Reproducible Research",
+    "section": "",
+    "text": "Each script in your R/ or scr/ folder should be standalone, meaning that any given script should not depend on global objects created in other scripts. Any objects created in one script that need to be used by other scripts should be explicitly written to a file somewhere within the project. Any other script that uses this file then needs to explicitly read the file.\nFor instance, if you save the data frame that you created in read-data.R inside the data/processed/ folder as an RDS file, you should then explicitly read these files from data/processed/ in any other script that uses these data frames.\nLet’s see a very simple example. Let’s say we have a script read-data.R inside the R folder:\n## R/read-data.R\ndata_raw &lt;- read.csv(\"data/raw-data.csv\")\nAnd a fit-model.R script:\n## R/fit-model.R\nmodel &lt;- lm(y ~ x, data = data_raw)\nScript fit-model.R relies on the object data_raw loaded by script read-data.R in the global environment.\nInstead, we can save the object created in the first script into a file and then load this file in the second script:\n## R/read-data.R\ndata_raw &lt;- read.csv(\"data/raw-data.csv\")\nsaveRDS(data_raw, \"data/processed/data_raw.rds\")\n## R/fit-model.R\ndata_raw &lt;- readRDS(\"data/processed/data_raw.rds\")\nmodel &lt;- lm(y ~ x, data = data_raw)",
+    "crumbs": [
+      "Projects",
+      "Reproducible Research"
+    ]
+  },
+  {
+    "objectID": "reproducible-research.html#analysis-pipeline",
+    "href": "reproducible-research.html#analysis-pipeline",
+    "title": "Reproducible Research",
+    "section": "",
+    "text": "A main script should be provided at the root of the project which runs all the required scripts in the right order to produce the final results of the analysis.\nInstead of runing the code in each script “manually”, you should have a single script that orchestrates the whole process, thus making sure that the results across all the steps in the analysis are in-sync. Moreover, a master script can help a colleague looking at your analysis understand how to reproduce your results.\nThe name of this main script should be indicated in the README file of the project.\nThere are a few options for managing the pipeline of an analysis but a bare-bones approach can be to create a script that uses the source() function to evaluate each of your analysis scripts in the right order. This file should be at the root of the project folder.\n## main-script.R at the root of your project\nlibrary(tidyverse)\nlibrary(mgcv)\n\nsource(\"R/read-data.R\")\nsource(\"R/fit-models.R\")\nsource(\"R/create-tables.R\")\nsource(\"R/create-figures.R\")\nThere are more sophisticated and helpful ways to provide a master script. Check the targets R package and GNU Make.",
+    "crumbs": [
+      "Projects",
+      "Reproducible Research"
+    ]
+  },
+  {
+    "objectID": "style-guide.html#file-names",
+    "href": "style-guide.html#file-names",
+    "title": "Style Guide",
+    "section": "",
+    "text": "Three principles for file names:\n\nMachine readable:\n\nAvoid spaces, punctuation, accented characters\nCase sensitive, i.e. foo.csv != Foo.csv\n\nHuman readable:\n\nEasy to figure out what something is, based on its name\nUse _ to separate fields\nUse - to separate words of the same field\n\nPlays well with default ordering:\n\nLeft-pad numbers with 0, i.e. 01_read-data.R instead of 1_read-data.R\nUse the ISO 8601 standard for dates, i.e. YYYY-MM-DD_report.Rmd",
+    "crumbs": [
+      "Projects",
+      "Style Guide"
+    ]
+  },
+  {
+    "objectID": "style-guide.html#code-style",
+    "href": "style-guide.html#code-style",
+    "title": "Style Guide",
+    "section": "",
+    "text": "A common code style among all team members is important for collaboration. The following rules should be followed as strictly as possible:\n\nStrive to limit your code to 80 characters per line.\nUse two spaces for indentation.\nUse camelCase for user-defined functions.\nUse snake_case for anything else.\nUse verbs for user-defined function names.\nAlways put a space after a comma, never before.\n\n# Good\nx[, 1]\n\n# Bad\nx[,1]\nx[ ,1]\nx[ , 1]\n\nPlace a space before and after (), when used with if, for, while.\n\n# Good\nif (debug) {\n  show(x)\n}\n\n# Bad\nif(debug){\n  show(x)\n}\n\nPlace a space after () used for function arguments.\n\n# Good\nfunction(x) {}\n\n# Bad\nfunction (x) {}\nfunction(x){}\n\nMost infix operators (==, +, -, &lt;-, etc.) should always be surrounded by spaces.\n\n# Good\nheight &lt;- (feet * 12) + inches\nmean(x, na.rm = TRUE)\n\n# Bad\nheight&lt;-feet*12+inches\nmean(x, na.rm=TRUE)\n\nOperators $, @, ^, ::, :::, and unary : should never be surrounded by spaces:\n\n# Good\nsqrt(x^2 + y^2)\ndf$z\nx &lt;- 1:10\n\n# Bad\nsqrt(x ^ 2 + y ^ 2)\ndf $ z\nx &lt;- 1 : 10\n\nUse comments to explain the “why” not the “what” or “how”.\n\nSee the Tidyverse or Google style guides for more details.",
+    "crumbs": [
+      "Projects",
+      "Style Guide"
+    ]
   }
 ]
