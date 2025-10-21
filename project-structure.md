@@ -6,9 +6,18 @@ Data analyses that involve source code should be placed inside a self-contained 
 
 A self-contained project must contain all the files and code necessary to obtain the final results of the analysis.  It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See [Reproducible Research](reproducible-research.md) for more details on why this is important.
 
-The names of these project folders should start with your name initials in capital letters followed by an underscore and a short informative name:
+The names of these project folders **should start with your name initials in capital letters** followed by an underscore and a short informative name separate by **-**:
 
 `XX_project-name`
+
+example
+
+- `FC_data-managment-UL-bloodpressure`
+- `FC_data-analysis-UL-bloodpressure`
+
+- `FC_data-managment-admin-cohort`
+- `FC_data-analysis-admin-cohort-paper-1`
+- `FC_data-analysis-admin-cohort-paper-2`
 
 
 ## Basic Structure
