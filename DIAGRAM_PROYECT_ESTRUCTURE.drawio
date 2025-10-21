@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.1">
+  <diagram name="Página-1" id="qM0_NpGLCulKMJQZNOfU">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="FNHG-wp6oJYQ-FQTt8uj-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="45" y="350" width="320" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="YWbn3BWcPLg-1g65r10Z-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="80" y="475" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="YWbn3BWcPLg-1g65r10Z-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FNHG-wp6oJYQ-FQTt8uj-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="400" y="160" width="320" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="FNHG-wp6oJYQ-FQTt8uj-6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="400" y="570" width="320" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="FNHG-wp6oJYQ-FQTt8uj-7" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;h1 style=&quot;margin-top: 0px; line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 22px; line-height: 100%;&quot;&gt;XX_data-management-XXXX&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;(DATA) - from folder, ORIGINAL DATA&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;master-script.R&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;u&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;README.md&lt;/font&gt;&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;R&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;read-data.R&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;process-data.R&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;write-data.R&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;outputs&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;XXXX&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;documentation&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;font-weight: bold; text-decoration-line: underline; white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;documentation, labelling and more&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;u&gt;&lt;b&gt;scratch&lt;/b&gt;&lt;/u&gt;&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;scratch-testing_plotXXXX.R&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="180" width="300" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="FNHG-wp6oJYQ-FQTt8uj-8" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;h1 style=&quot;margin-top: 0px; line-height: 100%;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 22px; line-height: 100%;&quot;&gt;XX_data-analysis-XXXX&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px; line-height: 100%;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal; line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;(DATA) - from folder, TREATED DATA&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;&lt;b&gt;&lt;u&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;master-script.R&lt;/font&gt;&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;README.md&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;R&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;read-data.R&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;process-data.R,&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;font-size: 13px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;modelling-data.R&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;report-data.R,&amp;nbsp;&lt;span style=&quot;font-size: 13px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;write-data.R&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;outputs&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;XXXX&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;reports&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;report-templates&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;report-results&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;scratch&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="582.5" width="300" height="377.5" as="geometry" />
+        </mxCell>
+        <mxCell id="FNHG-wp6oJYQ-FQTt8uj-3" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;h1 style=&quot;margin-top: 0px; line-height: 100%;&quot;&gt;MAIN PROJECT FOLDER&lt;/h1&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;ANALYSES&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;XX_data-management-XXXX&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;XX_data-analysis-XXXX&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;DATA&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;ORIGINAL&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;A&lt;/span&gt;nalysis_name_XXXX&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;TREATED&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Analysis_name_XXXX&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;DOCUMENTS&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;XXXX.docx&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;XXXX.pdf&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;u&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;MANUSCRIPTS&lt;/font&gt;&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;README.md&lt;/font&gt;&lt;/b&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="382" width="290" height="358" as="geometry" />
+        </mxCell>
+        <mxCell id="YWbn3BWcPLg-1g65r10Z-4" value="" style="curved=1;endArrow=classic;html=1;rounded=0;strokeWidth=3;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="590" as="sourcePoint" />
+            <mxPoint x="420" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="340" y="590" />
+              <mxPoint x="390" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YWbn3BWcPLg-1g65r10Z-5" value="" style="curved=1;endArrow=classic;html=1;rounded=0;strokeWidth=3;entryX=0.379;entryY=0.553;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="FNHG-wp6oJYQ-FQTt8uj-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="380" as="sourcePoint" />
+            <mxPoint x="190" y="580" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="400" />
+              <mxPoint x="330" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YWbn3BWcPLg-1g65r10Z-7" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.003;entryY=0.171;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;" edge="1" parent="1" target="FNHG-wp6oJYQ-FQTt8uj-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="530" as="sourcePoint" />
+            <mxPoint x="400" y="252.15" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="250" y="520" />
+              <mxPoint x="310" y="490" />
+              <mxPoint x="350" y="450" />
+              <mxPoint x="370" y="410" />
+              <mxPoint x="370" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

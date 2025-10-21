@@ -4,7 +4,7 @@ title: "Data Analysis Projects"
 
 Data analyses that involve source code should be placed inside a self-contained directory in one of the network folders.
 
-A self-contained project must contain all the files, data and code necessary to obtain the final results of the analysis.  It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See [Reproducible Research](reproducible-research.md) for more details on why this is important.
+A self-contained project must contain all the files and code necessary to obtain the final results of the analysis.  It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See [Reproducible Research](reproducible-research.md) for more details on why this is important.
 
 The names of these project folders should start with your name initials in capital letters followed by an underscore and a short informative name:
 
@@ -13,11 +13,27 @@ The names of these project folders should start with your name initials in capit
 
 ## Basic Structure
 
-Different projects will require different folder structures but some common minimal rules should be set to facilitate file navigation across projects among all team members.
+Different projects will require different folder structures but some common minimal rules should be set to facilitate file navigation across projects among all team members. 
+
+We will implement a two-step approach to reduce duplicated data. The process will involve two types of analysis:
+
+Data Management – focused on preparing, cleaning, and standardizing the data to ensure consistency and accuracy.
+
+Data Analysis – performed after the data has been properly managed, aimed at extracting insights and validating the quality of the treatment applied.
+
+The results of these two steps will be dependent on each other. In other words, we must first complete the data management stage before moving on to the data analysis stage. The analysis will not only highlight the outcomes of the data treatment but also allow us to compare our results with those of our colleagues.
+
+By following this structured process, we minimize the risk of:
+
+- Repeating the same tasks unnecessarily,
+
+- Using different or outdated versions of the data, and
+
+- Creating inconsistencies across analyses.
+
+This ensures that everyone works with a single, reliable version of the dataset.
 
 * A `README.md` file describing the project.
-
-* A `data/` folder containing all data files.
 
 * An `R/` or `src/` folder containing all scripts in the analysis.
 
@@ -37,10 +53,6 @@ The README file should contain at least the following information:
 
 * Reproducibility: Instructions on how to independently obtain the results.
 
-### `data/`
-
-All raw data files (.csv, .xlsx, etc.) should be placed in a folder named `data/`. If appropriate, consider creating two sub-directories `data/raw/` and `data/processed/`.
-
 ::: {.callout-warning}
 
 When using Git and GitHub for version control, add this folder to the .gitignore file from the start so that possibly sensitive data is not tracked by Git and accidentally uploaded to GitHub.
@@ -49,31 +61,104 @@ When using Git and GitHub for version control, add this folder to the .gitignore
 
 ### `R/`
 
-All R scripts should be placed inside a folder named `R/`. If you are using a programming language other than R, name this folder `src/`. The code underlying the analysis should be divided into several scripts of a few hundred lines grouped by specific tasks, i.e. `read-data.R`, `fit-models.R`, etc.
+All R scripts should be placed inside a folder named `R/`. If you are using a programming language other than R, name this folder `src/`. The code underlying the analysis should be divided into several scripts of a few hundred lines grouped by specific tasks, i.e. `read-data.R`, `modelling-data.R`, etc.
 
 ## Example
 
 A common project structure could be:
 
+(I) DATA-MANAGEMENT
+
 ```
 .
-├── data
-│   └── raw-data.csv
 ├── master-script.R
-├── output
-│   ├── manuscript.md
+├── README.md
+├── R
+│   ├── read-data.R
+│   └── process-data.R
+│   └── write-data.R
+├── outputs
+│   └── XXXX
+├── documentation
+│   └── documentation, labelling and more
+├── scratch
+│   └── scratch-testing_XXXX.R
+```
+
+(II) DATA-ANALYSIS
+
+```
+.
+├── master-script.R
+├── README.md
+├── R
+│   ├── read-data.R
+│   ├── process-data.R
+│   ├── modelling-data.R
+│   ├── report-functions.R
+│   └── write-data.R
+├── outputs
 │   ├── plot1.png
 │   └── plot2.png
-├── R
-│   ├── fit-models.R
-│   └── read-data.R
-├── README.md
 ├── reports
-│   └── exploratory-report.Rmd
-└── SO_my-analysis.Rproj
+│   ├── report-templates
+│   └── report-results
+├── scratch
+│   └── scratch-testing_XXXX.R
 ```
 
 Other common folders inside of projects are `output/` for the final output of the project, `documents/` for relevant papers or `reports/` for exploratory data analysis reports.
+
+---
+
+### (I) **DATA-MANAGEMENT**
+
+* A `README.md` file describing the purpose of the data management stage, instructions for running the scripts, and explanations of the input/output files.
+
+* A `master-script.R` that serves as the entry point to execute the entire data management workflow in sequence.
+
+* An `R/` folder containing all R scripts used in this stage:
+
+  * `read-data.R` → scripts for importing raw datasets from various formats.
+  * `process-data.R` → scripts for cleaning, transforming, and standardizing the data. and joining.
+  * `write-data.R` → scripts for exporting the processed datasets into a consistent format for downstream use.
+
+* An `outputs/` folder containing processed data files (ready for analysis).
+
+* A `documentation/` folder for data dictionaries, variable labelling, metadata, and methodological notes.
+
+* A `scratch/` folder for experimental or ad-hoc scripts (e.g., `scratch-testing_XXXX.R`). This space is not part of the production workflow but useful for prototyping.
+
+---
+
+### (II) **DATA-ANALYSIS**
+
+* A `README.md` file describing the analysis stage, including instructions for running models, generating outputs, and producing reports.
+
+* A `master-script.R` that orchestrates the full analysis pipeline from data import to reporting.
+
+* An `R/` folder containing the analysis scripts:
+
+  * `read-data.R` → imports the cleaned/processed datasets produced during the data management stage.
+  * `process-data.R` → applies any additional transformations required for modelling.
+  * `modelling-data.R` → scripts implementing statistical models, machine learning, or hypothesis testing.
+  * `report-functions.R` → helper functions for visualization, summaries, and report generation.
+  * `write-data.R` → exports analysis results (e.g., model outputs, summary tables).
+
+* An `outputs/` folder storing generated outputs such as plots, tables, and figures (`plot1.png`, `plot2.png`, etc.).
+
+* A `reports/` folder for:
+
+  * `report-templates/` → markdown, LaTeX, or RMarkdown templates for standardized reports.
+  * `report-results/` → final reports generated from the analysis stage.
+
+* A `scratch/` folder for exploratory analysis scripts (`scratch-testing_XXXX.R`).
+
+---
+
+⚖️ This way, **DATA-MANAGEMENT** ensures all data is standardized and well-documented before being used, and **DATA-ANALYSIS** focuses only on insights, reproducibility, and reporting, with clear separation of responsibilities.
+
+---
 
 ::: {.callout-note appearance="simple"}
 

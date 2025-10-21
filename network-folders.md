@@ -19,35 +19,15 @@ Note that not everyone will have these network folders mounted in the same place
 
 The organization inside of the main `airpollution` folder should have the following basic structure to facilitate navigation:
 
-```
-.
-├── CHAI
-│   ├── analyses
-│   │   ├── OR_atherosclerosis
-│   │   └── SO_physical-activity
-    ├── data
-│   ├── documents
-│   │   └── atherosclerosis-proposal.docx
-│   ├── manuscripts
-│   │   └── physical-activity.docx
-│   └── README.docx
-└── EXPANSE
-    ├── analyses
-    │   ├── AC_air-pollution
-    │   └── NO_movers
-    ├── data
-    ├── documents
-    │   └── request_form.xlsx
-    ├── manuscripts
-    │   └── movers.pdf
-    └── README.md
-```
+![](DIAGRAM_PROYECT_ESTRUCTURE.png)
 
 The root of the `airpollution` network folder should contain directories with the name of the different broad research projects from which papers are meant to be produced. Inside these general folders there should be only three sub-folders:
 
-* `documents/` contains all documents relevant to the general research projects (i.e. proposals, relevant papers, data request forms, etc.) and can be further divided into as many sub-folders as needed.
-
 * `analyses/` contains the different projects that involve data analyses. See the [Project Structure section](project-structure.md) for how to structure data analysis projects.
+
+* `data/` contains the different data from the origin to the treated for the analisis. In almost all projects, the 80% of time you will do data treatment.
+
+* `documents/` contains all documents relevant to the general research projects (i.e. proposals, relevant papers, data request forms, etc.) and can be further divided into as many sub-folders as needed.
 
 * `manuscripts/` contains the final written manuscripts of all the papers that are preoduced.
 

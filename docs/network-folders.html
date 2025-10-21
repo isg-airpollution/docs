@@ -260,31 +260,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="airpollution" class="level3">
 <h3 class="anchored" data-anchor-id="airpollution"><code>airpollution</code></h3>
 <p>The organization inside of the main <code>airpollution</code> folder should have the following basic structure to facilitate navigation:</p>
-<pre><code>.
-├── CHAI
-│&nbsp;&nbsp; ├── analyses
-│&nbsp;&nbsp; │&nbsp;&nbsp; ├── OR_atherosclerosis
-│&nbsp;&nbsp; │&nbsp;&nbsp; └── SO_physical-activity
-    ├── data
-│&nbsp;&nbsp; ├── documents
-│&nbsp;&nbsp; │&nbsp;&nbsp; └── atherosclerosis-proposal.docx
-│&nbsp;&nbsp; ├── manuscripts
-│&nbsp;&nbsp; │&nbsp;&nbsp; └── physical-activity.docx
-│&nbsp;&nbsp; └── README.docx
-└── EXPANSE
-    ├── analyses
-    │&nbsp;&nbsp; ├── AC_air-pollution
-    │&nbsp;&nbsp; └── NO_movers
-    ├── data
-    ├── documents
-    │&nbsp;&nbsp; └── request_form.xlsx
-    ├── manuscripts
-    │&nbsp;&nbsp; └── movers.pdf
-    └── README.md</code></pre>
+<p><img src="DIAGRAM_PROYECT_ESTRUCTURE.png" class="img-fluid"></p>
 <p>The root of the <code>airpollution</code> network folder should contain directories with the name of the different broad research projects from which papers are meant to be produced. Inside these general folders there should be only three sub-folders:</p>
 <ul>
-<li><p><code>documents/</code> contains all documents relevant to the general research projects (i.e.&nbsp;proposals, relevant papers, data request forms, etc.) and can be further divided into as many sub-folders as needed.</p></li>
 <li><p><code>analyses/</code> contains the different projects that involve data analyses. See the <a href="./project-structure.html">Project Structure section</a> for how to structure data analysis projects.</p></li>
+<li><p><code>data/</code> contains the different data from the origin to the treated for the analisis. In almost all projects, the 80% of time you will do data treatment.</p></li>
+<li><p><code>documents/</code> contains all documents relevant to the general research projects (i.e.&nbsp;proposals, relevant papers, data request forms, etc.) and can be further divided into as many sub-folders as needed.</p></li>
 <li><p><code>manuscripts/</code> contains the final written manuscripts of all the papers that are preoduced.</p></li>
 <li><p><code>README</code> file containing a brief overview of the given research project. Could be any format: <code>.md</code>, <code>.docx</code>, <code>.pdf</code>, <code>.txt</code>.</p></li>
 </ul>

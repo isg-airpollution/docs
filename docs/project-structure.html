@@ -209,10 +209,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#basic-structure" id="toc-basic-structure" class="nav-link active" data-scroll-target="#basic-structure">Basic Structure</a>
   <ul class="collapse">
   <li><a href="#readme.md" id="toc-readme.md" class="nav-link" data-scroll-target="#readme.md"><code>README.md</code></a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><code>data/</code></a></li>
   <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><code>R/</code></a></li>
   </ul></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a>
+  <ul class="collapse">
+  <li><a href="#i-data-management" id="toc-i-data-management" class="nav-link" data-scroll-target="#i-data-management">(I) <strong>DATA-MANAGEMENT</strong></a></li>
+  <li><a href="#ii-data-analysis" id="toc-ii-data-analysis" class="nav-link" data-scroll-target="#ii-data-analysis">(II) <strong>DATA-ANALYSIS</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -239,15 +242,25 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Data analyses that involve source code should be placed inside a self-contained directory in one of the network folders.</p>
-<p>A self-contained project must contain all the files, data and code necessary to obtain the final results of the analysis. It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See <a href="./reproducible-research.html">Reproducible Research</a> for more details on why this is important.</p>
+<p>A self-contained project must contain all the files and code necessary to obtain the final results of the analysis. It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See <a href="./reproducible-research.html">Reproducible Research</a> for more details on why this is important.</p>
 <p>The names of these project folders should start with your name initials in capital letters followed by an underscore and a short informative name:</p>
 <p><code>XX_project-name</code></p>
 <section id="basic-structure" class="level2">
 <h2 class="anchored" data-anchor-id="basic-structure">Basic Structure</h2>
 <p>Different projects will require different folder structures but some common minimal rules should be set to facilitate file navigation across projects among all team members.</p>
+<p>We will implement a two-step approach to reduce duplicated data. The process will involve two types of analysis:</p>
+<p>Data Management – focused on preparing, cleaning, and standardizing the data to ensure consistency and accuracy.</p>
+<p>Data Analysis – performed after the data has been properly managed, aimed at extracting insights and validating the quality of the treatment applied.</p>
+<p>The results of these two steps will be dependent on each other. In other words, we must first complete the data management stage before moving on to the data analysis stage. The analysis will not only highlight the outcomes of the data treatment but also allow us to compare our results with those of our colleagues.</p>
+<p>By following this structured process, we minimize the risk of:</p>
+<ul>
+<li><p>Repeating the same tasks unnecessarily,</p></li>
+<li><p>Using different or outdated versions of the data, and</p></li>
+<li><p>Creating inconsistencies across analyses.</p></li>
+</ul>
+<p>This ensures that everyone works with a single, reliable version of the dataset.</p>
 <ul>
 <li><p>A <code>README.md</code> file describing the project.</p></li>
-<li><p>A <code>data/</code> folder containing all data files.</p></li>
 <li><p>An <code>R/</code> or <code>src/</code> folder containing all scripts in the analysis.</p></li>
 </ul>
 <p>All these files/folders should be at the root of the project.</p>
@@ -261,10 +274,6 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Project structure: How files are organized inside the project.</p></li>
 <li><p>Reproducibility: Instructions on how to independently obtain the results.</p></li>
 </ul>
-</section>
-<section id="data" class="level3">
-<h3 class="anchored" data-anchor-id="data"><code>data/</code></h3>
-<p>All raw data files (.csv, .xlsx, etc.) should be placed in a folder named <code>data/</code>. If appropriate, consider creating two sub-directories <code>data/raw/</code> and <code>data/processed/</code>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -281,28 +290,91 @@ Warning
 </section>
 <section id="r" class="level3">
 <h3 class="anchored" data-anchor-id="r"><code>R/</code></h3>
-<p>All R scripts should be placed inside a folder named <code>R/</code>. If you are using a programming language other than R, name this folder <code>src/</code>. The code underlying the analysis should be divided into several scripts of a few hundred lines grouped by specific tasks, i.e.&nbsp;<code>read-data.R</code>, <code>fit-models.R</code>, etc.</p>
+<p>All R scripts should be placed inside a folder named <code>R/</code>. If you are using a programming language other than R, name this folder <code>src/</code>. The code underlying the analysis should be divided into several scripts of a few hundred lines grouped by specific tasks, i.e.&nbsp;<code>read-data.R</code>, <code>modelling-data.R</code>, etc.</p>
 </section>
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
 <p>A common project structure could be:</p>
+<ol type="I">
+<li>DATA-MANAGEMENT</li>
+</ol>
 <pre><code>.
-├── data
-│&nbsp;&nbsp; └── raw-data.csv
 ├── master-script.R
-├── output
-│&nbsp;&nbsp; ├── manuscript.md
+├── README.md
+├── R
+│&nbsp;&nbsp; ├── read-data.R
+│&nbsp;&nbsp; └── process-data.R
+│&nbsp;&nbsp; └── write-data.R
+├── outputs
+│&nbsp;&nbsp; └── XXXX
+├── documentation
+│&nbsp;&nbsp; └── documentation, labelling and more
+├── scratch
+│&nbsp;&nbsp; └── scratch-testing_XXXX.R</code></pre>
+<ol start="2" type="I">
+<li>DATA-ANALYSIS</li>
+</ol>
+<pre><code>.
+├── master-script.R
+├── README.md
+├── R
+│&nbsp;&nbsp; ├── read-data.R
+│&nbsp;&nbsp; ├── process-data.R
+│&nbsp;&nbsp; ├── modelling-data.R
+│&nbsp;&nbsp; ├── report-functions.R
+│&nbsp;&nbsp; └── write-data.R
+├── outputs
 │&nbsp;&nbsp; ├── plot1.png
 │&nbsp;&nbsp; └── plot2.png
-├── R
-│&nbsp;&nbsp; ├── fit-models.R
-│&nbsp;&nbsp; └── read-data.R
-├── README.md
 ├── reports
-│&nbsp;&nbsp; └── exploratory-report.Rmd
-└── SO_my-analysis.Rproj</code></pre>
+│&nbsp;&nbsp; ├── report-templates
+│&nbsp;&nbsp; └── report-results
+├── scratch
+│&nbsp;&nbsp; └── scratch-testing_XXXX.R</code></pre>
 <p>Other common folders inside of projects are <code>output/</code> for the final output of the project, <code>documents/</code> for relevant papers or <code>reports/</code> for exploratory data analysis reports.</p>
+<hr>
+<section id="i-data-management" class="level3">
+<h3 class="anchored" data-anchor-id="i-data-management">(I) <strong>DATA-MANAGEMENT</strong></h3>
+<ul>
+<li><p>A <code>README.md</code> file describing the purpose of the data management stage, instructions for running the scripts, and explanations of the input/output files.</p></li>
+<li><p>A <code>master-script.R</code> that serves as the entry point to execute the entire data management workflow in sequence.</p></li>
+<li><p>An <code>R/</code> folder containing all R scripts used in this stage:</p>
+<ul>
+<li><code>read-data.R</code> → scripts for importing raw datasets from various formats.</li>
+<li><code>process-data.R</code> → scripts for cleaning, transforming, and standardizing the data. and joining.</li>
+<li><code>write-data.R</code> → scripts for exporting the processed datasets into a consistent format for downstream use.</li>
+</ul></li>
+<li><p>An <code>outputs/</code> folder containing processed data files (ready for analysis).</p></li>
+<li><p>A <code>documentation/</code> folder for data dictionaries, variable labelling, metadata, and methodological notes.</p></li>
+<li><p>A <code>scratch/</code> folder for experimental or ad-hoc scripts (e.g., <code>scratch-testing_XXXX.R</code>). This space is not part of the production workflow but useful for prototyping.</p></li>
+</ul>
+<hr>
+</section>
+<section id="ii-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="ii-data-analysis">(II) <strong>DATA-ANALYSIS</strong></h3>
+<ul>
+<li><p>A <code>README.md</code> file describing the analysis stage, including instructions for running models, generating outputs, and producing reports.</p></li>
+<li><p>A <code>master-script.R</code> that orchestrates the full analysis pipeline from data import to reporting.</p></li>
+<li><p>An <code>R/</code> folder containing the analysis scripts:</p>
+<ul>
+<li><code>read-data.R</code> → imports the cleaned/processed datasets produced during the data management stage.</li>
+<li><code>process-data.R</code> → applies any additional transformations required for modelling.</li>
+<li><code>modelling-data.R</code> → scripts implementing statistical models, machine learning, or hypothesis testing.</li>
+<li><code>report-functions.R</code> → helper functions for visualization, summaries, and report generation.</li>
+<li><code>write-data.R</code> → exports analysis results (e.g., model outputs, summary tables).</li>
+</ul></li>
+<li><p>An <code>outputs/</code> folder storing generated outputs such as plots, tables, and figures (<code>plot1.png</code>, <code>plot2.png</code>, etc.).</p></li>
+<li><p>A <code>reports/</code> folder for:</p>
+<ul>
+<li><code>report-templates/</code> → markdown, LaTeX, or RMarkdown templates for standardized reports.</li>
+<li><code>report-results/</code> → final reports generated from the analysis stage.</li>
+</ul></li>
+<li><p>A <code>scratch/</code> folder for exploratory analysis scripts (<code>scratch-testing_XXXX.R</code>).</p></li>
+</ul>
+<hr>
+<p>⚖️ This way, <strong>DATA-MANAGEMENT</strong> ensures all data is standardized and well-documented before being used, and <strong>DATA-ANALYSIS</strong> focuses only on insights, reproducibility, and reporting, with clear separation of responsibilities.</p>
+<hr>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -318,6 +390,7 @@ Warning
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
