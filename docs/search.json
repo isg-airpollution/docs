@@ -176,7 +176,7 @@
     "href": "project-structure.html",
     "title": "Data Analysis Projects",
     "section": "",
-    "text": "Data analyses that involve source code should be placed inside a self-contained directory in one of the network folders.\nA self-contained project must contain all the files and code necessary to obtain the final results of the analysis. It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See Reproducible Research for more details on why this is important.\nThe names of these project folders should start with your name initials in capital letters followed by an underscore and a short informative name:\nXX_project-name",
+    "text": "Data analyses that involve source code should be placed inside a self-contained directory in one of the network folders.\nA self-contained project must contain all the files and code necessary to obtain the final results of the analysis. It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See Reproducible Research for more details on why this is important.\nThe names of these project folders should start with your name initials in capital letters followed by an underscore and a short informative name separate by -:\nXX_project-name\nexample",
     "crumbs": [
       "Projects",
       "Data Analysis Projects"
