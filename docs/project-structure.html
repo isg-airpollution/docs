@@ -245,20 +245,29 @@ ul.task-list li input[type="checkbox"] {
 <p>A self-contained project must contain all the files and code necessary to obtain the final results of the analysis. It creates everything it needs, in its own workspace or folder, and it touches nothing it did not create. This convention guarantees that the project can be moved around on your computer or onto other computers and will still work. See <a href="./reproducible-research.html">Reproducible Research</a> for more details on why this is important.</p>
 <p>The names of these project folders <strong>should start with your name initials in capital letters</strong> followed by an underscore and a short informative name separate by <strong>-</strong>:</p>
 <p><code>XX_project-name</code></p>
-<p>example</p>
+<p>example:</p>
+<p>/EXPANSE/WP1/UL_EXP/ANALYSIS/</p>
 <ul>
-<li><p><code>FC_data-managment-UL-bloodpressure</code></p></li>
-<li><p><code>FC_data-analysis-UL-bloodpressure</code></p></li>
-<li><p><code>FC_data-managment-admin-cohort</code></p></li>
-<li><p><code>FC_data-analysis-admin-cohort-paper-1</code></p></li>
-<li><p><code>FC_data-analysis-admin-cohort-paper-2</code></p></li>
+<li><code>FC_data-managment-bloodpressure</code></li>
+<li><code>FC_data-analysis-bloodpressure</code></li>
+</ul>
+<p>/EXPANSE/WP1/UL/ANALYSIS/</p>
+<ul>
+<li><code>FC_data-managment-sodaq-gps</code></li>
+<li><code>FC_data-analysis-sodaq-gps</code></li>
+</ul>
+<p>/EXPANSE/WP3/EXPANSE/ANALYSIS/</p>
+<ul>
+<li><code>FC_data-managment-admin-cohort</code></li>
+<li><code>FC_data-analysis-admin-cohort-paper-1</code></li>
+<li><code>FC_data-analysis-admin-cohort-paper-2</code></li>
 </ul>
 <section id="basic-structure" class="level2">
 <h2 class="anchored" data-anchor-id="basic-structure">Basic Structure</h2>
 <p>Different projects will require different folder structures but some common minimal rules should be set to facilitate file navigation across projects among all team members.</p>
-<p>We will implement a two-step approach to reduce duplicated data. The process will involve two types of analysis:</p>
-<p>Data Management – focused on preparing, cleaning, and standardizing the data to ensure consistency and accuracy.</p>
-<p>Data Analysis – performed after the data has been properly managed, aimed at extracting insights and validating the quality of the treatment applied.</p>
+<p>We will implement a <strong>two-step</strong> approach to reduce duplicated data. The process will involve two types of analysis:</p>
+<p><strong>Data Management</strong> – focused on preparing, cleaning, and standardizing the data to ensure consistency and accuracy.</p>
+<p><strong>Data Analysis</strong> – performed after the data has been properly managed, aimed at extracting insights and validating the quality of the treatment applied.</p>
 <p>The results of these two steps will be dependent on each other. In other words, we must first complete the data management stage before moving on to the data analysis stage. The analysis will not only highlight the outcomes of the data treatment but also allow us to compare our results with those of our colleagues.</p>
 <p>By following this structured process, we minimize the risk of:</p>
 <ul>
@@ -277,10 +286,10 @@ ul.task-list li input[type="checkbox"] {
 <p>All data analysis projects should contain a README file that helps collaborators, as well as future you, understand what the project does and how it does it. The use of <a href="https://www.markdownguide.org/">Markdown</a> for these files is strongly encouraged.</p>
 <p>The README file should contain at least the following information:</p>
 <ul>
-<li><p>Author/s: Who is involved in the analysis.</p></li>
-<li><p>Objectives: A paragraph or two explaining the main objectives of the analysis.</p></li>
-<li><p>Project structure: How files are organized inside the project.</p></li>
-<li><p>Reproducibility: Instructions on how to independently obtain the results.</p></li>
+<li><p><strong>Author/s:</strong> Who is involved in the analysis.</p></li>
+<li><p><strong>Objectives:</strong> A paragraph or two explaining the main objectives of the analysis.</p></li>
+<li><p><strong>Project structure</strong>: How files are organized inside the project.</p></li>
+<li><p><strong>Reproducibility:</strong> Instructions on how to independently obtain the results.</p></li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -341,6 +350,9 @@ Warning
 ├── scratch
 │&nbsp;&nbsp; └── scratch-testing_XXXX.R</code></pre>
 <p>Other common folders inside of projects are <code>output/</code> for the final output of the project, <code>documents/</code> for relevant papers or <code>reports/</code> for exploratory data analysis reports.</p>
+<blockquote class="blockquote">
+<p>You can find a template/examples on <code>HPC_AIPOLLUTION\00-HELP_TEMPLATES</code> or more specific on <code>HPC_AIPOLLUTION\00-HELP_TEMPLATES\A_proyect-base-1rt-option</code></p>
+</blockquote>
 <hr>
 <section id="i-data-management" class="level3">
 <h3 class="anchored" data-anchor-id="i-data-management">(I) <strong>DATA-MANAGEMENT</strong></h3>

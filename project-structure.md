@@ -10,10 +10,19 @@ The names of these project folders **should start with your name initials in cap
 
 `XX_project-name`
 
-example
+example:
 
-- `FC_data-managment-UL-bloodpressure`
-- `FC_data-analysis-UL-bloodpressure`
+/EXPANSE/WP1/UL_EXP/ANALYSIS/
+
+- `FC_data-managment-bloodpressure`
+- `FC_data-analysis-bloodpressure`
+
+/EXPANSE/WP1/UL/ANALYSIS/
+
+- `FC_data-managment-sodaq-gps`
+- `FC_data-analysis-sodaq-gps`
+
+/EXPANSE/WP3/EXPANSE/ANALYSIS/
 
 - `FC_data-managment-admin-cohort`
 - `FC_data-analysis-admin-cohort-paper-1`
@@ -24,11 +33,11 @@ example
 
 Different projects will require different folder structures but some common minimal rules should be set to facilitate file navigation across projects among all team members. 
 
-We will implement a two-step approach to reduce duplicated data. The process will involve two types of analysis:
+We will implement a **two-step** approach to reduce duplicated data. The process will involve two types of analysis:
 
-Data Management – focused on preparing, cleaning, and standardizing the data to ensure consistency and accuracy.
+**Data Management** – focused on preparing, cleaning, and standardizing the data to ensure consistency and accuracy.
 
-Data Analysis – performed after the data has been properly managed, aimed at extracting insights and validating the quality of the treatment applied.
+**Data Analysis** – performed after the data has been properly managed, aimed at extracting insights and validating the quality of the treatment applied.
 
 The results of these two steps will be dependent on each other. In other words, we must first complete the data management stage before moving on to the data analysis stage. The analysis will not only highlight the outcomes of the data treatment but also allow us to compare our results with those of our colleagues.
 
@@ -54,13 +63,13 @@ All data analysis projects should contain a README file that helps collaborators
 
 The README file should contain at least the following information:
 
-* Author/s: Who is involved in the analysis.
+* **Author/s:** Who is involved in the analysis.
 
-* Objectives: A paragraph or two explaining the main objectives of the analysis.
+* **Objectives:** A paragraph or two explaining the main objectives of the analysis.
 
-* Project structure: How files are organized inside the project.
+* **Project structure**: How files are organized inside the project.
 
-* Reproducibility: Instructions on how to independently obtain the results.
+* **Reproducibility:** Instructions on how to independently obtain the results.
 
 ::: {.callout-warning}
 
@@ -74,7 +83,7 @@ All R scripts should be placed inside a folder named `R/`. If you are using a pr
 
 ## Example
 
-A common project structure could be:
+A common project structure could be: 
 
 (I) DATA-MANAGEMENT
 
@@ -117,6 +126,8 @@ A common project structure could be:
 ```
 
 Other common folders inside of projects are `output/` for the final output of the project, `documents/` for relevant papers or `reports/` for exploratory data analysis reports.
+
+> You can find a template/examples on `HPC_AIPOLLUTION\00-HELP_TEMPLATES` or more specific on `HPC_AIPOLLUTION\00-HELP_TEMPLATES\A_proyect-base-1rt-option`
 
 ---
 
