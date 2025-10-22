@@ -127,7 +127,11 @@ A common project structure could be:
 
 Other common folders inside of projects are `output/` for the final output of the project, `documents/` for relevant papers or `reports/` for exploratory data analysis reports.
 
-> You can find a template/examples on `HPC_AIPOLLUTION\00-HELP_TEMPLATES` or more specific on `HPC_AIPOLLUTION\00-HELP_TEMPLATES\A_proyect-base-1rt-option`
+> You can find a template/examples on `HPC_AIPOLLUTION\00-HELP_TEMPLATES` or more specific on: 
+
+-  `HPC_AIPOLLUTION\00-HELP_TEMPLATES\XX_proyect-base-1rt-option` This is a template for basic proyect
+-  `HPC_AIPOLLUTION\00-HELP_TEMPLATES\XX_proyect-base-2on-option` This is a template for proyects that include targets
+-  `HPC_AIPOLLUTION\00-HELP_TEMPLATES\XX_proyect-base-3rt-option` This is a template for proyects that include targets and server configuration
 
 ---
 

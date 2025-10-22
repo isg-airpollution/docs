@@ -55,13 +55,6 @@
     ]
   },
   {
-    "objectID": "SO_my-analysis/reports/exploratory-report.html",
-    "href": "SO_my-analysis/reports/exploratory-report.html",
-    "title": "Document Title",
-    "section": "",
-    "text": "Document Title"
-  },
-  {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Resources",
@@ -266,7 +259,7 @@
     "href": "getting-help.html#example",
     "title": "Getting help with R",
     "section": "Example",
-    "text": "Example\nLet’s look at an example. Here is the problem:\n\nAsker: I need to take the average of several variables for all combination of two categorical variables. I have 20+ variables for which I need to take the average. Is there a way to apply the same function (i.e. mean) over several columns in a data frame?\n\nAnd here is a minimal reproducible example:\n\nlibrary(dplyr)\n\ndf &lt;- tibble(\n  year = sample(2018:2020, size = 15, replace = TRUE),\n  scenario = sample(c(\"A\", \"B\"), 15, replace = TRUE),\n  x1 = rnorm(15, mean = 12),\n  x2 = rnorm(15, 18),\n  x3 = rnorm(15, 30)\n)\n\n## I can compute the average of x1, x2, and x3 manually.\n\ndf %&gt;%\n  group_by(year, scenario) %&gt;%\n  summarize(\n    x1 = mean(x1),\n    x2 = mean(x2),\n    x3 = mean(x3)\n  )\n\n## How can I avoid having to repeat the mean() function calls for each variable?\n\nIt is straightforward for someone to copy and paste the code and provide a possible solution:\n\nHelper: You can use the new across() function from the dplyr package inside summarize().\n\n\ndf %&gt;%\n  group_by(year, scenario) %&gt;%\n  summarize(across(.cols = everything(), .fns = mean))\n\n# A tibble: 5 × 5\n# Groups:   year [3]\n   year scenario    x1    x2    x3\n  &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  2018 A         11.9  18.4  30.2\n2  2019 A         11.8  17.8  30.2\n3  2019 B         12.3  18.9  28.7\n4  2020 A         10.9  18.4  29.9\n5  2020 B         12.2  18.3  30.8",
+    "text": "Example\nLet’s look at an example. Here is the problem:\n\nAsker: I need to take the average of several variables for all combination of two categorical variables. I have 20+ variables for which I need to take the average. Is there a way to apply the same function (i.e. mean) over several columns in a data frame?\n\nAnd here is a minimal reproducible example:\n\nlibrary(dplyr)\n\ndf &lt;- tibble(\n  year = sample(2018:2020, size = 15, replace = TRUE),\n  scenario = sample(c(\"A\", \"B\"), 15, replace = TRUE),\n  x1 = rnorm(15, mean = 12),\n  x2 = rnorm(15, 18),\n  x3 = rnorm(15, 30)\n)\n\n## I can compute the average of x1, x2, and x3 manually.\n\ndf %&gt;%\n  group_by(year, scenario) %&gt;%\n  summarize(\n    x1 = mean(x1),\n    x2 = mean(x2),\n    x3 = mean(x3)\n  )\n\n## How can I avoid having to repeat the mean() function calls for each variable?\n\nIt is straightforward for someone to copy and paste the code and provide a possible solution:\n\nHelper: You can use the new across() function from the dplyr package inside summarize().\n\n\ndf %&gt;%\n  group_by(year, scenario) %&gt;%\n  summarize(across(.cols = everything(), .fns = mean))\n\n# A tibble: 6 × 5\n# Groups:   year [3]\n   year scenario    x1    x2    x3\n  &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  2018 A         11.6  17.9  29.9\n2  2018 B         12.5  18.3  30.4\n3  2019 A         12.0  19.7  29.4\n4  2019 B         11.4  17.8  30.2\n5  2020 A         12.1  18.5  29.8\n6  2020 B         12.2  17.9  29.1",
     "crumbs": [
       "Projects",
       "Getting help with R"
@@ -350,6 +343,20 @@
     "text": "Sergio Olmos\nStatistician | Data Scientist"
   },
   {
+    "objectID": "SO_my-analysis/output/manuscript.html",
+    "href": "SO_my-analysis/output/manuscript.html",
+    "title": "Document Title",
+    "section": "",
+    "text": "Document Title"
+  },
+  {
+    "objectID": "SO_my-analysis/reports/exploratory-report.html",
+    "href": "SO_my-analysis/reports/exploratory-report.html",
+    "title": "Document Title",
+    "section": "",
+    "text": "Document Title"
+  },
+  {
     "objectID": "add-content.html",
     "href": "add-content.html",
     "title": "Adding Content",
@@ -419,7 +426,7 @@
     "href": "project-structure.html#example",
     "title": "Data Analysis Projects",
     "section": "Example",
-    "text": "Example\nA common project structure could be:\n\nDATA-MANAGEMENT\n\n.\n├── master-script.R\n├── README.md\n├── R\n│   ├── read-data.R\n│   └── process-data.R\n│   └── write-data.R\n├── outputs\n│   └── XXXX\n├── documentation\n│   └── documentation, labelling and more\n├── scratch\n│   └── scratch-testing_XXXX.R\n\nDATA-ANALYSIS\n\n.\n├── master-script.R\n├── README.md\n├── R\n│   ├── read-data.R\n│   ├── process-data.R\n│   ├── modelling-data.R\n│   ├── report-functions.R\n│   └── write-data.R\n├── outputs\n│   ├── plot1.png\n│   └── plot2.png\n├── reports\n│   ├── report-templates\n│   └── report-results\n├── scratch\n│   └── scratch-testing_XXXX.R\nOther common folders inside of projects are output/ for the final output of the project, documents/ for relevant papers or reports/ for exploratory data analysis reports.\n\nYou can find a template/examples on HPC_AIPOLLUTION\\00-HELP_TEMPLATES or more specific on HPC_AIPOLLUTION\\00-HELP_TEMPLATES\\A_proyect-base-1rt-option\n\n\n\n(I) DATA-MANAGEMENT\n\nA README.md file describing the purpose of the data management stage, instructions for running the scripts, and explanations of the input/output files.\nA master-script.R that serves as the entry point to execute the entire data management workflow in sequence.\nAn R/ folder containing all R scripts used in this stage:\n\nread-data.R → scripts for importing raw datasets from various formats.\nprocess-data.R → scripts for cleaning, transforming, and standardizing the data. and joining.\nwrite-data.R → scripts for exporting the processed datasets into a consistent format for downstream use.\n\nAn outputs/ folder containing processed data files (ready for analysis).\nA documentation/ folder for data dictionaries, variable labelling, metadata, and methodological notes.\nA scratch/ folder for experimental or ad-hoc scripts (e.g., scratch-testing_XXXX.R). This space is not part of the production workflow but useful for prototyping.\n\n\n\n\n(II) DATA-ANALYSIS\n\nA README.md file describing the analysis stage, including instructions for running models, generating outputs, and producing reports.\nA master-script.R that orchestrates the full analysis pipeline from data import to reporting.\nAn R/ folder containing the analysis scripts:\n\nread-data.R → imports the cleaned/processed datasets produced during the data management stage.\nprocess-data.R → applies any additional transformations required for modelling.\nmodelling-data.R → scripts implementing statistical models, machine learning, or hypothesis testing.\nreport-functions.R → helper functions for visualization, summaries, and report generation.\nwrite-data.R → exports analysis results (e.g., model outputs, summary tables).\n\nAn outputs/ folder storing generated outputs such as plots, tables, and figures (plot1.png, plot2.png, etc.).\nA reports/ folder for:\n\nreport-templates/ → markdown, LaTeX, or RMarkdown templates for standardized reports.\nreport-results/ → final reports generated from the analysis stage.\n\nA scratch/ folder for exploratory analysis scripts (scratch-testing_XXXX.R).\n\n\n⚖️ This way, DATA-MANAGEMENT ensures all data is standardized and well-documented before being used, and DATA-ANALYSIS focuses only on insights, reproducibility, and reporting, with clear separation of responsibilities.\n\n\n\n\n\n\n\nNoteMaster script\n\n\n\nNote that there is a file called master-script.R in the root of the project. This file orchestrates all the scripts in the R/ folder to produce the results of the analysis. See the Reproducible Research section for more details.",
+    "text": "Example\nA common project structure could be:\n\nDATA-MANAGEMENT\n\n.\n├── master-script.R\n├── README.md\n├── R\n│   ├── read-data.R\n│   └── process-data.R\n│   └── write-data.R\n├── outputs\n│   └── XXXX\n├── documentation\n│   └── documentation, labelling and more\n├── scratch\n│   └── scratch-testing_XXXX.R\n\nDATA-ANALYSIS\n\n.\n├── master-script.R\n├── README.md\n├── R\n│   ├── read-data.R\n│   ├── process-data.R\n│   ├── modelling-data.R\n│   ├── report-functions.R\n│   └── write-data.R\n├── outputs\n│   ├── plot1.png\n│   └── plot2.png\n├── reports\n│   ├── report-templates\n│   └── report-results\n├── scratch\n│   └── scratch-testing_XXXX.R\nOther common folders inside of projects are output/ for the final output of the project, documents/ for relevant papers or reports/ for exploratory data analysis reports.\n\nYou can find a template/examples on HPC_AIPOLLUTION\\00-HELP_TEMPLATES or more specific on:\n\n\nHPC_AIPOLLUTION\\00-HELP_TEMPLATES\\XX_proyect-base-1rt-option This is a template for basic proyect\nHPC_AIPOLLUTION\\00-HELP_TEMPLATES\\XX_proyect-base-2on-option This is a template for proyects that include targets\nHPC_AIPOLLUTION\\00-HELP_TEMPLATES\\XX_proyect-base-3rt-option This is a template for proyects that include targets and server configuration\n\n\n\n(I) DATA-MANAGEMENT\n\nA README.md file describing the purpose of the data management stage, instructions for running the scripts, and explanations of the input/output files.\nA master-script.R that serves as the entry point to execute the entire data management workflow in sequence.\nAn R/ folder containing all R scripts used in this stage:\n\nread-data.R → scripts for importing raw datasets from various formats.\nprocess-data.R → scripts for cleaning, transforming, and standardizing the data. and joining.\nwrite-data.R → scripts for exporting the processed datasets into a consistent format for downstream use.\n\nAn outputs/ folder containing processed data files (ready for analysis).\nA documentation/ folder for data dictionaries, variable labelling, metadata, and methodological notes.\nA scratch/ folder for experimental or ad-hoc scripts (e.g., scratch-testing_XXXX.R). This space is not part of the production workflow but useful for prototyping.\n\n\n\n\n(II) DATA-ANALYSIS\n\nA README.md file describing the analysis stage, including instructions for running models, generating outputs, and producing reports.\nA master-script.R that orchestrates the full analysis pipeline from data import to reporting.\nAn R/ folder containing the analysis scripts:\n\nread-data.R → imports the cleaned/processed datasets produced during the data management stage.\nprocess-data.R → applies any additional transformations required for modelling.\nmodelling-data.R → scripts implementing statistical models, machine learning, or hypothesis testing.\nreport-functions.R → helper functions for visualization, summaries, and report generation.\nwrite-data.R → exports analysis results (e.g., model outputs, summary tables).\n\nAn outputs/ folder storing generated outputs such as plots, tables, and figures (plot1.png, plot2.png, etc.).\nA reports/ folder for:\n\nreport-templates/ → markdown, LaTeX, or RMarkdown templates for standardized reports.\nreport-results/ → final reports generated from the analysis stage.\n\nA scratch/ folder for exploratory analysis scripts (scratch-testing_XXXX.R).\n\n\n⚖️ This way, DATA-MANAGEMENT ensures all data is standardized and well-documented before being used, and DATA-ANALYSIS focuses only on insights, reproducibility, and reporting, with clear separation of responsibilities.\n\n\n\n\n\n\n\nNoteMaster script\n\n\n\nNote that there is a file called master-script.R in the root of the project. This file orchestrates all the scripts in the R/ folder to produce the results of the analysis. See the Reproducible Research section for more details.",
     "crumbs": [
       "Projects",
       "Data Analysis Projects"
@@ -556,13 +563,6 @@
       "Projects",
       "Reproducible Research"
     ]
-  },
-  {
-    "objectID": "SO_my-analysis/output/manuscript.html",
-    "href": "SO_my-analysis/output/manuscript.html",
-    "title": "Document Title",
-    "section": "",
-    "text": "Document Title"
   },
   {
     "objectID": "style-guide.html",
